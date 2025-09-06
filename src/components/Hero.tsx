@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Users } from "lucide-react";
 import heroImage from "@/assets/hero-cybersecurity.jpg";
+const heroProfessionalImage = "/lovable-uploads/67b11867-0e34-4757-b1c0-a136f9e5deaf.png";
 
 const Hero = () => {
   return (
@@ -8,8 +9,8 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
-          alt="Professional cybersecurity team monitoring threats and analyzing security data in a high-tech command center" 
+          src={heroProfessionalImage} 
+          alt="DARKSTACK7 cybersecurity professional in tactical gear monitoring cyber threats with advanced technology" 
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
