@@ -35,6 +35,9 @@ const Header = () => {
             <a href="#about" className="text-pearl-white hover:text-cyber-blue transition-colors">
               About
             </a>
+            <a href="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
+              Contact
+            </a>
             <Button variant="incident" size="sm" className="z-50">
               Report Incident
             </Button>
@@ -62,6 +65,9 @@ const Header = () => {
               </a>
               <a href="#about" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 About
+              </a>
+              <a href="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
+                Contact
               </a>
               <Button variant="incident" size="sm" className="w-full">
                 Report Incident
