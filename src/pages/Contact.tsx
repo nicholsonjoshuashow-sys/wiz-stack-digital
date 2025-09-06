@@ -58,9 +58,18 @@ const Contact = () => {
         canonical="/contact"
       />
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+        {/* Background Image */}
+        <div className="fixed inset-0 z-0">
+          <img 
+            src="/lovable-uploads/1a3296a0-be16-468e-8e7d-049aff4813b4.png" 
+            alt="Cybersecurity background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-cyber-dark/85"></div>
+        </div>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-br from-space-gray via-midnight-blue to-slate-900">
+        <section className="pt-32 pb-16 bg-gradient-to-br from-space-gray/80 via-midnight-blue/80 to-slate-900/80 relative z-10">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-fire-red/10 border border-fire-red/30 rounded-full mb-6">
@@ -85,7 +94,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Form Section */}
-        <section className="py-16">
+        <section className="py-16 relative z-10">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               
