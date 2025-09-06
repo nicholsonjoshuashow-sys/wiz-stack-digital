@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { 
   ShieldAlert, 
   UserCheck, 
-  Search, 
+  Target, 
   Zap, 
   Users, 
   Presentation,
@@ -40,7 +40,7 @@ const Services = () => {
     },
     {
       id: "04",
-      icon: <Search className="h-8 w-8" />,
+      icon: <Target className="h-8 w-8" />,
       title: "Penetration Testing",
       description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable, and resilient security strategies.",
       features: ["Network Security Testing", "Application Security", "Cloud Infrastructure", "Vulnerability Assessment"],
