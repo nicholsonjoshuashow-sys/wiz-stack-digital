@@ -10,14 +10,19 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4 bg-gradient-to-r from-blue-800 to-red-800">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <a 
+            href="https://www.darkstack7.com" 
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <h1 className="text-xl font-bold text-pearl-white">
                 DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
               </h1>
               <p className="text-sm font-bold text-pearl-white">Cyber Defense</p>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
