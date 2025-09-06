@@ -58,7 +58,8 @@ export default {
 					dark: 'hsl(var(--cyber-dark))',
 					gray: 'hsl(var(--cyber-gray))',
 					accent: 'hsl(var(--cyber-accent))'
-				}
+				},
+				'fire-red': 'hsl(var(--fire-red))'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
