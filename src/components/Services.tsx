@@ -157,6 +157,13 @@ const Services = () => {
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
+                ) : service.id === "06" ? (
+                  <Link to="/services/tabletop_exercises" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 ) : (
                   <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                     Learn More

@@ -9,6 +9,7 @@ import SecurityAssessmentsConsulting from "./pages/SecurityAssessmentsConsulting
 import CISO from "./pages/CISO";
 import IncidentResponse from "./pages/IncidentResponse";
 import InsiderThreat from "./pages/InsiderThreat";
+import TabletopExercises from "./pages/TabletopExercises";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/services/CISO" element={<CISO />} />
           <Route path="/services/IR" element={<IncidentResponse />} />
           <Route path="/services/insiderthreat" element={<InsiderThreat />} />
+          <Route path="/services/tabletop_exercises" element={<TabletopExercises />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
