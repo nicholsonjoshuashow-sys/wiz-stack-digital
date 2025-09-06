@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-cyber-gray/30">
-      <div className="container mx-auto px-6 py-4 bg-gradient-to-r from-red-600 to-blue-600">
+      <div className="container mx-auto px-6 py-4 bg-gradient-to-r from-blue-600 to-red-600">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
