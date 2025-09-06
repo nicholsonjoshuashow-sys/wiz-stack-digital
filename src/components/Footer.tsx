@@ -11,7 +11,7 @@ const Footer = () => {
               <Shield className="h-8 w-8 text-cyber-blue" />
               <div>
                 <h3 className="text-xl font-bold text-foreground">
-                  DARKSTACK<span className="text-cyber-cyan">7</span>
+                  DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
                 </h3>
                 <p className="text-xs text-muted-foreground">Cyber Defense</p>
               </div>
