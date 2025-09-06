@@ -85,7 +85,7 @@ const CISO = () => {
                 <img 
                   src="/lovable-uploads/f2cc240c-de6a-43b9-bd0d-252786857db3.png" 
                   alt="Fractional CISO - Professional cybersecurity executive leadership"
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-glow"
+                  className="w-full max-w-xl mx-auto rounded-lg shadow-glow"
                 />
               </div>
             </div>
