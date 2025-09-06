@@ -60,7 +60,8 @@ export default {
 					accent: 'hsl(var(--cyber-accent))'
 				},
 				'fire-red': 'hsl(var(--fire-red))',
-				'silver': 'hsl(var(--silver))'
+				'silver': 'hsl(var(--silver))',
+				'pearl-white': 'hsl(var(--pearl-white))'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
