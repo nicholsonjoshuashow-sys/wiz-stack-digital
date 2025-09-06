@@ -191,48 +191,6 @@ const TabletopExercises = () => {
             </div>
           </section>
 
-          {/* Progressive Inject Scenarios */}
-          <section className="py-20 bg-background">
-            <div className="container mx-auto px-6">
-              <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                    Three Progressive <span className="text-cyber-blue">Demonstrative Inject Scenarios</span>
-                  </h2>
-                  <p className="text-xl text-muted-foreground">
-                    Escalating crisis scenarios that test decision-making under pressure
-                  </p>
-                </div>
-
-                <div className="space-y-8 mb-16">
-                  {injectScenarios.map((scenario, index) => (
-                    <Card key={index} className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300">
-                      <div className="flex flex-col md:flex-row items-start gap-6">
-                        <div className="flex-shrink-0">
-                          <Badge variant="default" className="text-lg px-4 py-2 bg-cyber-blue/20 text-cyber-blue border-cyber-blue/30">
-                            <Clock className="h-4 w-4 mr-2" />
-                            {scenario.time}
-                          </Badge>
-                        </div>
-                        <div className="flex-grow">
-                          <h3 className="text-2xl font-bold text-foreground mb-4">
-                            Demonstrative Inject #{index + 1}: {scenario.title}
-                          </h3>
-                          <p className="text-lg text-muted-foreground leading-relaxed">
-                            {scenario.description}
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0">
-                          <Target className="h-12 w-12 text-cyber-cyan" />
-                        </div>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Cybersecurity Scenarios Framework */}
           <section className="py-20 bg-gradient-dark">
             <div className="container mx-auto px-6">
@@ -375,6 +333,48 @@ const TabletopExercises = () => {
                     </div>
                   </div>
                 </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* Progressive Inject Scenarios */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                    Three Progressive <span className="text-cyber-blue">Demonstrative Inject Scenarios</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground">
+                    Escalating crisis scenarios that test decision-making under pressure
+                  </p>
+                </div>
+
+                <div className="space-y-8 mb-16">
+                  {injectScenarios.map((scenario, index) => (
+                    <Card key={index} className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300">
+                      <div className="flex flex-col md:flex-row items-start gap-6">
+                        <div className="flex-shrink-0">
+                          <Badge variant="default" className="text-lg px-4 py-2 bg-cyber-blue/20 text-cyber-blue border-cyber-blue/30">
+                            <Clock className="h-4 w-4 mr-2" />
+                            {scenario.time}
+                          </Badge>
+                        </div>
+                        <div className="flex-grow">
+                          <h3 className="text-2xl font-bold text-foreground mb-4">
+                            Demonstrative Inject #{index + 1}: {scenario.title}
+                          </h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {scenario.description}
+                          </p>
+                        </div>
+                        <div className="flex-shrink-0">
+                          <Target className="h-12 w-12 text-cyber-cyan" />
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
