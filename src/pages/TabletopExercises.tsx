@@ -33,7 +33,7 @@ const TabletopExercises = () => {
     {
       icon: <Zap className="h-6 w-6" />,
       title: "Three Progressive Inject Scenarios",
-      description: "Escalating crisis scenarios based on actual ransomware attack patterns. From initial detection to recovery complications."
+      description: "Escalating crisis scenarios based on actual various attack patterns. From initial detection to recovery complications."
     }
   ];
 
