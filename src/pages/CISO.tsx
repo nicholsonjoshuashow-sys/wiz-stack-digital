@@ -78,6 +78,19 @@ const CISO = () => {
             </div>
           </section>
 
+          {/* Fractional CISO Image Section */}
+          <section className="py-12">
+            <div className="container mx-auto px-6">
+              <div className="max-w-4xl mx-auto text-center">
+                <img 
+                  src="/lovable-uploads/f2cc240c-de6a-43b9-bd0d-252786857db3.png" 
+                  alt="Fractional CISO - Professional cybersecurity executive leadership"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-glow"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* Value Proposition */}
           <section className="py-20 bg-card/20">
             <div className="container mx-auto px-6">
