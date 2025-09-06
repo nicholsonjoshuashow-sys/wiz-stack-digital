@@ -4,13 +4,15 @@ import heroImage from "@/assets/hero-cybersecurity.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" role="banner">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Cybersecurity team working" 
+          alt="Professional cybersecurity team monitoring threats and analyzing security data in a high-tech command center" 
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-cyber-dark/90 bg-gradient-dark"></div>
       </div>

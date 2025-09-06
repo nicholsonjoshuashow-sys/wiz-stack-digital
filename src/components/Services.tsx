@@ -64,23 +64,23 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-dark">
+    <section id="services" className="py-20 bg-gradient-dark" aria-labelledby="services-heading">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <header className="text-center mb-16">
+          <h2 id="services-heading" className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Our <span className="bg-gradient-primary bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Founded by Joshua R. Nicholson—a 24-year cybersecurity veteran and former U.S. Marine with 
             leadership experience across Fortune 500 companies and government agencies.
           </p>
-        </div>
+        </header>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
           {services.map((service) => (
-            <Card key={service.id} className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
+            <article key={service.id} role="listitem" className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow rounded-lg">
               <div className="p-6">
                 {/* Service Number */}
                 <div className="text-6xl font-bold text-cyber-blue/20 mb-4 group-hover:text-cyber-blue/30 transition-colors">
@@ -130,7 +130,7 @@ const Services = () => {
 
               {/* Hover Effect Background */}
               <div className="absolute inset-0 bg-gradient-cyber opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-            </Card>
+            </article>
           ))}
         </div>
 

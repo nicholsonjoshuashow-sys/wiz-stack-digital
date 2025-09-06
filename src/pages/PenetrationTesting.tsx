@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
+import { penetrationTestingServiceData } from "@/data/structuredData";
 
 const PenetrationTesting = () => {
   const testingTypes = [
@@ -37,9 +39,17 @@ const PenetrationTesting = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-cyber-gray/30">
+    <>
+      <SEO 
+        title="Penetration Testing Services | Comprehensive Security Assessments - Darkstack7"
+        description="Professional penetration testing services including network security, web application testing, cloud infrastructure assessment, and mobile app security testing by cybersecurity experts."
+        keywords="penetration testing, security assessment, network security testing, web application security, cloud security, mobile app testing, vulnerability assessment, OWASP testing"
+        canonical="https://darkstack7.com/services/penetration-testing"
+        structuredData={penetrationTestingServiceData}
+      />
+      <div className="min-h-screen bg-background">
+        {/* Header */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-cyber-gray/30">
         <div className="container mx-auto px-6 py-4">
           <Link to="/" className="flex items-center space-x-3">
             <div>
@@ -154,6 +164,7 @@ const PenetrationTesting = () => {
         </section>
       </main>
     </div>
+    </>
   );
 };
 
