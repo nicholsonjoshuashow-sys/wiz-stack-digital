@@ -122,7 +122,21 @@ const Services = () => {
                 </ul>
 
                 {/* CTA Button */}
-                {service.id === "03" ? (
+                {service.id === "01" ? (
+                  <Link to="/services/IR" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "02" ? (
+                  <Link to="/services/CISO" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "03" ? (
                   <Link to="/services/security-assessments-consulting" className="block">
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       {service.cta || "Learn More"}
@@ -136,8 +150,8 @@ const Services = () => {
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
-                ) : service.id === "02" ? (
-                  <Link to="/services/CISO" className="block">
+                ) : service.id === "05" ? (
+                  <Link to="/services/insiderthreat" className="block">
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
