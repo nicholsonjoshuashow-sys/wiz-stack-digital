@@ -1,4 +1,5 @@
-import { Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import darkstackOfficialLogo from "@/assets/darkstack7-shield-logo.png";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <Shield className="h-8 w-8 text-cyber-blue" />
+              <img src={darkstackOfficialLogo} alt="DARKSTACK7 Shield Logo" className="h-8 w-8" />
               <div>
                 <h3 className="text-xl font-bold text-foreground">
                   DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
