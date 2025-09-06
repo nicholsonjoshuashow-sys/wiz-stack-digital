@@ -30,7 +30,7 @@ const Header = () => {
             <a href="#about" className="text-black hover:text-cyber-blue transition-colors">
               About
             </a>
-            <Button variant="incident" size="sm">
+            <Button variant="incident" size="sm" className="z-50">
               Report Incident
             </Button>
           </nav>
