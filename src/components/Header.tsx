@@ -14,7 +14,7 @@ const Header = () => {
             <Shield className="h-8 w-8 text-cyber-blue" />
             <div>
               <h1 className="text-xl font-bold text-foreground">
-                DARKSTACK<span className="text-fire-red">7</span>
+                DARKSTACK<span className="text-fire-red text-2xl ml-3">7</span>
               </h1>
               <p className="text-xs text-muted-foreground">Cyber Defense</p>
             </div>
