@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import { 
   ShieldAlert, 
   UserCheck, 
@@ -112,10 +113,19 @@ const Services = () => {
                 </ul>
 
                 {/* CTA Button */}
-                <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                {service.id === "03" ? (
+                  <Link to="/services/penetration-testing" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                )}
               </div>
 
               {/* Hover Effect Background */}
