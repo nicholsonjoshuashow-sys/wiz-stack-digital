@@ -31,6 +31,15 @@ const Services = () => {
     },
     {
       id: "03",
+      icon: <UserCheck className="h-8 w-8" />,
+      title: "Security Assessments & Consulting",
+      description: "Our security consulting services give you a clear, actionable roadmap to strengthen your defenses and reduce risk. We combine deep technical expertise with business-focused insight to assess your current security posture.",
+      features: ["Comprehensive Security Assessments", "Gap Analysis & Compliance", "Remediation Planning", "Ongoing Advisory Services"],
+      variant: "outline" as const,
+      cta: "Request a Quote"
+    },
+    {
+      id: "04",
       icon: <Search className="h-8 w-8" />,
       title: "Penetration Testing",
       description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable, and resilient security strategies.",
@@ -38,7 +47,7 @@ const Services = () => {
       variant: "outline" as const
     },
     {
-      id: "04",
+      id: "05",
       icon: <Users className="h-8 w-8" />,
       title: "Insider Threat Investigations", 
       description: "Comprehensive insider threat investigations, behavioral analysis, digital forensics, and remediation for trusted insider or 3rd party contractor incidents.",
@@ -46,7 +55,7 @@ const Services = () => {
       variant: "outline" as const
     },
     {
-      id: "05",
+      id: "06",
       icon: <Zap className="h-8 w-8" />,
       title: "Tabletop Exercises (TTX)",
       description: "Custom incident response readiness scenarios designed to reflect real threats your organization may face, with detailed gap analysis.",
@@ -54,7 +63,7 @@ const Services = () => {
       variant: "outline" as const
     },
     {
-      id: "06",
+      id: "07",
       icon: <Presentation className="h-8 w-8" />,
       title: "Training & Speaking",
       description: "Executive-level training, public speaking, and leadership development focused on real-world cybersecurity challenges and building resilient security cultures.",
@@ -114,6 +123,13 @@ const Services = () => {
 
                 {/* CTA Button */}
                 {service.id === "03" ? (
+                  <Link to="/services/security-assessments-consulting" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      {service.cta || "Learn More"}
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "04" ? (
                   <Link to="/services/penetration-testing" className="block">
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
