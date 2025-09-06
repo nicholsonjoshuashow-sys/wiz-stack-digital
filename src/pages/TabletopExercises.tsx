@@ -407,7 +407,7 @@ const TabletopExercises = () => {
                       {challengeAreas.map((area, index) => (
                         <div key={index} className="flex items-start space-x-3">
                           <div className="w-2 h-2 bg-cyber-cyan rounded-full flex-shrink-0"></div>
-                          <span className="text-muted-foreground">{area}</span>
+                          <span className="text-muted-foreground text-left">{area}</span>
                         </div>
                       ))}
                     </div>
