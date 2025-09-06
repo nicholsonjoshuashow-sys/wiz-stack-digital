@@ -69,7 +69,7 @@ const TabletopExercises = () => {
     "Communication strategy for multiple stakeholders",
     "Business continuity vs. investigation priorities",
     "Legal and regulatory compliance requirements",
-    "Identify broken security controls and processes beforehand"
+    "Find out what security controls or process are broken beforehand"
   ];
 
   return (
@@ -197,7 +197,7 @@ const TabletopExercises = () => {
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                    Three Progressive <span className="text-cyber-blue">Inject Scenarios</span>
+                    Three Progressive <span className="text-cyber-blue">Demonstrative Inject Scenarios</span>
                   </h2>
                   <p className="text-xl text-muted-foreground">
                     Escalating crisis scenarios that test decision-making under pressure
@@ -216,7 +216,7 @@ const TabletopExercises = () => {
                         </div>
                         <div className="flex-grow">
                           <h3 className="text-2xl font-bold text-foreground mb-4">
-                            Inject #{index + 1}: {scenario.title}
+                            Demonstrative Inject #{index + 1}: {scenario.title}
                           </h3>
                           <p className="text-lg text-muted-foreground leading-relaxed">
                             {scenario.description}
@@ -229,6 +229,152 @@ const TabletopExercises = () => {
                     </Card>
                   ))}
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Cybersecurity Scenarios Framework */}
+          <section className="py-20 bg-gradient-dark">
+            <div className="container mx-auto px-6">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                    Cybersecurity & Operational <span className="text-cyber-blue">Scenario Framework</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground">
+                    Comprehensive scenarios covering multiple threat vectors and operational challenges
+                  </p>
+                </div>
+
+                {/* Cybersecurity Scenarios */}
+                <div className="mb-16">
+                  <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Cybersecurity Scenarios</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
+                      <div className="flex items-start space-x-4">
+                        <ShieldCheck className="h-8 w-8 text-cyber-blue flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="text-xl font-bold text-foreground mb-3">Ransomware Attack</h4>
+                          <p className="text-muted-foreground mb-3"><strong>Initial Trigger:</strong> Finance team unable to access critical files.</p>
+                          <p className="text-muted-foreground mb-3"><strong>Escalation:</strong> Widespread ransomware demand impacting enterprise systems.</p>
+                          <p className="text-muted-foreground"><strong>Possible Injects:</strong> Discovery of encrypted data being transmitted to an external server; news report detailing a compromised software tool leveraged by attackers.</p>
+                        </div>
+                      </div>
+                    </Card>
+                    
+                    <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
+                      <div className="flex items-start space-x-4">
+                        <AlertTriangle className="h-8 w-8 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="text-xl font-bold text-foreground mb-3">Data Breach</h4>
+                          <p className="text-muted-foreground mb-3"><strong>Initial Trigger:</strong> Unauthorized access to sensitive data or unusual exfiltration activity.</p>
+                          <p className="text-muted-foreground mb-3"><strong>Escalation:</strong> Data appears publicly or is sold on the dark web.</p>
+                          <p className="text-muted-foreground"><strong>Possible Injects:</strong> Security alerts indicating suspicious network traffic; news alerts linking the organization to a large-scale data leak.</p>
+                        </div>
+                      </div>
+                    </Card>
+                    
+                    <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
+                      <div className="flex items-start space-x-4">
+                        <Users className="h-8 w-8 text-cyber-blue flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="text-xl font-bold text-foreground mb-3">Supply Chain Attack</h4>
+                          <p className="text-muted-foreground mb-3"><strong>Initial Trigger:</strong> Compromise via a trusted vendor or third-party software.</p>
+                          <p className="text-muted-foreground mb-3"><strong>Escalation:</strong> Backdoor access into company systems.</p>
+                          <p className="text-muted-foreground"><strong>Possible Injects:</strong> Notification that a commonly used vendor tool was infiltrated by foreign state actors; discovery of unusual traffic from newly integrated software.</p>
+                        </div>
+                      </div>
+                    </Card>
+                    
+                    <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
+                      <div className="flex items-start space-x-4">
+                        <Target className="h-8 w-8 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="text-xl font-bold text-foreground mb-3">Phishing Attack</h4>
+                          <p className="text-muted-foreground mb-3"><strong>Initial Trigger:</strong> An employee clicks on a malicious email link.</p>
+                          <p className="text-muted-foreground mb-3"><strong>Escalation:</strong> Internal systems are compromised, lateral movement detected.</p>
+                          <p className="text-muted-foreground"><strong>Possible Injects:</strong> Malware discovered on an internal server; connections established with suspicious IP addresses.</p>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Physical & Operational Scenarios */}
+                <div className="mb-16">
+                  <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Physical & Operational Scenarios</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex items-center space-x-4 p-6 bg-card/30 backdrop-blur-sm rounded-lg border border-cyber-gray/20">
+                      <div className="w-3 h-3 bg-cyber-blue rounded-full flex-shrink-0"></div>
+                      <div>
+                        <span className="text-foreground font-semibold">Structure Fire:</span>
+                        <span className="text-muted-foreground ml-2">Fire outbreak in or near corporate facilities. Unsafe or blocked evacuation routes; possible data center impact.</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4 p-6 bg-card/30 backdrop-blur-sm rounded-lg border border-cyber-gray/20">
+                      <div className="w-3 h-3 bg-cyber-cyan rounded-full flex-shrink-0"></div>
+                      <div>
+                        <span className="text-foreground font-semibold">Inclement Weather:</span>
+                        <span className="text-muted-foreground ml-2">Severe storm or natural disaster causing downed power lines, widespread power outages, or road closures delaying staff access.</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4 p-6 bg-card/30 backdrop-blur-sm rounded-lg border border-cyber-gray/20">
+                      <div className="w-3 h-3 bg-cyber-blue rounded-full flex-shrink-0"></div>
+                      <div>
+                        <span className="text-foreground font-semibold">IT Outage:</span>
+                        <span className="text-muted-foreground ml-2">Widespread server or communications failure causing extended downtime impacting business operations and customer services.</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4 p-6 bg-card/30 backdrop-blur-sm rounded-lg border border-cyber-gray/20">
+                      <div className="w-3 h-3 bg-cyber-cyan rounded-full flex-shrink-0"></div>
+                      <div>
+                        <span className="text-foreground font-semibold">Supply Chain Disruption:</span>
+                        <span className="text-muted-foreground ml-2">External event (e.g., natural disaster, geopolitical tension) creating prolonged delays in critical supply chain components affecting revenue and service delivery.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Injects to Increase Realism */}
+                <Card className="p-8 bg-gradient-cyber/10 border-cyber-blue/30">
+                  <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+                    Injects to Increase Realism & Complexity
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="text-foreground font-semibold">Communication Reveals:</span>
+                          <span className="text-muted-foreground ml-2">Simulated media interview requests, or emails from frustrated partners or regulators.</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="text-foreground font-semibold">Conflicting Information:</span>
+                          <span className="text-muted-foreground ml-2">Contradictory or unreliable intelligence to test verification and decision-making under uncertainty.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="text-foreground font-semibold">Resource Stressors:</span>
+                          <span className="text-muted-foreground ml-2">Sudden expansion of affected systems, reduced response timelines, or loss of key personnel.</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <div>
+                          <span className="text-foreground font-semibold">Escalation of Impact:</span>
+                          <span className="text-muted-foreground ml-2">Small incidents evolve into significant threats requiring cross-functional coordination and executive-level escalation.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </section>
