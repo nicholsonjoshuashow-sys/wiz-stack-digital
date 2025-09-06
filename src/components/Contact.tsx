@@ -37,9 +37,11 @@ const Contact = () => {
                   <p className="text-muted-foreground mb-4">
                     Under attack now and need immediate assistance?
                   </p>
-                  <Button variant="incident" size="lg" className="w-full">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Emergency Hotline
+                  <Button variant="incident" size="lg" className="w-full" asChild>
+                    <a href="tel:803-900-4609">
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call Emergency Hotline
+                    </a>
                   </Button>
                 </div>
               </div>
