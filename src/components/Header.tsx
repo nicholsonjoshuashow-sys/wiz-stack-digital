@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import darkstackLogo from "@/assets/darkstack7-shield-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +11,6 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src={darkstackLogo} alt="DARKSTACK7 Logo" className="h-8 w-8" />
             <div>
               <h1 className="text-xl font-bold text-foreground">
                 DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
