@@ -43,7 +43,7 @@ const Contact = () => {
       const templateParams = {
         from_name: `${formData.firstName} ${formData.lastName}`,
         from_email: formData.email,
-        to_email: 'ir@darkstack7.com',
+        to_email: 'sales@darkstack7.com',
         reply_to: formData.email,
         company: formData.company,
         position: formData.position,
