@@ -14,7 +14,7 @@ import {
   Phone,
   Settings,
   Zap,
-  Target,
+  ShieldCheck,
   Globe
 } from "lucide-react";
 
@@ -67,7 +67,7 @@ const SolutionEngineering = () => {
 
   const managedServices = [
     {
-      icon: <Target className="h-6 w-6" />,
+      icon: <ShieldCheck className="h-6 w-6" />,
       title: "24/7 Security Monitoring",
       description: "Continuous threat monitoring and incident detection through our partner MSSP network.",
       features: ["Real-time threat detection", "24/7 SOC coverage", "Automated response", "Threat intelligence"]
