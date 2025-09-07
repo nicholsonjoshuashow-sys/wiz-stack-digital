@@ -70,7 +70,12 @@ const CISO = () => {
                   We go beyond compliance checklists to deliver strategy, architecture, and security 
                   engineering that work in practice—not just on paper.
                 </p>
-                <Button variant="cyber" size="lg" className="text-lg px-8 py-3">
+                <Button 
+                  variant="cyber" 
+                  size="lg" 
+                  className="text-lg px-8 py-3"
+                  onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
+                >
                   Schedule Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -198,7 +203,12 @@ const CISO = () => {
                   Get the strategic cybersecurity leadership your organization needs to stay ahead of threats.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="cyber" size="lg" className="text-lg px-8 py-3">
+                  <Button 
+                    variant="cyber" 
+                    size="lg" 
+                    className="text-lg px-8 py-3"
+                    onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
+                  >
                     Schedule Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>

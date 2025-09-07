@@ -253,11 +253,13 @@ const IncidentResponse = () => {
                   <Phone className="mr-2 h-5 w-5" />
                   Call Emergency Hotline
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link to="/#contact">
-                    Schedule Consultation
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
+                >
+                  Schedule Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             </div>
