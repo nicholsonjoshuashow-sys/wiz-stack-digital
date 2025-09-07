@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-cybersecurity.jpg";
 const heroProfessionalImage = "/lovable-uploads/67b11867-0e34-4757-b1c0-a136f9e5deaf.png";
 
@@ -48,9 +49,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button variant="cyber" size="lg" className="text-lg px-8 py-3">
-              Get Emergency Response
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button variant="cyber" size="lg" className="text-lg px-8 py-3" asChild>
+              <Link to="/contact">
+                Get Emergency Response
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button 
               variant="outline" 
