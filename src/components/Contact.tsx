@@ -123,7 +123,14 @@ const Contact = () => {
               <h4 className="font-bold text-foreground mb-4">Trusted Partners</h4>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">DeepSeas Managed Services</span>
+                  <a 
+                    href="https://www.deepseas.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-cyber-blue transition-colors"
+                  >
+                    DeepSeas Managed Services
+                  </a>
                   <ArrowRight className="h-4 w-4 text-cyber-blue" />
                 </div>
                 <div className="flex items-center justify-between">
