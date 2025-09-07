@@ -19,7 +19,8 @@ import {
   Mail,
   Factory,
   ShieldX,
-  UserX
+  UserX,
+  Lock
 } from "lucide-react";
 
 const TabletopExercises = () => {
@@ -214,7 +215,7 @@ const TabletopExercises = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
                       <div className="flex items-start space-x-4">
-                        <ShieldCheck className="h-8 w-8 text-cyber-blue flex-shrink-0 mt-1" />
+                        <Lock className="h-8 w-8 text-cyber-blue flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="text-xl font-bold text-foreground mb-3">Ransomware Attack</h4>
                           <p className="text-muted-foreground mb-3"><strong>Initial Trigger:</strong> Finance team unable to access critical files.</p>
