@@ -13,6 +13,7 @@ import TabletopExercises from "./pages/TabletopExercises";
 import Contact from "./pages/Contact";
 import Media from "./pages/Media";
 import Podcast from "./pages/Podcast";
+import RequestQuote from "./pages/RequestQuote";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/media" element={<Media />} />
           <Route path="/podcast" element={<Podcast />} />
+          <Route path="/services/requestquote" element={<RequestQuote />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

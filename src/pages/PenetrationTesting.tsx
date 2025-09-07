@@ -156,7 +156,12 @@ const PenetrationTesting = () => {
               <Button variant="cyber" size="lg" className="text-lg px-8 py-3">
                 Schedule Assessment
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-3"
+                onClick={() => window.location.href = '/services/requestquote'}
+              >
                 Request Quote
               </Button>
             </div>
