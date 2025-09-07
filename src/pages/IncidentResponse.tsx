@@ -100,7 +100,7 @@ const IncidentResponse = () => {
                     Emergency Hotline
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link to="#capabilities">
+                    <Link to="/contact">
                       Learn More
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
