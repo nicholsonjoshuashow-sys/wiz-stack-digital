@@ -13,7 +13,7 @@ const Media = () => {
       title: "Episode 30: Leadership Insight - Cyber Challenges in Government with Former Governor Pat McCrory",
       description: "In-depth discussion on cybersecurity challenges in government with former North Carolina Governor Pat McCrory, exploring leadership insights and policy implications.",
       thumbnail: "https://img.youtube.com/vi/zVwHUSKs_uI/maxresdefault.jpg",
-      videoUrl: "https://youtu.be/zVwHUSKs_uI",
+      videoUrl: "https://youtu.be/zVwHUSKs_uI?si=GgM9RQEWnJp-0ql8",
       duration: "45:30",
       views: "2.1K",
       publishedAt: "2024-01-15"
