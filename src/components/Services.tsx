@@ -35,7 +35,7 @@ const Services = () => {
       title: "Security Assessments & Consulting",
       description: "Our security consulting services give you a clear, actionable roadmap to strengthen your defenses and reduce risk. We combine deep technical expertise with business-focused insight to assess your current security posture.",
       features: ["Comprehensive Security Assessments", "Gap Analysis & Compliance", "Remediation Planning", "Ongoing Advisory Services"],
-      variant: "outline" as const,
+      variant: "cyber" as const,
       cta: "Request a Quote"
     },
     {
