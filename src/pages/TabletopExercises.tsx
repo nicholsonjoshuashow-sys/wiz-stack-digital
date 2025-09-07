@@ -4,6 +4,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { 
   ShieldCheck, 
   Users, 
@@ -106,9 +107,11 @@ const TabletopExercises = () => {
                   Professional-led exercises with detailed gap analysis and actionable insights.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="cyber" size="lg" className="text-lg px-8">
-                    Schedule TTX Today
-                    <Calendar className="ml-2 h-5 w-5" />
+                  <Button variant="cyber" size="lg" className="text-lg px-8" asChild>
+                    <Link to="/request-quote">
+                      Schedule TTX Today
+                      <Calendar className="ml-2 h-5 w-5" />
+                    </Link>
                   </Button>
                   <Button variant="outline" size="lg" className="text-lg px-8">
                     View Sample Scenarios
