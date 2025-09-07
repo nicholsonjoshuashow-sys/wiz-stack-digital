@@ -170,6 +170,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-foreground">Emergency Hotline</h3>
                         <p className="text-muted-foreground">24/7 Incident Response</p>
+                        <p className="text-cyber-cyan font-semibold">803-900-4609</p>
                       </div>
                     </div>
                   </Card>
