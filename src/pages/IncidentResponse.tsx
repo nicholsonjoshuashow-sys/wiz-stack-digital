@@ -145,7 +145,7 @@ const IncidentResponse = () => {
                     alt="Darkstack7 Incident Response Expert" 
                     className="w-48 h-48 rounded-full object-cover border-4 border-cyber-blue/30 shadow-lg"
                   />
-                  <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10"></div>
+                  <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
                 </div>
               </div>
             </div>
