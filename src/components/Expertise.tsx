@@ -23,7 +23,7 @@ const Expertise = () => {
       description: "Proven success delivering cybersecurity strategies across industries and continents—from the U.K. and Europe to Africa, the Middle East, Asia, and Australia."
     },
     {
-      icon: <MessageCircle className="h-8 w-8" />,
+      icon: <Users className="h-8 w-8" />,
       title: "Board-Level Communication",
       description: "We translate complex security challenges into clear, actionable insights for executives and boards, building confidence during times of crisis."
     },
