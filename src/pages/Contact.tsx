@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { AlertTriangle, Mail, Phone, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +24,8 @@ const Contact = () => {
     details: '',
     newsletter: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleServiceChange = (service: string, checked: boolean) => {
     if (checked) {
@@ -31,10 +35,61 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    setIsSubmitting(true);
+
+    try {
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        to_email: 'ir@darkstack7.com',
+        reply_to: formData.email,
+        company: formData.company,
+        position: formData.position,
+        phone: formData.phone,
+        criticality: formData.criticality,
+        services: formData.services.join(', '),
+        details: formData.details,
+        newsletter: formData.newsletter ? 'Yes' : 'No'
+      };
+
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // You'll need to replace this with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // You'll need to replace this with your EmailJS template ID
+        templateParams,
+        'YOUR_PUBLIC_KEY' // You'll need to replace this with your EmailJS public key
+      );
+
+      toast({
+        title: "Message Sent Successfully",
+        description: "We'll get back to you within 15 minutes.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        company: '',
+        position: '',
+        criticality: '',
+        services: [],
+        details: '',
+        newsletter: false
+      });
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error Sending Message",
+        description: "Please try again or contact us directly at ir@darkstack7.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -257,8 +312,8 @@ const Contact = () => {
                       <Label htmlFor="newsletter" className="text-sm">Yes, subscribe me to your newsletter.</Label>
                     </div>
 
-                    <Button type="submit" className="w-full" size="lg">
-                      Submit Request
+                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Submit Request"}
                     </Button>
                   </form>
                 </Card>
