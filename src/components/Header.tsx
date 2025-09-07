@@ -149,25 +149,43 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link 
-                    to="/media" 
-                    className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
-                  >
-                    Media
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link 
-                    to="/podcast" 
-                    className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
-                  >
-                    Podcast
-                  </Link>
-                </NavigationMenuLink>
+                <NavigationMenuTrigger className="text-pearl-white hover:text-cyber-blue bg-transparent border-0 p-0 h-auto">
+                  Media
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px] bg-background border border-border">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/media"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Media & Content</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Watch cybersecurity insights, educational videos, and expert interviews
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/podcast"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Cybersecurity America Podcast</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Listen to expert interviews and strategic cybersecurity discussions
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
               
               <NavigationMenuItem>
@@ -232,12 +250,17 @@ const Header = () => {
                   </Link>
                 </div>
               </div>
-              <Link to="/media" className="text-pearl-white hover:text-cyber-blue transition-colors">
-                Media
-              </Link>
-              <Link to="/podcast" className="text-pearl-white hover:text-cyber-blue transition-colors">
-                Podcast
-              </Link>
+              <div className="space-y-2">
+                <div className="text-pearl-white font-medium">Media</div>
+                <div className="pl-4 space-y-2">
+                  <Link to="/media" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                    Media & Content
+                  </Link>
+                  <Link to="/podcast" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                    Podcast
+                  </Link>
+                </div>
+              </div>
               <Link to="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 Contact Us
               </Link>
