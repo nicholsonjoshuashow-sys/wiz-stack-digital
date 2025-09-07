@@ -4,7 +4,16 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users } from "lucide-react";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users, Home } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Podcast = () => {
   const podcastEpisodes = [
@@ -120,6 +129,34 @@ const Podcast = () => {
         <Header />
         
         <main className="pt-20">
+          {/* Breadcrumb Navigation */}
+          <section className="py-4 px-4 bg-muted/20">
+            <div className="max-w-6xl mx-auto">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/" className="inline-flex items-center">
+                        <Home className="mr-1 h-4 w-4" />
+                        Home
+                      </Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/media">Media</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Podcast</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+          </section>
+
           {/* Hero Section */}
           <section className="py-16 px-4 bg-gradient-to-br from-background via-background/95 to-primary/5">
             <div className="max-w-6xl mx-auto text-center">
@@ -335,9 +372,9 @@ const Podcast = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <a href="/contact" className="inline-flex items-center">
+                  <Link to="/contact" className="inline-flex items-center">
                     Be a Guest
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <a 

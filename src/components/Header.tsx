@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -37,11 +38,13 @@ const Header = () => {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="space-x-6">
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/"
-                  className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
-                >
-                  Home
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to="/" 
+                    className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
+                  >
+                    Home
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               
@@ -52,81 +55,93 @@ const Header = () => {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-background border border-border">
                     <li>
-                      <NavigationMenuLink
-                        href="/services/IR"
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">Incident Response</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          24/7 emergency cyber incident response services
-                        </p>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/IR"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Incident Response</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            24/7 emergency cyber incident response services
+                          </p>
+                        </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink
-                        href="/services/CISO"
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">Virtual CISO</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Strategic cybersecurity leadership services
-                        </p>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/CISO"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Virtual CISO</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Strategic cybersecurity leadership services
+                          </p>
+                        </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink
-                        href="/services/penetration-testing"
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">Penetration Testing</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Comprehensive security vulnerability assessments
-                        </p>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/penetration-testing"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Penetration Testing</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Comprehensive security vulnerability assessments
+                          </p>
+                        </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink
-                        href="/services/security-assessments-consulting"
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">Security Consulting</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Strategic security assessments and consulting
-                        </p>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/security-assessments-consulting"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Security Consulting</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Strategic security assessments and consulting
+                          </p>
+                        </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink
-                        href="/services/insiderthreat"
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">Insider Threat</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Insider threat detection and mitigation
-                        </p>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/insiderthreat"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Insider Threat</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Insider threat detection and mitigation
+                          </p>
+                        </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink
-                        href="/services/tabletop_exercises"
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">Tabletop Exercises</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          Incident response training and simulations
-                        </p>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/tabletop_exercises"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Tabletop Exercises</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Incident response training and simulations
+                          </p>
+                        </Link>
                       </NavigationMenuLink>
                     </li>
                   </ul>
@@ -134,29 +149,35 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/media"
-                  className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
-                >
-                  Media
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to="/media" 
+                    className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
+                  >
+                    Media
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/podcast"
-                  className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
-                >
-                  Podcast
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to="/podcast" 
+                    className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
+                  >
+                    Podcast
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/contact"
-                  className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
-                >
-                  Contact Us
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to="/contact" 
+                    className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
+                  >
+                    Contact Us
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -185,38 +206,41 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-cyber-gray/30">
             <nav className="flex flex-col space-y-4 pt-4">
-              <a href="/" className="text-pearl-white hover:text-cyber-blue transition-colors">
+              <Link to="/" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 Home
-              </a>
+              </Link>
               <div className="space-y-2">
                 <div className="text-pearl-white font-medium">Services</div>
                 <div className="pl-4 space-y-2">
-                  <a href="/services/IR" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                  <Link to="/services/IR" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Incident Response
-                  </a>
-                  <a href="/services/CISO" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                  </Link>
+                  <Link to="/services/CISO" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Virtual CISO
-                  </a>
-                  <a href="/services/penetration-testing" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                  </Link>
+                  <Link to="/services/penetration-testing" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Penetration Testing
-                  </a>
-                  <a href="/services/security-assessments-consulting" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                  </Link>
+                  <Link to="/services/security-assessments-consulting" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Security Consulting
-                  </a>
-                  <a href="/services/insiderthreat" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                  </Link>
+                  <Link to="/services/insiderthreat" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Insider Threat
-                  </a>
-                  <a href="/services/tabletop_exercises" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                  </Link>
+                  <Link to="/services/tabletop_exercises" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Tabletop Exercises
-                  </a>
+                  </Link>
                 </div>
               </div>
-              <a href="/podcast" className="text-pearl-white hover:text-cyber-blue transition-colors">
+              <Link to="/media" className="text-pearl-white hover:text-cyber-blue transition-colors">
+                Media
+              </Link>
+              <Link to="/podcast" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 Podcast
-              </a>
-              <a href="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
+              </Link>
+              <Link to="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 Contact Us
-              </a>
+              </Link>
               <Button 
                 variant="incident" 
                 size="sm" 
