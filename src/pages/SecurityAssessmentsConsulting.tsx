@@ -100,7 +100,7 @@ const SecurityAssessmentsConsulting = () => {
                   <Button 
                     variant="cyber" 
                     size="lg" 
-                    className="text-lg px-8 py-3"
+                    className="text-lg px-8 py-3 shadow-glow hover:shadow-[0_0_20px_hsl(var(--cyber-cyan)/0.4)]"
                     onClick={() => window.location.href = '/services/requestquote'}
                   >
                     Request a Quote
