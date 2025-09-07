@@ -66,7 +66,7 @@ const Services = () => {
     {
       id: "07",
       icon: <Network className="h-8 w-8" />,
-      title: "Solution Engineering, Partner MSSP Services",
+      title: "Solution Engineering",
       description: "Strategic technology partnerships and managed security service provider integration to enhance your cybersecurity capabilities and operational effectiveness.",
       features: ["Partner Integration", "Technology Solutions", "MSSP Coordination", "Strategic Planning"],
       variant: "cyber" as const
@@ -168,6 +168,13 @@ const Services = () => {
                   </Link>
                 ) : service.id === "06" ? (
                   <Link to="/services/tabletop_exercises" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "07" ? (
+                  <Link to="/services/solution-engineering" className="block">
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
