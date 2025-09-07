@@ -46,6 +46,16 @@ const Media = () => {
       duration: "38:20",
       views: "1.5K",
       publishedAt: "2024-02-01"
+    },
+    {
+      id: "4",
+      title: "Cybersecurity Leadership Insights",
+      description: "Expert insights on cybersecurity leadership, strategic defense planning, and emerging threat landscapes.",
+      thumbnail: "https://img.youtube.com/vi/xURkBMhmKqc/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/xURkBMhmKqc?si=R2Ezy6l-aQifnMFd",
+      duration: "42:15",
+      views: "1.8K",
+      publishedAt: "2024-02-15"
     }
   ];
 
