@@ -10,30 +10,33 @@ const Media = () => {
   const featuredVideos = [
     {
       id: "1",
-      title: "Cybersecurity Leadership in Crisis",
-      description: "Essential strategies for cybersecurity leaders during high-stakes incidents and crisis management.",
-      thumbnail: "/placeholder.svg",
-      duration: "28:45",
-      views: "15.2K",
+      title: "Episode 30: Leadership Insight - Cyber Challenges in Government with Former Governor Pat McCrory",
+      description: "In-depth discussion on cybersecurity challenges in government with former North Carolina Governor Pat McCrory, exploring leadership insights and policy implications.",
+      thumbnail: "https://img.youtube.com/vi/zVwHUSKs_uI/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/zVwHUSKs_uI",
+      duration: "45:30",
+      views: "2.1K",
       publishedAt: "2024-01-15"
     },
     {
       id: "2", 
-      title: "Virtual CISO Best Practices",
-      description: "How to effectively implement virtual CISO services for organizations of all sizes.",
-      thumbnail: "/placeholder.svg",
-      duration: "22:30",
-      views: "12.8K",
-      publishedAt: "2024-01-08"
+      title: "Episode 8: Thought Leadership - Bruce Schneier on 'A Hacker's Mind'",
+      description: "Renowned security expert Bruce Schneier discusses his book 'A Hacker's Mind' and how the powerful bend the rules in cybersecurity and beyond.",
+      thumbnail: "https://img.youtube.com/vi/_TeDSXXJL8c/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/_TeDSXXJL8c",
+      duration: "52:15",
+      views: "3.8K",
+      publishedAt: "2023-12-20"
     },
     {
       id: "3",
-      title: "24/7 Incident Response Framework",
-      description: "Building and managing around-the-clock incident response capabilities.",
-      thumbnail: "/placeholder.svg",
-      duration: "35:12",
-      views: "18.5K",
-      publishedAt: "2023-12-20"
+      title: "Cybersecurity America Show - Special Episode",
+      description: "Special cybersecurity insights and industry analysis from the Cybersecurity America podcast series.",
+      thumbnail: "https://img.youtube.com/vi/3FzNgLO0K38/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=3FzNgLO0K38",
+      duration: "38:20",
+      views: "1.5K",
+      publishedAt: "2024-02-01"
     }
   ];
 
@@ -146,9 +149,15 @@ const Media = () => {
                         className="w-full h-48 object-cover"
                       />
                       <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                        <Button size="lg" variant="secondary">
-                          <Play className="mr-2 h-5 w-5" />
-                          Watch
+                        <Button asChild size="lg" variant="secondary">
+                          <a 
+                            href={video.videoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Play className="mr-2 h-5 w-5" />
+                            Watch
+                          </a>
                         </Button>
                       </div>
                       <Badge className="absolute top-2 right-2 bg-black/70 text-white">
