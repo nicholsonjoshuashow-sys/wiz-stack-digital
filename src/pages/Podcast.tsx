@@ -158,7 +158,7 @@ const Podcast = () => {
           </section>
 
           {/* Hero Section */}
-          <section className="py-16 px-4 bg-gradient-to-br from-background via-background/95 to-primary/5">
+          <section className="py-12 px-4 bg-gradient-to-br from-background via-background/95 to-primary/5">
             <div className="max-w-6xl mx-auto text-center">
               <Badge variant="outline" className="mb-4">
                 <Headphones className="mr-2 h-4 w-4" />
@@ -202,7 +202,7 @@ const Podcast = () => {
           </section>
 
           {/* Podcast Stats */}
-          <section className="py-16 px-4">
+          <section className="py-12 px-4">
             <div className="max-w-6xl mx-auto">
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {podcastStats.map((stat, index) => {
@@ -223,7 +223,7 @@ const Podcast = () => {
           </section>
 
           {/* Latest Episodes */}
-          <section id="episodes" className="py-16 px-4 bg-muted/30">
+          <section id="episodes" className="py-12 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest Episodes</h2>
@@ -326,7 +326,7 @@ const Podcast = () => {
           </section>
 
           {/* Listen On Platforms */}
-          <section className="py-16 px-4">
+          <section className="py-12 px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Listen Everywhere</h2>
@@ -357,7 +357,7 @@ const Podcast = () => {
           </section>
 
           {/* About the Show */}
-          <section className="py-16 px-4 bg-muted/30">
+          <section className="py-12 px-4 bg-muted/30">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">About the Show</h2>
               <p className="text-muted-foreground text-lg mb-8 max-w-3xl mx-auto">
