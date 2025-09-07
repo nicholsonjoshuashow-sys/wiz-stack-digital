@@ -2,12 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { 
-  ShieldAlert, 
-  UserCheck, 
+  Siren, 
+  User, 
   Target, 
   Zap, 
   Users, 
   Presentation,
+  Network,
   ArrowRight 
 } from "lucide-react";
 
@@ -15,7 +16,7 @@ const Services = () => {
   const services = [
     {
       id: "01",
-      icon: <ShieldAlert className="h-8 w-8" />,
+      icon: <Siren className="h-8 w-8" />,
       title: "Incident Response (IR)",
       description: "On-demand IR Commander for active breaches. Board-level briefings, forensic leadership, regulatory guidance, threat validation, and executive crisis communication.",
       features: ["24/7 Emergency Response", "Board-Level Communication", "Forensic Investigation", "Regulatory Compliance"],
@@ -23,7 +24,7 @@ const Services = () => {
     },
     {
       id: "02", 
-      icon: <UserCheck className="h-8 w-8" />,
+      icon: <User className="h-8 w-8" />,
       title: "Virtual CISO (vCISO)",
       description: "Technical leadership with real-world experience. Executive-level cybersecurity expertise focused on strategy, architecture, threat defense, and security engineering.",
       features: ["Strategic Planning", "Security Architecture", "Team Leadership", "Risk Assessment"],
@@ -31,7 +32,7 @@ const Services = () => {
     },
     {
       id: "03",
-      icon: <UserCheck className="h-8 w-8" />,
+      icon: <User className="h-8 w-8" />,
       title: "Security Assessments & Consulting",
       description: "Our security consulting services give you a clear, actionable roadmap to strengthen your defenses and reduce risk. We combine deep technical expertise with business-focused insight to assess your current security posture, identifying both immediate priorities and long-term opportunities to align security with your organization's strategic goal",
       features: ["Comprehensive Security Assessments", "Gap Analysis & Compliance", "Remediation Planning", "Ongoing Advisory Services"],
@@ -42,7 +43,7 @@ const Services = () => {
       id: "04",
       icon: <Target className="h-8 w-8" />,
       title: "Penetration Testing",
-      description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable, and resilient security strategies. Our testing methodology combines automated tools with manual techniques to identify vulnerabilities that attackers could exploit in your environment. We provide detailed reports with actionable remediation steps. Each assessment includes executive briefings and technical documentation tailored to your organization's needs.",
+      description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable security strategies.",
       features: ["Network Security Testing", "Application Security", "Cloud Infrastructure", "Vulnerability Assessment"],
       variant: "incident" as const
     },
@@ -64,6 +65,14 @@ const Services = () => {
     },
     {
       id: "07",
+      icon: <Network className="h-8 w-8" />,
+      title: "Solution Engineering, Partner MSSP Services",
+      description: "Strategic technology partnerships and managed security service provider integration to enhance your cybersecurity capabilities and operational effectiveness.",
+      features: ["Partner Integration", "Technology Solutions", "MSSP Coordination", "Strategic Planning"],
+      variant: "cyber" as const
+    },
+    {
+      id: "08",
       icon: <Presentation className="h-8 w-8" />,
       title: "Training & Speaking",
       description: "Executive-level training, public speaking, and leadership development focused on real-world cybersecurity challenges and building resilient security cultures.",
