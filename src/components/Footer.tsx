@@ -1,7 +1,10 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 import darkstackOfficialLogo from "@/assets/darkstack7-shield-logo.png";
+import { useState } from "react";
 
 const Footer = () => {
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  
   return (
     <footer className="bg-cyber-dark border-t border-cyber-gray/30">
       <div className="container mx-auto px-6 py-12">
@@ -38,16 +41,30 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="font-bold text-foreground mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li><a href="#services" className="text-muted-foreground hover:text-cyber-blue transition-colors">Incident Response</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-cyber-blue transition-colors">Virtual CISO</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-cyber-blue transition-colors">Penetration Testing</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-cyber-blue transition-colors">Security Consulting</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-cyber-blue transition-colors">Tabletop Exercises</a></li>
-              <li><a href="#services" className="text-muted-foreground hover:text-cyber-blue transition-colors">Training & Speaking</a></li>
-            </ul>
+          <div className="relative">
+            <div 
+              className="flex items-center cursor-pointer mb-4"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <h4 className="font-bold text-foreground">Services</h4>
+              <ChevronDown className="ml-1 h-4 w-4 text-foreground" />
+            </div>
+            
+            <div
+              className={`transition-all duration-200 ${isServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <ul className="space-y-2">
+                <li><a href="/services/IR" className="text-muted-foreground hover:text-cyber-blue transition-colors">Incident Response</a></li>
+                <li><a href="/services/CISO" className="text-muted-foreground hover:text-cyber-blue transition-colors">Virtual CISO</a></li>
+                <li><a href="/services/penetration-testing" className="text-muted-foreground hover:text-cyber-blue transition-colors">Penetration Testing</a></li>
+                <li><a href="/services/security-assessments-consulting" className="text-muted-foreground hover:text-cyber-blue transition-colors">Security Consulting</a></li>
+                <li><a href="/services/insiderthreat" className="text-muted-foreground hover:text-cyber-blue transition-colors">Insider Threat</a></li>
+                <li><a href="/services/tabletop_exercises" className="text-muted-foreground hover:text-cyber-blue transition-colors">Tabletop Exercises</a></li>
+              </ul>
+            </div>
           </div>
 
           {/* Company */}
