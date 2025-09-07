@@ -104,8 +104,8 @@ const Expertise = () => {
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  "Northrop Grumman", "Whitney Bank", "EY", "Wells Fargo", 
-                  "Cofense", "Booz Allen Hamilton", "Deepseas"
+                  "Surefire Cyber", "DeepSeas", "Booz Allen Hamilton", "Cofense", 
+                  "Wells Fargo", "EY", "Whitney Bank", "Northrop Grumman", "Marine Corps"
                 ].map((company, index) => (
                   <div key={index} className="flex items-center">
                     <Building2 className="h-4 w-4 text-cyber-cyan mr-2" />
@@ -115,8 +115,12 @@ const Expertise = () => {
               </div>
             </div>
             <div className="text-center lg:text-right">
-              <div className="inline-flex items-center justify-center w-32 h-32 bg-cyber-blue/10 border-2 border-cyber-blue/30 rounded-full mb-4">
-                <Users className="h-12 w-12 text-cyber-blue" />
+              <div className="inline-flex items-center justify-center w-32 h-32 bg-cyber-blue/10 border-2 border-cyber-blue/30 rounded-full mb-4 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/039106a2-b7d9-4be2-af77-cbbbe660d577.png" 
+                  alt="Joshua R. Nicholson - Founder & CEO of Darkstack7"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <p className="text-sm text-muted-foreground">
                 Managing hundreds of security incidents across multiple countries
