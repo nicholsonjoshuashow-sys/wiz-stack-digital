@@ -56,6 +56,26 @@ const Media = () => {
       duration: "42:15",
       views: "1.8K",
       publishedAt: "2024-02-15"
+    },
+    {
+      id: "5",
+      title: "New Cybersecurity Insights",
+      description: "Latest cybersecurity insights and industry developments from security experts.",
+      thumbnail: "https://img.youtube.com/vi/Dr6VDjubd3k/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/Dr6VDjubd3k?si=Nahzlr9xBVywf2RS",
+      duration: "35:20",
+      views: "950",
+      publishedAt: "2024-03-01"
+    },
+    {
+      id: "6",
+      title: "Advanced Security Strategies",
+      description: "Deep dive into advanced cybersecurity strategies and defense mechanisms.",
+      thumbnail: "https://img.youtube.com/vi/4hLmKHvEcVg/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/4hLmKHvEcVg?si=8tuaDpoeFKiW0KVv",
+      duration: "48:10",
+      views: "1.2K",
+      publishedAt: "2024-03-10"
     }
   ];
 
