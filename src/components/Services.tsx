@@ -89,8 +89,8 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
           {services.map((service) => (
-            <article key={service.id} role="listitem" className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow rounded-lg">
-              <div className="p-6">
+            <article key={service.id} role="listitem" className="group relative overflow-hidden bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow rounded-lg h-full">
+              <div className="p-6 h-full flex flex-col">
                 {/* Service Number */}
                 <div className="text-6xl font-bold text-cyber-blue/20 mb-4 group-hover:text-cyber-blue/30 transition-colors">
                   {service.id}
@@ -112,7 +112,7 @@ const Services = () => {
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2 mb-6 flex-grow">
                   {service.features.map((feature, index) => (
                     <li key={index} className="flex items-center text-sm text-muted-foreground">
                       <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full mr-3"></div>
