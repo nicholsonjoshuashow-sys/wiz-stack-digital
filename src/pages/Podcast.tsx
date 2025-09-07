@@ -130,6 +130,13 @@ const Podcast = () => {
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                 Cybersecurity America
               </h1>
+              <div className="max-w-2xl mx-auto mb-8">
+                <img 
+                  src="/lovable-uploads/2181617d-b439-4735-840a-4c19fb47879a.png"
+                  alt="Cybersecurity America Podcast Cover - Joshua Nicholson"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                 On the front lines of technology and business, there's a battle for survival. Join host Joshua R. Nicholson for real-world advice and insights from cybersecurity leaders, CISOs, and security professionals.
               </p>
