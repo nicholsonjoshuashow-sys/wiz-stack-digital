@@ -141,11 +141,11 @@ const TabletopExercises = () => {
                       This service is ideal for regulated enterprises preparing for audits or building operational resilience. The goal: confident, coordinated, and compliant response when incidents strike.
                     </p>
                   </div>
-                  <div className="mb-8">
+                  <div className="mb-8 flex justify-center">
                     <img 
                       src="/lovable-uploads/8bf2296e-f656-4029-b3bc-00884b3769dc.png" 
                       alt="Tabletop exercise team collaboration with DARKSTACK7 security professionals analyzing incident response scenarios" 
-                      className="w-full rounded-lg shadow-lg"
+                      className="w-1/2 rounded-lg shadow-lg"
                     />
                   </div>
                   <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
