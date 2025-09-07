@@ -34,7 +34,7 @@ const Services = () => {
       id: "03",
       icon: <User className="h-8 w-8" />,
       title: "Security Assessments & Consulting",
-      description: "Our security consulting services give you a clear, actionable roadmap to strengthen your defenses and reduce risk. We combine deep technical expertise with business-focused insight to assess your current security posture, identifying both immediate priorities and long-term opportunities to align security with your organization's strategic goal",
+      description: "Clear, actionable roadmaps to strengthen defenses and reduce risk. Deep technical expertise with business-focused insight for comprehensive security posture assessments.",
       features: ["Comprehensive Security Assessments", "Gap Analysis & Compliance", "Remediation Planning", "Ongoing Advisory Services"],
       variant: "cyber" as const,
       cta: "Request a Quote"
