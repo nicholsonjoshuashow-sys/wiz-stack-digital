@@ -92,28 +92,67 @@ const Expertise = () => {
 
         {/* Leadership Profile */}
         <Card className="p-8 bg-gradient-cyber border-cyber-blue/20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <div>
               <div className="flex items-center mb-4">
                 <Shield className="h-8 w-8 text-cyber-blue mr-3" />
                 <h3 className="text-2xl font-bold text-foreground">Leadership Profile</h3>
               </div>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Founded by <strong className="text-cyber-blue">Joshua R. Nicholson</strong>—a 24-year cybersecurity veteran 
-                and former U.S. Marine with leadership experience at:
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  "Surefire Cyber", "DeepSeas", "Booz Allen Hamilton", "Cofense", 
-                  "Wells Fargo", "EY", "Whitney Bank", "Northrop Grumman", "Marine Corps"
-                ].map((company, index) => (
-                  <div key={index} className="flex items-center">
-                    <Building2 className="h-4 w-4 text-cyber-cyan mr-2" />
-                    <span className="text-sm text-foreground">{company}</span>
-                  </div>
-                ))}
+              <div className="mb-6">
+                <h4 className="text-lg font-bold text-cyber-blue mb-2">Joshua R. Nicholson (Founder & CEO)</h4>
+                <p className="text-sm text-cyber-cyan mb-2">CISSP, CISM, GIAC-GCIH, GCIA, GCWN, GWEB, CCNP, MCSE</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  A multi-faceted, strategic, and accomplished former <strong className="text-cyber-blue">U.S. Marine Corps Sergeant</strong> with 
+                  24 years of "hands-on keyboard" technology experience coupled with direct CXO and Board transformation enablement skills.
+                </p>
+              </div>
+              
+              <div className="mb-6">
+                <h5 className="text-sm font-semibold text-cyber-blue mb-3">Global Experience & Leadership</h5>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Executive management of global teams across 6 countries</li>
+                  <li>• Business travels to over 34 countries</li>
+                  <li>• International experience (U.K., EU, Middle East, Asia, Australia)</li>
+                  <li>• Managing Director at Booz Allen Hamilton</li>
+                  <li>• Board Member at OnDefend and NC Vets Business</li>
+                </ul>
+              </div>
+
+              <div className="mb-6">
+                <h5 className="text-sm font-semibold text-cyber-blue mb-3">Key Leadership Positions</h5>
+                <div className="grid grid-cols-1 gap-2">
+                  {[
+                    { company: "Surefire Cyber", role: "Leadership Role" },
+                    { company: "DeepSeas", role: "Leadership Role" },
+                    { company: "Booz Allen Hamilton", role: "Managing Director" },
+                    { company: "Cofense", role: "Senior Vice President" },
+                    { company: "Wells Fargo", role: "Group Information Security Officer" },
+                    { company: "EY", role: "Cyber Security Consulting Manager" },
+                    { company: "Whitney Bank", role: "VP Information Security Manager" },
+                    { company: "Northrop Grumman", role: "Security Engineering" },
+                    { company: "Marine Corps", role: "Sergeant" }
+                  ].map((position, index) => (
+                    <div key={index} className="flex items-start">
+                      <Building2 className="h-3 w-3 text-cyber-cyan mr-2 mt-1 flex-shrink-0" />
+                      <div className="text-xs">
+                        <span className="text-foreground font-medium">{position.company}</span>
+                        <span className="text-muted-foreground"> - {position.role}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h5 className="text-sm font-semibold text-cyber-blue mb-2">Education & Credentials</h5>
+                <div className="text-xs text-muted-foreground space-y-1">
+                  <p>• Tulane University - B.S. Computer Information Systems</p>
+                  <p>• Wharton School of Business - Executive Education</p>
+                  <p>• U.S. Marine Corps Communications/Electronics School</p>
+                </div>
               </div>
             </div>
+
             <div className="text-center lg:text-right">
               <div className="inline-flex items-center justify-center w-32 h-32 bg-cyber-blue/10 border-2 border-cyber-blue/30 rounded-full mb-4 overflow-hidden">
                 <img 
@@ -122,9 +161,27 @@ const Expertise = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-sm text-muted-foreground">
-                Managing hundreds of security incidents across multiple countries
-              </p>
+              
+              <div className="space-y-3">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-cyber-blue">24+</div>
+                  <div className="text-xs text-muted-foreground">Years Experience</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-cyber-blue">34+</div>
+                  <div className="text-xs text-muted-foreground">Countries Traveled</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-cyber-blue">6</div>
+                  <div className="text-xs text-muted-foreground">Countries Managed</div>
+                </div>
+                
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Expert in translating complex security challenges into clear, actionable insights for executives and boards
+                </p>
+              </div>
             </div>
           </div>
         </Card>
