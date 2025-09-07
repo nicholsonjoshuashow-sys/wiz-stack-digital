@@ -8,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { AlertTriangle, Mail, Phone, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -40,51 +39,56 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const templateParams = {
-        from_name: `${formData.firstName} ${formData.lastName}`,
-        from_email: formData.email,
-        to_email: 'sales@darkstack7.com',
-        reply_to: formData.email,
-        company: formData.company,
-        position: formData.position,
-        phone: formData.phone,
-        criticality: formData.criticality,
-        services: formData.services.join(', '),
-        details: formData.details,
-        newsletter: formData.newsletter ? 'Yes' : 'No'
-      };
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', `${formData.firstName} ${formData.lastName}`);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone || 'Not provided');
+      formDataToSend.append('company', formData.company || 'Not provided');
+      formDataToSend.append('position', formData.position || 'Not provided');
+      formDataToSend.append('criticality', formData.criticality);
+      formDataToSend.append('services', formData.services.join(', ') || 'None selected');
+      formDataToSend.append('details', formData.details || 'No additional details');
+      formDataToSend.append('newsletter', formData.newsletter ? 'Yes' : 'No');
+      formDataToSend.append('_to', 'sales@darkstack7.com');
+      formDataToSend.append('_from', 'no-reply@darkstack7.com');
+      formDataToSend.append('_subject', `Contact Form Submission - ${formData.criticality} Priority`);
 
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // You'll need to replace this with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // You'll need to replace this with your EmailJS template ID
-        templateParams,
-        'YOUR_PUBLIC_KEY' // You'll need to replace this with your EmailJS public key
-      );
-
-      toast({
-        title: "Message Sent Successfully",
-        description: "We'll get back to you within 15 minutes.",
+      const response = await fetch('https://formspree.io/f/xanylpzy', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      // Reset form
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        position: '',
-        criticality: '',
-        services: [],
-        details: '',
-        newsletter: false
-      });
+      if (response.ok) {
+        toast({
+          title: "Message Sent Successfully",
+          description: "We'll get back to you within 15 minutes.",
+        });
+
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          position: '',
+          criticality: '',
+          services: [],
+          details: '',
+          newsletter: false
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
 
     } catch (error) {
       console.error('Error sending email:', error);
       toast({
         title: "Error Sending Message",
-        description: "Please try again or contact us directly at ir@darkstack7.com",
+        description: "Please try again or contact us directly at sales@darkstack7.com",
         variant: "destructive",
       });
     } finally {
