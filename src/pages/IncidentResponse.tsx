@@ -95,7 +95,12 @@ const IncidentResponse = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="cyber" className="text-lg">
+                  <Button 
+                    size="lg" 
+                    variant="cyber" 
+                    className="text-lg"
+                    onClick={() => window.location.href = 'tel:803-900-4609'}
+                  >
                     <Phone className="mr-2 h-5 w-5" />
                     Emergency Hotline
                   </Button>
@@ -260,7 +265,12 @@ const IncidentResponse = () => {
                 Don't wait during a security incident. Contact our emergency response team immediately.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="cyber" className="text-lg">
+                <Button 
+                  size="lg" 
+                  variant="cyber" 
+                  className="text-lg"
+                  onClick={() => window.location.href = 'tel:803-900-4609'}
+                >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Emergency Hotline
                 </Button>
