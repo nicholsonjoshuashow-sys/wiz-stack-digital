@@ -19,14 +19,14 @@ import {
 const IncidentResponse = () => {
   const capabilities = [
     {
+      icon: <AlertTriangle className="h-6 w-6" />,
+      title: "Threat Validation",
+      description: "Rapid assessment and validation of security alerts to distinguish real threats from false positives."
+    },
+    {
       icon: <ShieldAlert className="h-6 w-6" />,
       title: "Active Breach Response",
       description: "Immediate response to ongoing cyber incidents with expert leadership and technical coordination."
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "IR Commander Leadership",
-      description: "Experienced incident commander to lead your technical teams through complex breach scenarios."
     },
     {
       icon: <FileText className="h-6 w-6" />,
@@ -34,9 +34,9 @@ const IncidentResponse = () => {
       description: "Deep forensic analysis to understand attack vectors, scope, and evidence preservation."
     },
     {
-      icon: <AlertTriangle className="h-6 w-6" />,
-      title: "Threat Validation",
-      description: "Rapid assessment and validation of security alerts to distinguish real threats from false positives."
+      icon: <Users className="h-6 w-6" />,
+      title: "IR Commander Leadership",
+      description: "Experienced incident commander to lead your technical teams through complex breach scenarios."
     }
   ];
 
