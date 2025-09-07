@@ -99,7 +99,7 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               
               {/* Contact Information */}
-              <div className="lg:col-span-1">
+              <div className="lg:col-span-1 bg-muted/20 p-6 rounded-lg">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h2>
                 
                 <div className="space-y-6">
