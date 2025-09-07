@@ -44,7 +44,7 @@ const Services = () => {
       title: "Penetration Testing",
       description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable, and resilient security strategies.",
       features: ["Network Security Testing", "Application Security", "Cloud Infrastructure", "Vulnerability Assessment"],
-      variant: "outline" as const
+      variant: "incident" as const
     },
     {
       id: "05",
@@ -52,7 +52,7 @@ const Services = () => {
       title: "Insider Threat Investigations", 
       description: "Comprehensive insider threat investigations, behavioral analysis, digital forensics, and remediation for trusted insider or 3rd party contractor incidents.",
       features: ["Digital Forensics", "Behavioral Analysis", "Discreet Investigation", "Remediation Planning"],
-      variant: "outline" as const
+      variant: "incident" as const
     },
     {
       id: "06",
@@ -60,7 +60,7 @@ const Services = () => {
       title: "Tabletop Exercises (TTX)",
       description: "Custom incident response readiness scenarios designed to reflect real threats your organization may face, with detailed gap analysis.",
       features: ["Custom Scenarios", "Gap Analysis", "Team Training", "Compliance Requirements"],
-      variant: "outline" as const
+      variant: "incident" as const
     },
     {
       id: "07",
