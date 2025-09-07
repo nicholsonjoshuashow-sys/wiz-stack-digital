@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -88,6 +89,7 @@ const TabletopExercises = () => {
       />
       <div className="min-h-screen bg-background">
         <Header />
+        <BreadcrumbNavigation className="pt-20" />
         
         <main>
           {/* Hero Section */}

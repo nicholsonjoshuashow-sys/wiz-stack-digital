@@ -3,6 +3,9 @@ import { Card } from "@/components/ui/card";
 import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { penetrationTestingServiceData } from "@/data/structuredData";
 
 const PenetrationTesting = () => {
@@ -48,21 +51,10 @@ const PenetrationTesting = () => {
         structuredData={penetrationTestingServiceData}
       />
       <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-cyber-gray/30">
-        <div className="container mx-auto px-6 py-4">
-          <Link to="/" className="flex items-center space-x-3">
-            <div>
-              <h1 className="text-xl font-bold text-foreground">
-                DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
-              </h1>
-              <p className="text-sm font-bold text-muted-foreground">Cyber Defense</p>
-            </div>
-          </Link>
-        </div>
-      </header>
+        <Header />
+        <BreadcrumbNavigation className="pt-20" />
 
-      <main className="pt-20">
+        <main>
         {/* Hero Section */}
         <section className="py-20 bg-gradient-dark">
           <div className="container mx-auto px-6">
@@ -168,6 +160,7 @@ const PenetrationTesting = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
     </>
   );

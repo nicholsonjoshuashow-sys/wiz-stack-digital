@@ -1,4 +1,7 @@
 import SEO from "@/components/SEO";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -118,6 +121,9 @@ const Contact = () => {
       />
 
       <div className="min-h-screen bg-background relative">
+        <Header />
+        <BreadcrumbNavigation className="pt-20 relative z-10" />
+        
         {/* Background Image */}
         <div className="fixed inset-0 z-0">
           <img 
@@ -326,6 +332,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     </>
   );

@@ -1,18 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users, Home } from "lucide-react";
+import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Podcast = () => {
@@ -127,36 +120,9 @@ const Podcast = () => {
       />
       <div className="min-h-screen bg-background">
         <Header />
+        <BreadcrumbNavigation className="pt-20" />
         
-        <main className="pt-20">
-          {/* Breadcrumb Navigation */}
-          <section className="py-4 px-4 bg-muted/20">
-            <div className="max-w-6xl mx-auto">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/" className="inline-flex items-center">
-                        <Home className="mr-1 h-4 w-4" />
-                        Home
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link to="/media">Media</Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>Podcast</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
-            </div>
-          </section>
-
+        <main>
           {/* Hero Section */}
           <section className="py-12 px-4 bg-gradient-to-br from-background via-background/95 to-primary/5">
             <div className="max-w-6xl mx-auto text-center">

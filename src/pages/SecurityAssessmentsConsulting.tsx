@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { 
   Shield, 
   CheckCircle, 
@@ -81,6 +82,7 @@ const SecurityAssessmentsConsulting = () => {
       />
       <div className="min-h-screen bg-background">
         <Header />
+        <BreadcrumbNavigation className="pt-20" />
         
         <main>
           {/* Hero Section */}
