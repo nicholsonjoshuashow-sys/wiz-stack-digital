@@ -144,6 +144,15 @@ const Header = () => {
               
               <NavigationMenuItem>
                 <NavigationMenuLink
+                  href="/podcast"
+                  className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
+                >
+                  Podcast
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuLink
                   href="/contact"
                   className="text-pearl-white hover:text-cyber-blue transition-colors px-3 py-2 text-sm font-medium"
                 >
@@ -202,8 +211,8 @@ const Header = () => {
                   </a>
                 </div>
               </div>
-              <a href="/media" className="text-pearl-white hover:text-cyber-blue transition-colors">
-                Media
+              <a href="/podcast" className="text-pearl-white hover:text-cyber-blue transition-colors">
+                Podcast
               </a>
               <a href="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 Contact Us
