@@ -137,6 +137,17 @@ const IncidentResponse = () => {
                   </Card>
                 ))}
               </div>
+
+              <div className="flex justify-center mt-16">
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/12d91e59-5e83-4dd7-9feb-4f2fe1c2ae53.png" 
+                    alt="Darkstack7 Incident Response Expert" 
+                    className="w-48 h-48 rounded-full object-cover border-4 border-cyber-blue/30 shadow-lg"
+                  />
+                  <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10"></div>
+                </div>
+              </div>
             </div>
           </section>
 
