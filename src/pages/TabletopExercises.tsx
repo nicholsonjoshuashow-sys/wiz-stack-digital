@@ -18,7 +18,8 @@ import {
   Zap,
   Mail,
   Factory,
-  ShieldX
+  ShieldX,
+  UserX
 } from "lucide-react";
 
 const TabletopExercises = () => {
@@ -225,7 +226,7 @@ const TabletopExercises = () => {
                     
                     <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
                       <div className="flex items-start space-x-4">
-                        <ShieldX className="h-8 w-8 text-cyber-cyan flex-shrink-0 mt-1" />
+                        <UserX className="h-8 w-8 text-cyber-cyan flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="text-xl font-bold text-foreground mb-3">Data Breach</h4>
                           <p className="text-muted-foreground mb-3"><strong>Initial Trigger:</strong> Unauthorized access to sensitive data or unusual exfiltration activity.</p>
