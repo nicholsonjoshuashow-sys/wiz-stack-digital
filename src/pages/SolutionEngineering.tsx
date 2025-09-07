@@ -15,7 +15,7 @@ import {
   Settings,
   Zap,
   ShieldCheck,
-  Cloud
+  CloudLightning
 } from "lucide-react";
 
 const SolutionEngineering = () => {
@@ -79,7 +79,7 @@ const SolutionEngineering = () => {
       features: ["Rapid response coordination", "Multi-vendor management", "Executive communication", "Forensic oversight"]
     },
     {
-      icon: <Cloud className="h-6 w-6" />,
+      icon: <CloudLightning className="h-6 w-6" />,
       title: "Cloud Security Management",
       description: "Comprehensive cloud security monitoring and management across multi-cloud environments.",
       features: ["Cloud workload protection", "Configuration monitoring", "Compliance management", "Identity security"]
