@@ -89,7 +89,7 @@ const Media = () => {
     {
       title: "Security Leadership Podcast",
       description: "Interviews with top cybersecurity executives and thought leaders",
-      link: "#",
+      link: "https://youtu.be/iZnxXZ7qux4?si=ywb3DLL3ng3LuHgE",
       type: "Podcast Series"
     },
     {
