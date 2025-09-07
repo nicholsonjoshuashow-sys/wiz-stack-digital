@@ -12,7 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ExternalLink, Play, Users, Calendar, Award, Globe, Shield, Target, Home } from "lucide-react";
+import { ExternalLink, Play, Users, Calendar, Award, Globe, Shield, AlertTriangle, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Media = () => {
@@ -112,7 +112,7 @@ const Media = () => {
       description: "Led security operations across 60+ countries with international incident response"
     },
     {
-      icon: Target,
+      icon: AlertTriangle,
       title: "Crisis Leadership",
       description: "Specialized in high-stakes cybersecurity incidents and emergency response coordination"
     },
