@@ -42,7 +42,7 @@ const Services = () => {
       id: "04",
       icon: <Target className="h-8 w-8" />,
       title: "Penetration Testing",
-      description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable, and resilient security strategies. Our testing methodology combines automated tools with manual techniques to identify vulnerabilities that attackers could exploit in your environment. We provide detailed reports with actionable remediation steps.",
+      description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable, and resilient security strategies. Our testing methodology combines automated tools with manual techniques to identify vulnerabilities that attackers could exploit in your environment. We provide detailed reports with actionable remediation steps. Each assessment includes executive briefings and technical documentation tailored to your organization's needs.",
       features: ["Network Security Testing", "Application Security", "Cloud Infrastructure", "Vulnerability Assessment"],
       variant: "incident" as const
     },
