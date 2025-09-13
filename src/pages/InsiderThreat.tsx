@@ -106,20 +106,6 @@ const InsiderThreat = () => {
                   to identify malicious, negligent, or compromised insiders.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="cyber" className="text-lg" asChild>
-                    <Link to="/#contact">
-                      Start Investigation
-                      <Search className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link to="#capabilities">
-                      Learn More
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                </div>
               </div>
             </div>
           </section>
