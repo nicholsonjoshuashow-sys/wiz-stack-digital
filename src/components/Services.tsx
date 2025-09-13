@@ -138,11 +138,76 @@ const Services = () => {
                 {/* Features */}
                 <ul className="space-y-2 mb-6 flex-grow">
                   {service.features.map((feature, index) => (
-                    <li key={index} className="text-sm text-muted-foreground">
+                    <li key={index} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
                 </ul>
+
+                {/* CTA Button */}
+                {service.id === "01" ? (
+                  <Link to="/services/IR" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "02" ? (
+                  <Link to="/services/CISO" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "03" ? (
+                  <Link to="/services/security-assessments-consulting" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "04" ? (
+                  <Link to="/services/penetration-testing" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "05" ? (
+                  <Link to="/services/insiderthreat" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "06" ? (
+                  <Link to="/services/tabletop_exercises" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "07" ? (
+                  <Link to="/services/solution-engineering" className="block">
+                    <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : service.id === "08" ? (
+                  <Link to="/services/training-keynotes" className="block">
+                    <Button variant="cyber" size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                )}
               </div>
 
               {/* Hover Effect Background */}
