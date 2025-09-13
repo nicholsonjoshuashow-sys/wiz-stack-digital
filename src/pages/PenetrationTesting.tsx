@@ -92,7 +92,7 @@ const PenetrationTesting = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testingTypes.map((type, index) => (
-                <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300">
+                <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 border-2 border-red-500">
                   <div className="flex items-start space-x-4">
                     <div className="text-cyber-blue">
                       {type.icon}
@@ -123,7 +123,7 @@ const PenetrationTesting = () => {
               </div>
               
               <div>
-                <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
+                <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30 border-2 border-red-500">
                   <h3 className="text-xl font-bold text-foreground mb-6">Testing Process</h3>
                   <div className="space-y-4">
                     {methodology.map((step, index) => (
