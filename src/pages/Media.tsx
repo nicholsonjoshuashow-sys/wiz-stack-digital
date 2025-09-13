@@ -181,14 +181,15 @@ const Media = () => {
                         alt={video.title}
                         className="w-full h-48 object-cover"
                       />
-                      <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                        <Button asChild size="lg" variant="secondary">
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <Button asChild size="lg" variant="secondary" className="bg-white/90 text-black hover:bg-white">
                           <a 
                             href={video.videoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="inline-flex items-center"
                           >
-                            <Play className="mr-2 h-5 w-5" />
+                            <Play className="mr-2 h-5 w-5 fill-current" />
                             Watch
                           </a>
                         </Button>
