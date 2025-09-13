@@ -96,16 +96,7 @@ const IncidentResponse = () => {
                   with clarity and control.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    size="lg" 
-                    variant="cyber" 
-                    className="text-lg"
-                    onClick={() => window.location.href = 'tel:803-900-4609'}
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Emergency Hotline
-                  </Button>
+                <div className="flex justify-center">
                   <Button size="lg" variant="outline" asChild>
                     <Link to="/contact">
                       Learn More

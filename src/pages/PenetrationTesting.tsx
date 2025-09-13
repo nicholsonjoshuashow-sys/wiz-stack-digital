@@ -63,7 +63,7 @@ const PenetrationTesting = () => {
               Back to Services
             </Link>
             
-            <div className="max-w-4xl">
+            <div className="max-w-4xl text-center mx-auto">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
                 Penetration <span className="bg-gradient-primary bg-clip-text text-transparent">Testing</span>
               </h1>
@@ -144,12 +144,9 @@ const PenetrationTesting = () => {
               Don't wait for a breach to discover vulnerabilities. Schedule your penetration test today 
               and strengthen your security posture with actionable insights.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cyber" size="lg" className="text-lg px-8 py-3">
-                Schedule Assessment
-              </Button>
+            <div className="flex justify-center">
               <Button 
-                variant="outline" 
+                variant="cyber" 
                 size="lg" 
                 className="text-lg px-8 py-3"
                 onClick={() => window.location.href = '/services/requestquote'}

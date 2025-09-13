@@ -362,6 +362,20 @@ const TrainingKeynotes = () => {
                     className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/board-holiday-party.jpg"
+                    alt="Joshua Nicholson at North Carolina Veterans Business Association Board Holiday Party"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/blackhat-singapore.png"
+                    alt="Joshua Nicholson at BlackHat Asia 2019 conference in Singapore"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
               </div>
             </div>
           </section>
