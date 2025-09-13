@@ -257,19 +257,11 @@ const IncidentResponse = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Don't wait during a security incident. Contact our emergency response team immediately.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Button 
                   size="lg" 
-                  variant="cyber" 
+                  variant="cyber"
                   className="text-lg"
-                  onClick={() => window.location.href = 'tel:803-900-4609'}
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Emergency Hotline
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
                   onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
                 >
                   Schedule Consultation
