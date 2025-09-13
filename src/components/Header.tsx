@@ -159,6 +159,21 @@ const Header = () => {
                         </Link>
                       </NavigationMenuLink>
                     </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to="/services/training-keynotes"
+                          className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          )}
+                        >
+                          <div className="text-sm font-medium leading-none">Training & Keynotes</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Executive training and conference speaking services
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -265,6 +280,9 @@ const Header = () => {
                   </Link>
                   <Link to="/services/solution-engineering" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
                     Solution Engineering
+                  </Link>
+                  <Link to="/services/training-keynotes" className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm">
+                    Training & Keynotes
                   </Link>
                 </div>
               </div>
