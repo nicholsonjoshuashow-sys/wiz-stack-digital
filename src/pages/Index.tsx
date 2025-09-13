@@ -23,7 +23,6 @@ const Index = () => {
           <Hero />
           <Services />
           <Expertise />
-          <Contact />
         </main>
         <Footer />
       </div>
