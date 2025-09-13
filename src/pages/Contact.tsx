@@ -42,29 +42,28 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', `${formData.firstName} ${formData.lastName}`);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('phone', formData.phone || 'Not provided');
-      formDataToSend.append('company', formData.company || 'Not provided');
-      formDataToSend.append('position', formData.position || 'Not provided');
-      formDataToSend.append('criticality', formData.criticality);
-      formDataToSend.append('services', formData.services.join(', ') || 'None selected');
-      formDataToSend.append('details', formData.details || 'No additional details');
-      formDataToSend.append('newsletter', formData.newsletter ? 'Yes' : 'No');
-      formDataToSend.append('_to', 'sales@darkstack7.com');
-      formDataToSend.append('_from', 'no-reply@darkstack7.com');
-      formDataToSend.append('_subject', `Contact Form Submission - ${formData.criticality} Priority`);
+      const contactData = {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        services: formData.services,
+        priority: formData.criticality,
+        message: formData.details || 'No additional details provided'
+      };
 
-      const response = await fetch('https://formspree.io/f/xanylpzy', {
+      const response = await fetch('https://jfreigfygqxnwaafgwvr.supabase.co/functions/v1/send-contact-email', {
         method: 'POST',
-        body: formDataToSend,
         headers: {
-          'Accept': 'application/json'
-        }
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmcmVpZ2Z5Z3F4bndhYWZnd3ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1Njc1OTQsImV4cCI6MjA3MzE0MzU5NH0.YwrYcYFEh903zhF6G-rhf5E37uq9ZSKPsnV75_igJp0`
+        },
+        body: JSON.stringify(contactData)
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         toast({
           title: "Message Sent Successfully",
           description: "We'll get back to you within 15 minutes.",
@@ -84,7 +83,7 @@ const Contact = () => {
           newsletter: false
         });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(result.error || 'Failed to send message');
       }
 
     } catch (error) {
