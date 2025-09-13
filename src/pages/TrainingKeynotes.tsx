@@ -167,7 +167,7 @@ const TrainingKeynotes = () => {
                   <div className="relative">
                     <div className="flex justify-center">
                       <img 
-                        src="/lovable-uploads/67b11867-0e34-4757-b1c0-a136f9e5deaf.png" 
+                        src="/lovable-uploads/professional-headshot.jpg" 
                         alt="Joshua R. Nicholson - Cybersecurity Expert and Keynote Speaker" 
                         className="w-80 h-80 rounded-lg object-cover border-4 border-cyber-blue/30 shadow-lg"
                       />
