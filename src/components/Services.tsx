@@ -15,19 +15,32 @@ import {
 const Services = () => {
   const services = [
     {
+      id: "00",
+      icon: <Network className="h-8 w-8" />,
+      title: "Service Overview & Legend",
+      description: "Understanding our comprehensive cybersecurity approach: Red indicates reactive incident response services for active threats, while Blue represents proactive consulting and strategic services. All services are unified through our Solution Engineering approach.",
+      features: [
+        "🔴 Reactive: Incident Response, Penetration Testing, Insider Threat, Tabletop Exercises", 
+        "🔵 Proactive: Virtual CISO, Security Assessments, Solution Engineering, Training", 
+        "Unified approach through Solution Engineering coordination",
+        "24/7 availability for critical incidents"
+      ],
+      variant: "outline" as const
+    },
+    {
       id: "01",
       icon: <Siren className="h-8 w-8" />,
       title: "Incident Response (IR)",
-      description: "On-demand IR Commander for active breaches. Board-level briefings, forensic leadership, regulatory guidance, threat validation, and executive crisis communication.",
-      features: ["24/7 Emergency Response", "Board-Level Communication", "Forensic Investigation", "Regulatory Compliance"],
+      description: "On-demand IR Commander for active breaches. Board-level briefings, forensic leadership, IR Architecture / Runbooks, threat validation, and executive crisis communication.",
+      features: ["24/7 Emergency Response", "Threat Validation & Forensics", "IR Architecture & Runbooks", "Board-Level Communication"],
       variant: "incident" as const
     },
     {
       id: "02", 
       icon: <User className="h-8 w-8" />,
       title: "Virtual CISO (vCISO)",
-      description: "Technical leadership with real-world experience. Executive-level cybersecurity expertise focused on strategy, architecture, threat defense, and security engineering.",
-      features: ["Strategic Planning", "Security Architecture", "Team Leadership", "Risk Assessment"],
+      description: "Technical leadership with real-world experience on a fractional cost basis. Executive-level cybersecurity expertise focused on strategy, architecture, threat defense, and security engineering.",
+      features: ["Current State / Future State / Roadmap", "Solutions Architecture & Risk", "Team Leadership", "Audit & Compliance"],
       variant: "cyber" as const
     },
     {
@@ -68,15 +81,15 @@ const Services = () => {
       icon: <Network className="h-8 w-8" />,
       title: "Solution Engineering",
       description: "Strategic technology partnerships and managed security service provider integration to enhance your cybersecurity capabilities and operational effectiveness.",
-      features: ["Partner Integration", "Technology Solutions", "MSSP Coordination", "Strategic Planning"],
+      features: ["Trusted Partnerships", "Tailored Security Solutions", "Coordinated Operations", "Strategic Cyber Planning"],
       variant: "cyber" as const
     },
     {
       id: "08",
       icon: <Presentation className="h-8 w-8" />,
-      title: "Training & Speaking",
-      description: "Executive-level training, public speaking, and leadership development focused on real-world cybersecurity challenges and building resilient security cultures.",
-      features: ["Executive Training", "Conference Speaking", "Team Workshops", "Leadership Development"],
+      title: "Training & Keynotes",
+      description: "From the boardroom to the big stage, we deliver powerful stories and actionable lessons that inspire leaders and teams to embrace cybersecurity as a driver of growth and resilience.",
+      features: ["Executive Training", "Conference Speaking", "Interactive Workshops", "Leadership Growth"],
       variant: "outline" as const
     }
   ];
@@ -90,8 +103,10 @@ const Services = () => {
             Our <span className="bg-gradient-primary bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Founded by Joshua R. Nicholson—a 24-year cybersecurity veteran and former U.S. Marine with 
-            leadership experience across Fortune 500 companies and government agencies.
+            Darkstack7 delivers comprehensive cybersecurity services spanning reactive incident response and proactive strategic consulting. 
+            Our elite team provides 24/7 emergency response, virtual CISO leadership, penetration testing, insider threat investigations, 
+            tabletop exercises, security assessments, solution engineering, and executive training. Founded by Joshua R. Nicholson—a 24-year 
+            cybersecurity veteran and former U.S. Marine with leadership experience across Fortune 500 companies and government agencies.
           </p>
         </header>
 
@@ -180,6 +195,13 @@ const Services = () => {
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
+                ) : service.id === "08" ? (
+                  <Link to="/services/training-keynotes" className="block">
+                    <Button variant="cyber" size="sm" className="w-full group-hover:shadow-glow transition-all">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 ) : (
                   <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                     Learn More
@@ -196,8 +218,13 @@ const Services = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <Button variant="cyber" size="lg" className="text-lg px-8 py-3">
-            Schedule Emergency Consultation
+          <Button 
+            variant="cyber" 
+            size="lg" 
+            className="text-lg px-8 py-3"
+            onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
+          >
+            Schedule Consultation
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>

@@ -23,23 +23,23 @@ const SolutionEngineering = () => {
   const capabilities = [
     {
       icon: <Network className="h-6 w-6" />,
-      title: "Technology Integration",
-      description: "Seamless integration of cybersecurity technologies into your existing infrastructure with minimal disruption."
+      title: "Trusted Partnerships",
+      description: "Building and managing strategic cybersecurity partnerships that deliver measurable value to your organization."
     },
     {
       icon: <Shield className="h-6 w-6" />,
-      title: "MSSP Partnership Management",
-      description: "Strategic management and coordination of Managed Security Service Provider relationships for optimal coverage."
+      title: "Tailored Security Solutions",
+      description: "Custom-designed security solutions that align with your specific business requirements and risk profile."
     },
     {
       icon: <Settings className="h-6 w-6" />,
-      title: "Solution Architecture",
-      description: "Custom security solution design and architecture to address your unique business requirements and risk profile."
+      title: "Coordinated Operations",
+      description: "Seamless coordination between internal teams, vendors, and service providers for optimal security operations."
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Vendor Coordination",
-      description: "Expert coordination between multiple security vendors to ensure cohesive security operations and management."
+      title: "Strategic Cyber Planning",
+      description: "Long-term cybersecurity strategy development that supports business growth and digital transformation."
     }
   ];
 

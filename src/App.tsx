@@ -11,6 +11,7 @@ import IncidentResponse from "./pages/IncidentResponse";
 import InsiderThreat from "./pages/InsiderThreat";
 import TabletopExercises from "./pages/TabletopExercises";
 import SolutionEngineering from "./pages/SolutionEngineering";
+import TrainingKeynotes from "./pages/TrainingKeynotes";
 import Contact from "./pages/Contact";
 import Media from "./pages/Media";
 import Podcast from "./pages/Podcast";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/services/insiderthreat" element={<InsiderThreat />} />
           <Route path="/services/tabletop_exercises" element={<TabletopExercises />} />
           <Route path="/services/solution-engineering" element={<SolutionEngineering />} />
+          <Route path="/services/training-keynotes" element={<TrainingKeynotes />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/media" element={<Media />} />
           <Route path="/podcast" element={<Podcast />} />
