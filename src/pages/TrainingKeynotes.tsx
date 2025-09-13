@@ -51,7 +51,7 @@ const TrainingKeynotes = () => {
     },
     {
       title: "Industry Recognition",
-      description: "Featured speaker at FS-ISAC, BlackHat, RSA Conference",
+      description: "Featured speaker at dozens of conferences and customer events",
       icon: <Trophy className="h-8 w-8" />
     },
     {
