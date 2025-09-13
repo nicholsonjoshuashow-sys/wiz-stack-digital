@@ -15,19 +15,6 @@ import {
 const Services = () => {
   const services = [
     {
-      id: "00",
-      icon: <Network className="h-8 w-8" />,
-      title: "Service Overview & Legend",
-      description: "Understanding our comprehensive cybersecurity approach: Red indicates reactive incident response services for active threats, while Blue represents proactive consulting and strategic services. All services are unified through our Solution Engineering approach.",
-      features: [
-        "🔴 Reactive: Incident Response, Penetration Testing, Insider Threat, Tabletop Exercises", 
-        "🔵 Proactive: Virtual CISO, Security Assessments, Solution Engineering, Training", 
-        "Unified approach through Solution Engineering coordination",
-        "24/7 availability for critical incidents"
-      ],
-      variant: "outline" as const
-    },
-    {
       id: "01",
       icon: <Siren className="h-8 w-8" />,
       title: "Incident Response (IR)",
@@ -45,6 +32,14 @@ const Services = () => {
     },
     {
       id: "03",
+      icon: <Network className="h-8 w-8" />,
+      title: "Solution Engineering",
+      description: "Strategic technology partnerships and managed security service provider integration to enhance your cybersecurity capabilities and operational effectiveness.",
+      features: ["Trusted Partnerships", "Tailored Security Solutions", "Coordinated Operations", "Strategic Cyber Planning"],
+      variant: "cyber" as const
+    },
+    {
+      id: "04",
       icon: <User className="h-8 w-8" />,
       title: "Security Assessments & Consulting",
       description: "Clear, actionable roadmaps to strengthen defenses and reduce risk. Deep technical expertise with business-focused insight for comprehensive security posture assessments.",
@@ -53,7 +48,7 @@ const Services = () => {
       cta: "Request a Quote"
     },
     {
-      id: "04",
+      id: "05",
       icon: <Target className="h-8 w-8" />,
       title: "Penetration Testing",
       description: "Comprehensive security assessments that uncover real risks, validate controls, and build practical, scalable security strategies.",
@@ -61,7 +56,7 @@ const Services = () => {
       variant: "incident" as const
     },
     {
-      id: "05",
+      id: "06",
       icon: <Users className="h-8 w-8" />,
       title: "Insider Threat Investigations", 
       description: "Comprehensive insider threat investigations, behavioral analysis, digital forensics, and remediation for trusted insider or 3rd party contractor incidents.",
@@ -69,20 +64,12 @@ const Services = () => {
       variant: "incident" as const
     },
     {
-      id: "06",
+      id: "07",
       icon: <Zap className="h-8 w-8" />,
       title: "Tabletop Exercises (TTX)",
       description: "Custom incident response readiness scenarios designed to reflect real threats your organization may face, with detailed gap analysis.",
       features: ["Custom Scenarios", "Gap Analysis", "Team Training", "Compliance Requirements"],
       variant: "incident" as const
-    },
-    {
-      id: "07",
-      icon: <Network className="h-8 w-8" />,
-      title: "Solution Engineering",
-      description: "Strategic technology partnerships and managed security service provider integration to enhance your cybersecurity capabilities and operational effectiveness.",
-      features: ["Trusted Partnerships", "Tailored Security Solutions", "Coordinated Operations", "Strategic Cyber Planning"],
-      variant: "cyber" as const
     },
     {
       id: "08",
@@ -93,6 +80,10 @@ const Services = () => {
       variant: "outline" as const
     }
   ];
+
+  const handleServiceClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <section id="services" className="py-20 bg-gradient-dark" aria-labelledby="services-heading">
@@ -147,56 +138,56 @@ const Services = () => {
 
                 {/* CTA Button */}
                 {service.id === "01" ? (
-                  <Link to="/services/IR" className="block">
+                  <Link to="/services/IR" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "02" ? (
-                  <Link to="/services/CISO" className="block">
+                  <Link to="/services/CISO" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "03" ? (
-                  <Link to="/services/security-assessments-consulting" className="block">
+                  <Link to="/services/solution-engineering" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "04" ? (
-                  <Link to="/services/penetration-testing" className="block">
+                  <Link to="/services/security-assessments-consulting" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "05" ? (
-                  <Link to="/services/insiderthreat" className="block">
+                  <Link to="/services/penetration-testing" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "06" ? (
-                  <Link to="/services/tabletop_exercises" className="block">
+                  <Link to="/services/insiderthreat" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "07" ? (
-                  <Link to="/services/solution-engineering" className="block">
+                  <Link to="/services/tabletop_exercises" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "08" ? (
-                  <Link to="/services/training-keynotes" className="block">
+                  <Link to="/services/training-keynotes" className="block" onClick={handleServiceClick}>
                     <Button variant="cyber" size="sm" className="w-full group-hover:shadow-glow transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
