@@ -227,6 +227,25 @@ const Media = () => {
                 </p>
               </div>
               
+              {/* News Section Card */}
+              <div className="mb-8">
+                <Card className="p-6 bg-gradient-to-r from-cyber-blue/10 to-fire-red/10 border-cyber-blue/20">
+                  <div className="text-center">
+                    <Badge variant="secondary" className="mb-4">Latest Updates</Badge>
+                    <h3 className="font-bold text-2xl mb-3">Cybersecurity News & Insights</h3>
+                    <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                      Stay informed with the latest cybersecurity insights, industry analysis, and strategic guidance from our LinkedIn content and expert commentary.
+                    </p>
+                    <Button asChild size="lg">
+                      <Link to="/media/news" className="inline-flex items-center">
+                        View News & Insights
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+              
               <div className="grid md:grid-cols-3 gap-8">
                 {mediaHighlights.map((item, index) => (
                   <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">

@@ -18,8 +18,10 @@ const routeConfig: Record<string, string> = {
   '/services/solution-engineering': 'Solution Engineering',
   '/contact': 'Contact Us',
   '/media': 'Media & Content',
+  '/media/news': 'News & Insights',
   '/podcast': 'Cybersecurity America Podcast',
   '/request-quote': 'Request Quote',
+  '/services/training-keynotes': 'Training & Keynotes',
 };
 
 export const useBreadcrumbs = (): BreadcrumbItem[] => {

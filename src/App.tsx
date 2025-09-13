@@ -14,6 +14,7 @@ import SolutionEngineering from "./pages/SolutionEngineering";
 import TrainingKeynotes from "./pages/TrainingKeynotes";
 import Contact from "./pages/Contact";
 import Media from "./pages/Media";
+import News from "./pages/News";
 import Podcast from "./pages/Podcast";
 import RequestQuote from "./pages/RequestQuote";
 import NotFound from "./pages/NotFound";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/services/training-keynotes" element={<TrainingKeynotes />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/media" element={<Media />} />
+          <Route path="/media/news" element={<News />} />
           <Route path="/podcast" element={<Podcast />} />
           <Route path="/services/requestquote" element={<Contact />} />
           <Route path="/request-quote" element={<Contact />} />
