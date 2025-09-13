@@ -98,6 +98,13 @@ const SecurityAssessmentsConsulting = () => {
                 <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
                   Get a clear, actionable roadmap to strengthen your defenses and reduce risk with expert cybersecurity consulting services.
                 </p>
+                <div className="flex justify-center mt-8">
+                  <img 
+                    src="/lovable-uploads/cyber-defense-hero.jpg" 
+                    alt="Cybersecurity professional monitoring security dashboards and threat detection systems"
+                    className="w-80 h-60 object-cover rounded-lg shadow-glow border border-cyber-gray/30"
+                  />
+                </div>
               </div>
             </div>
           </section>
