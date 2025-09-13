@@ -200,7 +200,7 @@ const Podcast = () => {
               
               <div className="space-y-8">
                 {podcastEpisodes.map((episode) => (
-                  <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-secondary/80 border-secondary">
+                  <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-secondary/80 border-secondary border-2 border-red-500">
                     <div className="p-6">
                       <div className="flex flex-col lg:flex-row gap-6">
                         <div className="flex-1">
