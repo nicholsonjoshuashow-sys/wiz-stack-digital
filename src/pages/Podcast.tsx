@@ -381,7 +381,7 @@ const Podcast = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
-                  <Link to="/contact" className="inline-flex items-center">
+                  <Link to="/podcast/guest" className="inline-flex items-center">
                     Be a Guest
                   </Link>
                 </Button>

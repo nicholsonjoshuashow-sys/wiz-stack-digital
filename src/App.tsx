@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import Media from "./pages/Media";
 import News from "./pages/News";
 import Podcast from "./pages/Podcast";
+import PodcastGuest from "./pages/PodcastGuest";
 import RequestQuote from "./pages/RequestQuote";
 import NotFound from "./pages/NotFound";
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/media" element={<Media />} />
           <Route path="/media/news" element={<News />} />
           <Route path="/podcast" element={<Podcast />} />
+          <Route path="/podcast/guest" element={<PodcastGuest />} />
           <Route path="/services/requestquote" element={<Contact />} />
           <Route path="/request-quote" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
