@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Target, Users, Briefcase, TrendingUp, CheckCircle } from "lucide-react";
+import { ArrowRight, Shield, Target, Users, Briefcase, TrendingUp, CheckCircle, Globe, Laptop } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -14,12 +14,12 @@ const CISO = () => {
       description: "Executive-level guidance aligned to your business goals and growth objectives"
     },
     {
-      icon: <Users className="h-6 w-6" />,
+      icon: <Globe className="h-6 w-6" />,
       title: "Proven Global Experience",
       description: "Real-world experience leading security teams and major incident response efforts"
     },
     {
-      icon: <Target className="h-6 w-6" />,
+      icon: <Laptop className="h-6 w-6" />,
       title: "Hands-on Guidance",
       description: "Direct support for both technical teams and executive stakeholders"
     },
