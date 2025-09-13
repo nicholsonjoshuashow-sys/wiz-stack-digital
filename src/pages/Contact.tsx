@@ -167,7 +167,7 @@ const Contact = () => {
                 <h2 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h2>
                 
                 <div className="space-y-6">
-                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30">
+                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
                         <Phone className="w-6 h-6 text-cyber-cyan" />
@@ -180,7 +180,7 @@ const Contact = () => {
                     </div>
                   </Card>
 
-                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30">
+                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
                         <Mail className="w-6 h-6 text-cyber-cyan" />
@@ -192,7 +192,7 @@ const Contact = () => {
                     </div>
                   </Card>
 
-                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30">
+                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
                         <Clock className="w-6 h-6 text-cyber-cyan" />
@@ -208,7 +208,7 @@ const Contact = () => {
 
               {/* Contact Form */}
               <div className="lg:col-span-2">
-                <Card className="p-8">
+                <Card className="p-8 border-2 border-red-500">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
