@@ -10,9 +10,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Mic, Users, Clock, Calendar, Headphones, ExternalLink } from "lucide-react";
+import { Mic, Users, Clock, CalendarIcon, Headphones, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 const PodcastGuest = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +34,7 @@ const PodcastGuest = () => {
     websiteUrl: '',
     recordingFormat: '',
     previousExperience: '',
-    availability: '',
+    availability: null as Date | null,
     newsletter: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -96,7 +100,7 @@ Website: ${formData.websiteUrl}
 
 Recording Preferences: ${formData.recordingFormat}
 Previous Podcast Experience: ${formData.previousExperience}
-Availability: ${formData.availability}
+Availability: ${formData.availability ? format(formData.availability, "PPP") : 'Not specified'}
 
 Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
       };
@@ -134,7 +138,7 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
           websiteUrl: '',
           recordingFormat: '',
           previousExperience: '',
-          availability: '',
+          availability: null,
           newsletter: false
         });
       } else {
@@ -173,7 +177,7 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
       description: "Deep-dive conversations"
     },
     {
-      icon: Calendar,
+      icon: CalendarIcon,
       label: "Recording",
       value: "Remote",
       description: "Flexible scheduling"
@@ -239,7 +243,7 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
               </p>
             </div>
 
-            <Card className="p-8">
+            <Card className="p-8 border-2 border-red-500">
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Personal Information */}
                 <div>
@@ -402,30 +406,36 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
 
                 {/* Recording Preferences */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Recording Preferences</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <Label htmlFor="recordingFormat">Preferred Recording Format</Label>
-                      <Select value={formData.recordingFormat} onValueChange={(value) => setFormData(prev => ({ ...prev, recordingFormat: value }))}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select recording preference" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="video">Video call (Zoom/Teams) - Audio & Video</SelectItem>
-                          <SelectItem value="audio-only">Audio only - Phone/Voice call</SelectItem>
-                          <SelectItem value="either">Either format works for me</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="availability">General Availability</Label>
-                      <Input
-                        id="availability"
-                        value={formData.availability}
-                        onChange={(e) => setFormData(prev => ({ ...prev, availability: e.target.value }))}
-                        placeholder="e.g., Weekdays 2-5 PM EST, Flexible, etc."
-                      />
-                    </div>
+                  <h3 className="text-xl font-semibold mb-4">Availability</h3>
+                  <div>
+                    <Label htmlFor="availability">Preferred Date for Recording</Label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className={cn(
+                            "w-full justify-start text-left font-normal",
+                            !formData.availability && "text-muted-foreground"
+                          )}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {formData.availability ? format(formData.availability, "PPP") : <span>Select a date</span>}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={formData.availability || undefined}
+                          onSelect={(date) => setFormData(prev => ({ ...prev, availability: date || null }))}
+                          disabled={(date) => date < new Date()}
+                          initialFocus
+                          className={cn("p-3 pointer-events-auto")}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Select your preferred date. We'll coordinate the specific time via email.
+                    </p>
                   </div>
                 </div>
 
@@ -455,7 +465,7 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
             <h2 className="text-3xl md:text-4xl font-bold mb-6">What to Expect</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-6">
-                <Calendar className="w-12 h-12 text-primary mx-auto mb-4" />
+                <CalendarIcon className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Flexible Scheduling</h3>
                 <p className="text-sm text-muted-foreground">
                   We work around your schedule. Most recordings happen remotely and can be scheduled at your convenience.
