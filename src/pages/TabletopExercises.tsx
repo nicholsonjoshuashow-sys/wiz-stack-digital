@@ -115,7 +115,12 @@ const TabletopExercises = () => {
                       <Calendar className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <Button variant="outline" size="lg" className="text-lg px-8">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="text-lg px-8"
+                    onClick={() => document.getElementById('scenario-framework')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
                     View Sample Scenarios
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -209,7 +214,7 @@ const TabletopExercises = () => {
           </section>
 
           {/* Cybersecurity Scenarios Framework */}
-          <section className="py-20 bg-gradient-dark">
+          <section id="scenario-framework" className="py-20 bg-gradient-dark">
             <div className="container mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
