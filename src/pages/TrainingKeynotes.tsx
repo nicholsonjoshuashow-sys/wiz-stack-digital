@@ -108,7 +108,7 @@ const TrainingKeynotes = () => {
                   leaders and teams to embrace cybersecurity as a driver of growth and resilience.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex justify-center">
                   <Button 
                     size="lg" 
                     variant="cyber" 
@@ -117,12 +117,6 @@ const TrainingKeynotes = () => {
                   >
                     <Presentation className="mr-2 h-5 w-5" />
                     Book Speaking Engagement
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link to="/contact">
-                      Request Training
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
                   </Button>
                 </div>
               </div>
@@ -313,6 +307,75 @@ const TrainingKeynotes = () => {
             </div>
           </section>
 
+          {/* Conference Gallery Section */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">
+                  Conference <span className="text-cyber-blue">Gallery</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Highlights from speaking engagements and conference presentations around the world.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/nokia-conference.png"
+                    alt="Nokia Conference - Team collaboration and networking"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/josh-presenting.png"
+                    alt="Joshua Nicholson presenting on PS Strategy and Services"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/summit-london.png"
+                    alt="Summit London - International cybersecurity conference"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/data-presentation.png"
+                    alt="Professional Services Key Numbers presentation with data analytics"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/strength-sharing.png"
+                    alt="Strength in Sharing conference presentation"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/agenda-presentation.png"
+                    alt="Conference agenda presentation to cybersecurity professionals"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-8 flex justify-center">
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all max-w-md">
+                  <img 
+                    src="/conference-gallery/saudi-aramco.png"
+                    alt="Saudi Aramco Cybersecurity Workshop for Managers"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* CTA Section */}
           <section className="py-20 bg-gradient-dark">
             <div className="container mx-auto px-6 text-center">
@@ -322,7 +385,7 @@ const TrainingKeynotes = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Let's discuss how our training and speaking services can strengthen your organization's cybersecurity posture and leadership capabilities.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Button 
                   size="lg" 
                   variant="cyber" 
@@ -331,12 +394,6 @@ const TrainingKeynotes = () => {
                 >
                   <Presentation className="mr-2 h-5 w-5" />
                   Schedule Consultation
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link to="/contact">
-                    Contact Us
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
                 </Button>
               </div>
             </div>
