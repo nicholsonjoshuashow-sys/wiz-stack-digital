@@ -322,54 +322,44 @@ const TrainingKeynotes = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                   <img 
-                    src="/conference-gallery/nokia-conference.png"
-                    alt="Nokia Conference - Team collaboration and networking"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
-                  <img 
-                    src="/conference-gallery/josh-presenting.png"
-                    alt="Joshua Nicholson presenting on PS Strategy and Services"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
-                  <img 
-                    src="/conference-gallery/summit-london.png"
-                    alt="Summit London - International cybersecurity conference"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
-                  <img 
-                    src="/conference-gallery/data-presentation.png"
-                    alt="Professional Services Key Numbers presentation with data analytics"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
-                  <img 
-                    src="/conference-gallery/strength-sharing.png"
-                    alt="Strength in Sharing conference presentation"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
-                  <img 
                     src="/conference-gallery/agenda-presentation.png"
-                    alt="Conference agenda presentation to cybersecurity professionals"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    alt="Conference agenda presentation showing cybersecurity topics"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-              </div>
-              
-              <div className="mt-8 flex justify-center">
-                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all max-w-md">
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                   <img 
-                    src="/conference-gallery/saudi-aramco.png"
-                    alt="Saudi Aramco Cybersecurity Workshop for Managers"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    src="/conference-gallery/isaca-training-1.jpg"
+                    alt="ISACA cybersecurity training conference with attendees"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/isaca-training-2.jpg"
+                    alt="Joshua Nicholson presenting at ISACA training conference"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/submerge-conference.jpg"
+                    alt="Cofense Submerge 2018 conference with large audience"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/josh-presenting.jpg"
+                    alt="Joshua Nicholson on cybersecurity panel discussion"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="group overflow-hidden rounded-lg border border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <img 
+                    src="/conference-gallery/valulabs-presentations.jpg"
+                    alt="Multi-panel view of Inspire 2022 conference presentations"
+                    className="w-full h-64 object-contain bg-card group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
