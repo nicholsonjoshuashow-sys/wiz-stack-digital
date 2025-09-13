@@ -291,6 +291,49 @@ const Podcast = () => {
             </div>
           </section>
 
+          {/* Audio Version Embeds */}
+          <section className="py-12 px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Audio Version of the Show</h2>
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                  Listen to the latest episodes directly from your favorite platforms.
+                </p>
+              </div>
+              
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Spotify Embed */}
+                <Card className="p-6">
+                  <h3 className="text-xl font-bold mb-4 text-center">Spotify</h3>
+                  <iframe 
+                    data-testid="embed-iframe" 
+                    style={{borderRadius: '12px'}} 
+                    src="https://open.spotify.com/embed/show/3wmyUbe1TY5hNl96Q8UFFI?utm_source=generator" 
+                    width="100%" 
+                    height="352" 
+                    frameBorder="0" 
+                    allowFullScreen 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                  />
+                </Card>
+
+                {/* Apple Podcast Embed */}
+                <Card className="p-6">
+                  <h3 className="text-xl font-bold mb-4 text-center">Apple Podcasts</h3>
+                  <iframe 
+                    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                    frameBorder="0" 
+                    height="450" 
+                    style={{width: '100%', maxWidth: '660px', overflow: 'hidden', borderRadius: '10px'}} 
+                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                    src="https://embed.podcasts.apple.com/us/podcast/cyber-security-america/id1668216285"
+                  />
+                </Card>
+              </div>
+            </div>
+          </section>
+
           {/* Listen On Platforms */}
           <section className="py-12 px-4">
             <div className="max-w-6xl mx-auto">
