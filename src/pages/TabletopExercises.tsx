@@ -435,19 +435,15 @@ const TabletopExercises = () => {
                   align it with your compliance goals, and ensure it's led by a seasoned responder who's been in the trenches. 
                   Don't wait for a real crisis to test your team—train like it's real, because one day it will be.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="cyber" size="lg" className="text-lg px-8">
-                    Schedule TTX Scoping Call
-                    <Calendar className="ml-2 h-5 w-5" />
-                  </Button>
+                <div className="flex justify-center">
                   <Button 
-                    variant="outline" 
+                    variant="cyber" 
                     size="lg" 
                     className="text-lg px-8"
-                    onClick={() => window.location.href = '/services/requestquote'}
+                    onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
                   >
-                    Request Custom Quote
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Schedule TTX Scoping Call
+                    <Calendar className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
               </div>
