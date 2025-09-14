@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Shield, Target, Users, Briefcase, TrendingUp, CheckCircle, Globe, Laptop } from "lucide-react";
+import { ArrowRight, Shield, Target, Users, Briefcase, TrendingUp, CheckCircle, Globe, Laptop, Lock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -9,7 +9,7 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 const CISO = () => {
   const benefits = [
     {
-      icon: <Shield className="h-6 w-6" />,
+      icon: <Lock className="h-6 w-6" />,
       title: "Strategic Security Leadership",
       description: "Executive-level guidance aligned to your business goals and growth objectives"
     },
