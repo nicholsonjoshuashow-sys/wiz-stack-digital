@@ -108,23 +108,6 @@ const TabletopExercises = () => {
                   Custom incident response readiness scenarios designed to reflect real threats your organization may face. 
                   Professional-led exercises with detailed gap analysis and actionable insights.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="cyber" size="lg" className="text-lg px-8" asChild>
-                    <Link to="/request-quote">
-                      Schedule TTX Today
-                      <Calendar className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="text-lg px-8"
-                    onClick={() => document.getElementById('scenario-framework')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    View Sample Scenarios
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </div>
               </div>
             </div>
           </section>
