@@ -35,10 +35,10 @@ const handler = async (req: Request): Promise<Response> => {
       ? contactData.services.join(", ") 
       : "Not specified";
 
-    // Send email to sales@darkstack7.com
+    // Send email to nicholson.joshua.show@gmail.com
     const emailResponse = await resend.emails.send({
       from: "Contact Form <noreply@resend.dev>",
-      to: ["sales@darkstack7.com"],
+      to: ["nicholson.joshua.show@gmail.com"],
       subject: `New Contact Form Submission from ${contactData.name}`,
       html: `
         <h2>New Contact Form Submission</h2>

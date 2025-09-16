@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { AlertTriangle, Mail, Phone, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +29,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleServiceChange = (service: string, checked: boolean) => {
     if (checked) {
@@ -64,24 +66,8 @@ const Contact = () => {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        toast({
-          title: "Message Sent Successfully",
-          description: "We'll get back to you within 15 minutes.",
-        });
-
-        // Reset form
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          position: '',
-          criticality: '',
-          services: [],
-          details: '',
-          newsletter: false
-        });
+        // Redirect to Thank You page
+        navigate('/thank-you');
       } else {
         throw new Error(result.error || 'Failed to send message');
       }

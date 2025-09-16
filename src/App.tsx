@@ -20,6 +20,7 @@ import Podcast from "./pages/Podcast";
 import PodcastGuest from "./pages/PodcastGuest";
 import RequestQuote from "./pages/RequestQuote";
 import NotFound from "./pages/NotFound";
+import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/services/solution-engineering" element={<SolutionEngineering />} />
           <Route path="/services/training-keynotes" element={<TrainingKeynotes />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/media" element={<Media />} />
           <Route path="/media/news" element={<News />} />
           <Route path="/podcast" element={<Podcast />} />
