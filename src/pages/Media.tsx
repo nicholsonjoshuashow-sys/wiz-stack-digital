@@ -267,6 +267,20 @@ const Media = () => {
                   </Card>
                 ))}
               </div>
+              
+              <div className="text-center mt-12">
+                <Button asChild size="lg">
+                  <a 
+                    href="https://gamma.app/docs/Building-Trust-in-AI-2uqr2rxhqmzksaf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center"
+                  >
+                    <ExternalLink className="mr-2 h-5 w-5" />
+                    ISC2 / ISACA Conference
+                  </a>
+                </Button>
+              </div>
             </div>
           </section>
 
