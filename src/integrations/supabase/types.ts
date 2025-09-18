@@ -16,16 +16,40 @@ export type Database = {
     Tables: {
       "Customer Contacts": {
         Row: {
+          company_name: string | null
           created_at: string
+          details: string | null
+          email_address: string | null
+          first_name: string | null
           id: number
+          interested_service: string | null
+          last_name: string | null
+          phone_number: number | null
+          position: string | null
         }
         Insert: {
+          company_name?: string | null
           created_at?: string
+          details?: string | null
+          email_address?: string | null
+          first_name?: string | null
           id?: number
+          interested_service?: string | null
+          last_name?: string | null
+          phone_number?: number | null
+          position?: string | null
         }
         Update: {
+          company_name?: string | null
           created_at?: string
+          details?: string | null
+          email_address?: string | null
+          first_name?: string | null
           id?: number
+          interested_service?: string | null
+          last_name?: string | null
+          phone_number?: number | null
+          position?: string | null
         }
         Relationships: []
       }
