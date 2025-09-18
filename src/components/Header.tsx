@@ -49,13 +49,8 @@ const Header = () => {
               </NavigationMenuItem>
               
               <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  className="text-pearl-white hover:text-cyber-blue bg-transparent border-0 p-0 h-auto"
-                  asChild
-                >
-                  <Link to="/services/CISO">
-                    Services
-                  </Link>
+                <NavigationMenuTrigger className="text-pearl-white hover:text-cyber-blue bg-transparent border-0 p-0 h-auto">
+                  Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-background border border-border">
@@ -114,7 +109,7 @@ const Header = () => {
                         >
                           <div className="text-sm font-medium leading-none">Security Consulting</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Expert guidance and strategic planning
+                            Expert guide and strategic planning
                           </p>
                         </Link>
                       </NavigationMenuLink>
