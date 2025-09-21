@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -8,6 +10,22 @@ import SEO from "@/components/SEO";
 import { organizationStructuredData } from "@/data/structuredData";
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/services') {
+      // Scroll to services section after component mounts
+      setTimeout(() => {
+        const servicesElement = document.getElementById('services');
+        if (servicesElement) {
+          servicesElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, [location.pathname]);
   return (
     <>
       <SEO 
