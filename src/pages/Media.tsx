@@ -7,8 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Play, Users, Calendar, Award, Globe, Shield, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { PresentationAccessModal } from "@/components/PresentationAccessModal";
 
 const Media = () => {
+  const [isPresentationModalOpen, setIsPresentationModalOpen] = useState(false);
+  
   const featuredVideos = [
     {
       id: "1",
@@ -148,6 +152,20 @@ const Media = () => {
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                 Expert cybersecurity content from Joshua R. Nicholson - 24-year veteran, crisis leadership specialist, and trusted security advisor.
               </p>
+              
+              {/* Conference Image */}
+              <div className="mb-8">
+                <img 
+                  src="/conference-gallery/cyber-connect-summit-2025.jpg" 
+                  alt="ISC2/ISACA Cyber Connect Summit 2025 - Building Trust in AI Presentation"
+                  className="mx-auto rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow max-w-md"
+                  onClick={() => setIsPresentationModalOpen(true)}
+                />
+                <p className="text-sm text-muted-foreground mt-2 text-center">
+                  Click to access "Building Trust in AI" presentation from ISC2/ISACA Cyber Connect Summit 2025
+                </p>
+              </div>
+              
               <Button asChild size="lg" className="mr-4">
                 <a 
                   href="https://www.youtube.com/@cybersecurityamerica_show" 
@@ -371,6 +389,11 @@ const Media = () => {
         </main>
         
         <Footer />
+        
+        <PresentationAccessModal 
+          isOpen={isPresentationModalOpen}
+          onClose={() => setIsPresentationModalOpen(false)}
+        />
       </div>
     </>
   );
