@@ -30,8 +30,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to the site owner
     const emailResponse = await resend.emails.send({
-      from: "DARKSTACK7 <onboarding@resend.dev>",
-      to: ["joshua@darkstack7.com"], // Replace with your actual email
+      from: "DARKSTACK7 <nicholson.joshua.show@gmail.com>",
+      to: ["nicholson.joshua.show@gmail.com"],
       subject: `New Presentation Access Request - ${firstName} ${lastName}`,
       html: `
         <h2>New Presentation Access Request</h2>
