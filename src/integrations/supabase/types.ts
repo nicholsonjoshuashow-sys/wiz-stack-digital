@@ -53,6 +53,57 @@ export type Database = {
         }
         Relationships: []
       }
+      podcast_episodes: {
+        Row: {
+          audio_url: string
+          created_at: string
+          description: string
+          duration: string
+          episode_number: number
+          id: string
+          is_published: boolean | null
+          keywords: string[] | null
+          libsyn_link: string | null
+          published_at: string
+          season: number
+          title: string
+          updated_at: string
+          youtube_link: string | null
+        }
+        Insert: {
+          audio_url: string
+          created_at?: string
+          description: string
+          duration: string
+          episode_number: number
+          id?: string
+          is_published?: boolean | null
+          keywords?: string[] | null
+          libsyn_link?: string | null
+          published_at: string
+          season?: number
+          title: string
+          updated_at?: string
+          youtube_link?: string | null
+        }
+        Update: {
+          audio_url?: string
+          created_at?: string
+          description?: string
+          duration?: string
+          episode_number?: number
+          id?: string
+          is_published?: boolean | null
+          keywords?: string[] | null
+          libsyn_link?: string | null
+          published_at?: string
+          season?: number
+          title?: string
+          updated_at?: string
+          youtube_link?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
