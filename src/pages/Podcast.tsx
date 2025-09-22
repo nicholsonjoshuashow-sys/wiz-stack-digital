@@ -5,60 +5,13 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users, RefreshCw } from "lucide-react";
 import { Link } from "react-router-dom";
+import { usePodcastEpisodes } from "@/hooks/usePodcastEpisodes";
 
 const Podcast = () => {
-  const podcastEpisodes = [
-    {
-      id: "41",
-      title: "From Combat Boots to Cybersecurity - Nia Luckey on her journey",
-      description: "Army veteran, published author, and cybersecurity leader Nia Luckey shares lessons on resilience, leadership, and transitioning from military service to cyber defense. Topics include building resilience, avoiding burnout, AI in cybersecurity, and the future of work in cyber.",
-      audioUrl: "https://traffic.libsyn.com/secure/40dd79c0-9f4f-4e25-89de-80a6711c1b0f/Episode_41_-_From_Combat_Boots_to_Cybersecurity_-_Nia_Luckey_on_her_journey.mp3",
-      duration: "53:08",
-      publishedAt: "2025-08-21",
-      season: 2,
-      episode: 41,
-      keywords: ["cybersecurity", "veterans", "leadership", "military transition", "AI"],
-      youtubeLink: "https://youtu.be/X7ys8GnQUHk"
-    },
-    {
-      id: "40", 
-      title: "Cybersecurity's Golden Rule: The Legal Blueprint No One Shares",
-      description: "Chris Cronin from Halock Security Labs explores the intersection of cybersecurity, risk management, and legal principles behind 'reasonable' safeguards. Discussion covers DoCRA Standard, CIS RAM, and applying legal frameworks to cybersecurity strategies.",
-      audioUrl: "https://traffic.libsyn.com/secure/40dd79c0-9f4f-4e25-89de-80a6711c1b0f/Episode_40_-_Cybersecuritys_Golden_Rule__The_Legal_Blueprint_No_One_Shares.mp3",
-      duration: "48:07",
-      publishedAt: "2025-08-15",
-      season: 2,
-      episode: 40,
-      keywords: ["legal", "risk management", "compliance", "DoCRA", "reasonable security"],
-      libsynLink: "http://sites.libsyn.com/506373/cybersecuritys-golden-rule-the-legal-blueprint-no-one-shares"
-    },
-    {
-      id: "39",
-      title: "Memory-Only Malware: The Threat You're Probably Missing",
-      description: "Memory forensics expert Andrew Case, co-developer of the Volatility framework, explores memory analysis in incident response. Learn about memory-only malware, Volatility 3 updates, and why CISA recommends memory imaging in emergency directives.",
-      audioUrl: "https://traffic.libsyn.com/secure/40dd79c0-9f4f-4e25-89de-80a6711c1b0f/Episode_39_-_The_Art_of_Forensics_Memory_Traces_and_Malware.mp3",
-      duration: "51:27",
-      publishedAt: "2025-07-16",
-      season: 2,
-      episode: 39,
-      keywords: ["memory forensics", "malware", "incident response", "Volatility", "DFIR"],
-      youtubeLink: "https://youtu.be/2q4z9Z2_cwc"
-    },
-    {
-      id: "38",
-      title: "Digital Forensics & Incident Response (DFIR) with Surefire Cyber",
-      description: "Deep dive into digital forensics and incident response with industry experts from Surefire Cyber, covering advanced DFIR techniques, tools, and methodologies for modern cybersecurity incidents.",
-      audioUrl: "https://traffic.libsyn.com/secure/40dd79c0-9f4f-4e25-89de-80a6711c1b0f/Episode_38_-_Digital_Forensics_Incident_Response_DFIR_with_Surefire_Cyber.mp3",
-      duration: "45:32",
-      publishedAt: "2025-06-24",
-      season: 2,
-      episode: 38,
-      keywords: ["DFIR", "digital forensics", "incident response", "cybersecurity"],
-      libsynLink: "http://www.darkstack7.com/podcast"
-    }
-  ];
+  const { data: podcastEpisodes = [], isLoading, isError, refetch } = usePodcastEpisodes();
 
   const podcastStats = [
     {
@@ -196,98 +149,148 @@ const Podcast = () => {
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   Discover the latest cybersecurity insights, expert interviews, and strategic discussions from industry leaders.
                 </p>
+                <Button 
+                  onClick={() => refetch()} 
+                  variant="outline" 
+                  size="sm" 
+                  className="mt-4"
+                  disabled={isLoading}
+                >
+                  <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+                  Refresh Episodes
+                </Button>
               </div>
               
-              <div className="space-y-8">
-                {podcastEpisodes.map((episode) => (
-                  <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-secondary/80 border-secondary border-2 border-red-500">
-                    <div className="p-6">
-                      <div className="flex flex-col lg:flex-row gap-6">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-3">
-                            <Badge variant="secondary">
-                              Season {episode.season} • Episode {episode.episode}
-                            </Badge>
-                            <Badge variant="outline" className="ml-auto">
-                              <Clock className="mr-1 h-3 w-3" />
-                              {episode.duration}
-                            </Badge>
+              {isLoading ? (
+                <div className="space-y-8">
+                  {[...Array(4)].map((_, index) => (
+                    <Card key={index} className="overflow-hidden">
+                      <div className="p-6">
+                        <div className="flex flex-col lg:flex-row gap-6">
+                          <div className="flex-1 space-y-4">
+                            <div className="flex items-center gap-2">
+                              <Skeleton className="h-6 w-24" />
+                              <Skeleton className="h-6 w-16 ml-auto" />
+                            </div>
+                            <Skeleton className="h-8 w-3/4" />
+                            <Skeleton className="h-20 w-full" />
+                            <div className="flex gap-2">
+                              <Skeleton className="h-6 w-20" />
+                              <Skeleton className="h-6 w-16" />
+                              <Skeleton className="h-6 w-24" />
+                            </div>
+                            <Skeleton className="h-6 w-32" />
                           </div>
-                          
-                          <h3 className="text-xl font-bold mb-3">{episode.title}</h3>
-                          <p className="text-muted-foreground mb-4">{episode.description}</p>
-                          
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {episode.keywords.map((keyword) => (
-                              <Badge key={keyword} variant="outline" className="text-xs">
-                                {keyword}
-                              </Badge>
-                            ))}
+                          <div className="lg:w-64 space-y-3">
+                            <Skeleton className="h-10 w-full" />
+                            <Skeleton className="h-10 w-full" />
+                            <Skeleton className="h-10 w-full" />
                           </div>
-                          
-                          <div className="flex items-center text-sm text-muted-foreground mb-4">
-                            <Calendar className="mr-2 h-4 w-4" />
-                            {new Date(episode.publishedAt).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
-                          </div>
-                        </div>
-                        
-                        <div className="lg:w-64 flex flex-col gap-3">
-                          <Button asChild className="w-full">
-                            <a 
-                              href={episode.audioUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Play className="mr-2 h-4 w-4" />
-                              Play Audio
-                            </a>
-                          </Button>
-                          
-                          <Button asChild variant="outline" className="w-full">
-                            <a 
-                              href={episode.audioUrl}
-                              download
-                            >
-                              <Download className="mr-2 h-4 w-4" />
-                              Download
-                            </a>
-                          </Button>
-                          
-                          {episode.youtubeLink && (
-                            <Button asChild variant="outline" className="w-full">
-                              <a 
-                                href={episode.youtubeLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <ExternalLink className="mr-2 h-4 w-4" />
-                                Watch Video
-                              </a>
-                            </Button>
-                          )}
-                          
-                          {episode.libsynLink && (
-                            <Button asChild variant="outline" className="w-full">
-                              <a 
-                                href={episode.libsynLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <ExternalLink className="mr-2 h-4 w-4" />
-                                Episode Page
-                              </a>
-                            </Button>
-                          )}
                         </div>
                       </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+                    </Card>
+                  ))}
+                </div>
+              ) : isError ? (
+                <Card className="p-8 text-center">
+                  <p className="text-muted-foreground mb-4">Failed to load episodes. Please try again.</p>
+                  <Button onClick={() => refetch()} variant="outline">
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    Retry
+                  </Button>
+                </Card>
+              ) : (
+                <div className="space-y-8">
+                  {podcastEpisodes.map((episode) => (
+                    <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-secondary/80 border-secondary border-2 border-red-500">
+                      <div className="p-6">
+                        <div className="flex flex-col lg:flex-row gap-6">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-3">
+                              <Badge variant="secondary">
+                                Season {episode.season} • Episode {episode.episode_number}
+                              </Badge>
+                              <Badge variant="outline" className="ml-auto">
+                                <Clock className="mr-1 h-3 w-3" />
+                                {episode.duration}
+                              </Badge>
+                            </div>
+                            
+                            <h3 className="text-xl font-bold mb-3">{episode.title}</h3>
+                            <p className="text-muted-foreground mb-4">{episode.description}</p>
+                            
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {episode.keywords.map((keyword) => (
+                                <Badge key={keyword} variant="outline" className="text-xs">
+                                  {keyword}
+                                </Badge>
+                              ))}
+                            </div>
+                            
+                            <div className="flex items-center text-sm text-muted-foreground mb-4">
+                              <Calendar className="mr-2 h-4 w-4" />
+                              {new Date(episode.published_at).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                              })}
+                            </div>
+                          </div>
+                          
+                          <div className="lg:w-64 flex flex-col gap-3">
+                            <Button asChild className="w-full">
+                              <a 
+                                href={episode.audio_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Play className="mr-2 h-4 w-4" />
+                                Play Audio
+                              </a>
+                            </Button>
+                            
+                            <Button asChild variant="outline" className="w-full">
+                              <a 
+                                href={episode.audio_url}
+                                download
+                              >
+                                <Download className="mr-2 h-4 w-4" />
+                                Download
+                              </a>
+                            </Button>
+                            
+                            {episode.youtube_link && (
+                              <Button asChild variant="outline" className="w-full">
+                                <a 
+                                  href={episode.youtube_link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Watch Video
+                                </a>
+                              </Button>
+                            )}
+                            
+                            {episode.libsyn_link && (
+                              <Button asChild variant="outline" className="w-full">
+                                <a 
+                                  href={episode.libsyn_link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Episode Page
+                                </a>
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              )}
             </div>
           </section>
 
