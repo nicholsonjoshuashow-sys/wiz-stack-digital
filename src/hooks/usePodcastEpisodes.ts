@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
-export interface PodcastEpisode {
+interface PodcastEpisode {
   id: string;
   episode_number: number;
   season: number;
@@ -14,28 +14,26 @@ export interface PodcastEpisode {
   youtube_link?: string;
   libsyn_link?: string;
   is_published: boolean;
-  created_at: string;
-  updated_at: string;
 }
 
 export const usePodcastEpisodes = () => {
   return useQuery({
-    queryKey: ["podcast-episodes"],
-    queryFn: async (): Promise<PodcastEpisode[]> => {
+    queryKey: ['podcast-episodes'],
+    queryFn: async () => {
       const { data, error } = await supabase
-        .from("podcast_episodes")
-        .select("*")
-        .eq("is_published", true)
-        .order("published_at", { ascending: false });
+        .from('podcast_episodes')
+        .select('*')
+        .eq('is_published', true)
+        .order('published_at', { ascending: false });
 
       if (error) {
-        console.error("Error fetching podcast episodes:", error);
+        console.error('Error fetching podcast episodes:', error);
         throw error;
       }
 
-      return data || [];
+      return data as PodcastEpisode[];
     },
-    staleTime: 1000 * 60 * 5, // 5 minutes
-    refetchInterval: 1000 * 60 * 5, // Automatically refetch every 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    refetchOnWindowFocus: true,
   });
 };

@@ -5,19 +5,18 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users, RefreshCw } from "lucide-react";
+import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users, RefreshCw, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePodcastEpisodes } from "@/hooks/usePodcastEpisodes";
 
 const Podcast = () => {
-  const { data: podcastEpisodes = [], isLoading, isError, refetch } = usePodcastEpisodes();
+  const { data: podcastEpisodes = [], isLoading, error, refetch } = usePodcastEpisodes();
 
   const podcastStats = [
     {
       icon: Headphones,
       label: "Total Episodes",
-      value: "40+",
+      value: `${podcastEpisodes.length}+`,
       description: "In-depth cybersecurity conversations"
     },
     {
@@ -145,145 +144,58 @@ const Podcast = () => {
           <section id="episodes" className="py-12 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest Episodes</h2>
+                <div className="flex items-center justify-center gap-4 mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold">Latest Episodes</h2>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => refetch()}
+                    disabled={isLoading}
+                  >
+                    <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+                  </Button>
+                </div>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                   Discover the latest cybersecurity insights, expert interviews, and strategic discussions from industry leaders.
                 </p>
-                <Button 
-                  onClick={() => refetch()} 
-                  variant="outline" 
-                  size="sm" 
-                  className="mt-4"
-                  disabled={isLoading}
-                >
-                  <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
-                  Refresh Episodes
-                </Button>
               </div>
               
-              {isLoading ? (
+              {error && (
+                <Card className="p-6 mb-8 border-destructive/50 bg-destructive/5">
+                  <div className="flex items-center gap-3">
+                    <AlertCircle className="h-5 w-5 text-destructive" />
+                    <div>
+                      <h3 className="font-semibold text-destructive">Error loading episodes</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Unable to fetch the latest episodes. Please try refreshing the page.
+                      </p>
+                    </div>
+                    <Button variant="outline" size="sm" onClick={() => refetch()}>
+                      Retry
+                    </Button>
+                  </div>
+                </Card>
+              )}
+
+              {isLoading && (
                 <div className="space-y-8">
                   {[...Array(4)].map((_, index) => (
                     <Card key={index} className="overflow-hidden">
                       <div className="p-6">
-                        <div className="flex flex-col lg:flex-row gap-6">
-                          <div className="flex-1 space-y-4">
-                            <div className="flex items-center gap-2">
-                              <Skeleton className="h-6 w-24" />
-                              <Skeleton className="h-6 w-16 ml-auto" />
-                            </div>
-                            <Skeleton className="h-8 w-3/4" />
-                            <Skeleton className="h-20 w-full" />
-                            <div className="flex gap-2">
-                              <Skeleton className="h-6 w-20" />
-                              <Skeleton className="h-6 w-16" />
-                              <Skeleton className="h-6 w-24" />
-                            </div>
-                            <Skeleton className="h-6 w-32" />
+                        <div className="animate-pulse space-y-4">
+                          <div className="flex gap-2">
+                            <div className="h-6 bg-muted rounded w-32"></div>
+                            <div className="h-6 bg-muted rounded w-20 ml-auto"></div>
                           </div>
-                          <div className="lg:w-64 space-y-3">
-                            <Skeleton className="h-10 w-full" />
-                            <Skeleton className="h-10 w-full" />
-                            <Skeleton className="h-10 w-full" />
+                          <div className="h-8 bg-muted rounded"></div>
+                          <div className="space-y-2">
+                            <div className="h-4 bg-muted rounded"></div>
+                            <div className="h-4 bg-muted rounded w-3/4"></div>
                           </div>
-                        </div>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              ) : isError ? (
-                <Card className="p-8 text-center">
-                  <p className="text-muted-foreground mb-4">Failed to load episodes. Please try again.</p>
-                  <Button onClick={() => refetch()} variant="outline">
-                    <RefreshCw className="mr-2 h-4 w-4" />
-                    Retry
-                  </Button>
-                </Card>
-              ) : (
-                <div className="space-y-8">
-                  {podcastEpisodes.map((episode) => (
-                    <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow bg-secondary/80 border-secondary border-2 border-red-500">
-                      <div className="p-6">
-                        <div className="flex flex-col lg:flex-row gap-6">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-3">
-                              <Badge variant="secondary">
-                                Season {episode.season} • Episode {episode.episode_number}
-                              </Badge>
-                              <Badge variant="outline" className="ml-auto">
-                                <Clock className="mr-1 h-3 w-3" />
-                                {episode.duration}
-                              </Badge>
-                            </div>
-                            
-                            <h3 className="text-xl font-bold mb-3">{episode.title}</h3>
-                            <p className="text-muted-foreground mb-4">{episode.description}</p>
-                            
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {episode.keywords.map((keyword) => (
-                                <Badge key={keyword} variant="outline" className="text-xs">
-                                  {keyword}
-                                </Badge>
-                              ))}
-                            </div>
-                            
-                            <div className="flex items-center text-sm text-muted-foreground mb-4">
-                              <Calendar className="mr-2 h-4 w-4" />
-                              {new Date(episode.published_at).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                              })}
-                            </div>
-                          </div>
-                          
-                          <div className="lg:w-64 flex flex-col gap-3">
-                            <Button asChild className="w-full">
-                              <a 
-                                href={episode.audio_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <Play className="mr-2 h-4 w-4" />
-                                Play Audio
-                              </a>
-                            </Button>
-                            
-                            <Button asChild variant="outline" className="w-full">
-                              <a 
-                                href={episode.audio_url}
-                                download
-                              >
-                                <Download className="mr-2 h-4 w-4" />
-                                Download
-                              </a>
-                            </Button>
-                            
-                            {episode.youtube_link && (
-                              <Button asChild variant="outline" className="w-full">
-                                <a 
-                                  href={episode.youtube_link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <ExternalLink className="mr-2 h-4 w-4" />
-                                  Watch Video
-                                </a>
-                              </Button>
-                            )}
-                            
-                            {episode.libsyn_link && (
-                              <Button asChild variant="outline" className="w-full">
-                                <a 
-                                  href={episode.libsyn_link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <ExternalLink className="mr-2 h-4 w-4" />
-                                  Episode Page
-                                </a>
-                              </Button>
-                            )}
+                          <div className="flex gap-2">
+                            <div className="h-6 bg-muted rounded w-16"></div>
+                            <div className="h-6 bg-muted rounded w-20"></div>
+                            <div className="h-6 bg-muted rounded w-24"></div>
                           </div>
                         </div>
                       </div>
@@ -291,6 +203,97 @@ const Podcast = () => {
                   ))}
                 </div>
               )}
+              
+              <div className="space-y-8">
+                {podcastEpisodes.map((episode) => (
+                  <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="p-6">
+                      <div className="flex flex-col lg:flex-row gap-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-3">
+                            <Badge variant="secondary">
+                              Season {episode.season} • Episode {episode.episode_number}
+                            </Badge>
+                            <Badge variant="outline" className="ml-auto">
+                              <Clock className="mr-1 h-3 w-3" />
+                              {episode.duration}
+                            </Badge>
+                          </div>
+                          
+                          <h3 className="text-xl font-bold mb-3">{episode.title}</h3>
+                          <p className="text-muted-foreground mb-4">{episode.description}</p>
+                          
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {episode.keywords.map((keyword) => (
+                              <Badge key={keyword} variant="outline" className="text-xs">
+                                {keyword}
+                              </Badge>
+                            ))}
+                          </div>
+                          
+                          <div className="flex items-center text-sm text-muted-foreground mb-4">
+                            <Calendar className="mr-2 h-4 w-4" />
+                            {new Date(episode.published_at).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric'
+                            })}
+                          </div>
+                        </div>
+                        
+                        <div className="lg:w-64 flex flex-col gap-3">
+                          <Button asChild className="w-full">
+                            <a 
+                              href={episode.audio_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Play className="mr-2 h-4 w-4" />
+                              Play Audio
+                            </a>
+                          </Button>
+                          
+                          <Button asChild variant="outline" className="w-full">
+                            <a 
+                              href={episode.audio_url}
+                              download
+                            >
+                              <Download className="mr-2 h-4 w-4" />
+                              Download
+                            </a>
+                          </Button>
+                          
+                          {episode.youtube_link && (
+                            <Button asChild variant="outline" className="w-full">
+                              <a 
+                                href={episode.youtube_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                Watch Video
+                              </a>
+                            </Button>
+                          )}
+                          
+                          {episode.libsyn_link && (
+                            <Button asChild variant="outline" className="w-full">
+                              <a 
+                                href={episode.libsyn_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                Episode Page
+                              </a>
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -379,30 +382,18 @@ const Podcast = () => {
               </p>
               <p className="text-muted-foreground text-lg mb-8 max-w-3xl mx-auto">
                 When you need answers to win the battle, tune into Cyber Security America with your host Joshua Nicholson. 
-                You'll learn what it's like running cyber security operations teams inside some of the world's largest companies. 
-                It's a cyber backstage pass and real world advice for cyber defenders, CISOs, and security professionals.
+                As a cybersecurity professional with over a decade of experience, Joshua brings you real insights from the 
+                front lines and conversations with the industry's top security leaders.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg">
-                  <Link to="/podcast/guest" className="inline-flex items-center">
-                    Be a Guest
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <a 
-                    href="https://feeds.libsyn.com/506373/rss" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center"
-                  >
-                    Subscribe to RSS
-                  </a>
-                </Button>
-              </div>
+              <Button asChild size="lg">
+                <Link to="/contact">
+                  Get In Touch
+                </Link>
+              </Button>
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>
