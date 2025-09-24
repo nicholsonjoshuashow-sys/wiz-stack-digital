@@ -42,12 +42,12 @@ const Podcast = () => {
   const podcastPlatforms = [
     {
       name: "Apple Podcasts",
-      url: "https://podcasts.apple.com/podcast/cyber-security-america/id1234567890",
+      url: "https://podcasts.apple.com/us/podcast/cyber-security-america/id1668216285",
       icon: "🎵"
     },
     {
       name: "Spotify",
-      url: "https://open.spotify.com/show/cybersecurityamerica",
+      url: "https://open.spotify.com/show/3wmyUbe1TY5hNl96Q8UFFI?si=b8f35d6981414ccb",
       icon: "🎧"
     },
     {
@@ -206,8 +206,8 @@ const Podcast = () => {
               
               <div className="space-y-8">
                 {podcastEpisodes.map((episode) => (
-                  <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="p-6">
+                <Card key={episode.id} className="overflow-hidden hover:shadow-lg transition-shadow border-2 border-red-500">
+                  <div className="p-6">
                       <div className="flex flex-col lg:flex-row gap-6">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-3">
@@ -314,7 +314,7 @@ const Podcast = () => {
                   <iframe 
                     data-testid="embed-iframe" 
                     style={{borderRadius: '12px'}} 
-                    src="https://open.spotify.com/embed/show/3wmyUbe1TY5hNl96Q8UFFI?utm_source=generator" 
+                    src="https://open.spotify.com/embed/show/3wmyUbe1TY5hNl96Q8UFFI?utm_source=generator&si=b8f35d6981414ccb" 
                     width="100%" 
                     height="352" 
                     frameBorder="0" 
