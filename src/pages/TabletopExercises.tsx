@@ -165,6 +165,20 @@ const TabletopExercises = () => {
                     </p>
                   </div>
                 </Card>
+
+                {/* Gamma Presentation */}
+                <div className="mt-16 text-center">
+                  <h3 className="text-2xl font-bold text-foreground mb-6">Tabletop Exercise Pricing Guide</h3>
+                  <div className="flex justify-center">
+                    <iframe 
+                      src="https://gamma.app/embed/pfez1moynmmcuet" 
+                      style={{ width: '700px', maxWidth: '100%', height: '450px' }}
+                      allow="fullscreen" 
+                      title="DarkStack7 Tabletop Exercise Pricing Guide"
+                      className="rounded-lg shadow-lg border border-cyber-gray/30"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </section>
