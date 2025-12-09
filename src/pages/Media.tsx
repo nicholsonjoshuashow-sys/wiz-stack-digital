@@ -153,6 +153,20 @@ const Media = () => {
                 Expert cybersecurity content from Joshua R. Nicholson - 24-year veteran, crisis leadership specialist, and trusted security advisor.
               </p>
               
+              {/* Incident Response Presentation */}
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold text-foreground mb-4">Making Incident Response Planning Great Again</h3>
+                <div className="flex justify-center">
+                  <iframe 
+                    src="https://making-incident-responde-d70t5fe.gamma.site/untitled" 
+                    style={{ width: '700px', maxWidth: '100%', height: '450px' }}
+                    allow="fullscreen" 
+                    title="Making Incident Response Planning Great Again"
+                    className="rounded-lg shadow-lg border border-border/30"
+                  />
+                </div>
+              </div>
+
               {/* Conference Image */}
               <div className="mb-8">
                 <img 
