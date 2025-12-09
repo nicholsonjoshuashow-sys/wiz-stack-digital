@@ -96,23 +96,23 @@ const Media = () => {
     },
     {
       id: "7",
-      title: "Cybersecurity Insights & Analysis",
-      description: "Expert analysis on current cybersecurity trends, threats, and defense strategies.",
+      title: "Ep 45 - Identity-based Cyber: Jasson Casey on Beyond Identity and the Future of Cybersecurity",
+      description: "Jasson Casey discusses identity-based cybersecurity, Beyond Identity, and where the future of authentication and security is heading.",
       thumbnail: "https://img.youtube.com/vi/uUhKouzdxRE/maxresdefault.jpg",
       videoUrl: "https://youtu.be/uUhKouzdxRE?si=pOR3d2chZgwyE8YF",
-      duration: "40:00",
-      views: "1.0K",
-      publishedAt: "2024-04-01"
+      duration: "45:00",
+      views: "170",
+      publishedAt: "2024-11-01"
     },
     {
       id: "8",
-      title: "Security Best Practices Discussion",
-      description: "Comprehensive discussion on implementing security best practices in enterprise environments.",
+      title: "Building the Future with Agentic-AI: Deep Dive with Ben Wilcox",
+      description: "Ben Wilcox joins to explore the rise of agentic AI, its implications for cybersecurity, and how organizations can prepare for an AI-driven future.",
       thumbnail: "https://img.youtube.com/vi/jcp-YNDo0PI/maxresdefault.jpg",
       videoUrl: "https://youtu.be/jcp-YNDo0PI?si=B122N3HHTYaGKmfa",
-      duration: "45:00",
-      views: "1.1K",
-      publishedAt: "2024-04-15"
+      duration: "47:03",
+      views: "39",
+      publishedAt: "2024-12-06"
     }
   ];
 
