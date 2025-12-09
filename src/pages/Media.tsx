@@ -175,13 +175,13 @@ const Media = () => {
               
               {/* Incident Response Presentation */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold text-foreground mb-4">Making Incident Response Planning Great Again</h3>
+                <h3 className="text-xl font-semibold text-foreground mb-4">Hacking & Securing LLM Models</h3>
                 <div className="flex flex-col items-center">
                   <iframe 
                     src="https://making-incident-responde-d70t5fe.gamma.site/darkstack7"
                     style={{ width: '700px', maxWidth: '100%', height: '450px' }}
                     allow="fullscreen" 
-                    title="Making Incident Response Planning Great Again"
+                    title="Hacking & Securing LLM Models"
                     className="rounded-lg shadow-lg border border-border/30"
                   />
                   <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
@@ -208,7 +208,7 @@ const Media = () => {
                         </Button>
                       </a>
                       <a
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Check out this presentation on Making Incident Response Planning Great Again by @DarkStack7!')}&url=${encodeURIComponent('https://making-incident-responde-d70t5fe.gamma.site/darkstack7')}`}
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Check out this presentation on Hacking & Securing LLM Models by @DarkStack7!')}&url=${encodeURIComponent('https://making-incident-responde-d70t5fe.gamma.site/darkstack7')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
