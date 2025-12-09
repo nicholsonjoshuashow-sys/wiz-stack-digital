@@ -5,13 +5,33 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Play, Users, Calendar, Award, Globe, Shield, AlertTriangle } from "lucide-react";
+import { ExternalLink, Play, Users, Calendar, Award, Globe, Shield, AlertTriangle, Download, Linkedin, Headphones } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { PresentationAccessModal } from "@/components/PresentationAccessModal";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Media = () => {
   const [isPresentationModalOpen, setIsPresentationModalOpen] = useState(false);
+  const [isDownloadReminderOpen, setIsDownloadReminderOpen] = useState(false);
+
+  const handleDownloadPresentation = () => {
+    // Trigger the download
+    const link = document.createElement('a');
+    link.href = '/2025-ISACA-Chapter-Meeting-Presentation.pdf';
+    link.download = '2025-ISACA-Chapter-Meeting-Presentation.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show the reminder dialog
+    setIsDownloadReminderOpen(true);
+  };
   
   const featuredVideos = [
     {
@@ -156,7 +176,7 @@ const Media = () => {
               {/* Incident Response Presentation */}
               <div className="mb-8">
                 <h3 className="text-xl font-semibold text-foreground mb-4">Making Incident Response Planning Great Again</h3>
-                <div className="flex justify-center">
+                <div className="flex flex-col items-center">
                   <iframe 
                     src="https://making-incident-responde-d70t5fe.gamma.site/darkstack7"
                     style={{ width: '700px', maxWidth: '100%', height: '450px' }}
@@ -164,8 +184,54 @@ const Media = () => {
                     title="Making Incident Response Planning Great Again"
                     className="rounded-lg shadow-lg border border-border/30"
                   />
+                  <Button 
+                    onClick={handleDownloadPresentation}
+                    className="mt-4 bg-primary hover:bg-primary/90"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Presentation (PDF)
+                  </Button>
                 </div>
               </div>
+
+              {/* Download Reminder Dialog */}
+              <Dialog open={isDownloadReminderOpen} onOpenChange={setIsDownloadReminderOpen}>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-center text-xl">Thank You for Downloading!</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex flex-col items-center gap-6 py-4">
+                    <p className="text-center text-muted-foreground">
+                      Stay connected with the latest cybersecurity insights and updates!
+                    </p>
+                    <div className="flex flex-col gap-4 w-full">
+                      <a 
+                        href="https://www.linkedin.com/company/darkstack7" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-full"
+                      >
+                        <Button variant="outline" className="w-full gap-2">
+                          <Linkedin className="w-5 h-5 text-[#0A66C2]" />
+                          Follow DarkStack7 on LinkedIn
+                        </Button>
+                      </a>
+                      <Link to="/podcast" className="w-full">
+                        <Button variant="outline" className="w-full gap-2">
+                          <Headphones className="w-5 h-5 text-primary" />
+                          Subscribe to Cyber Security America Podcast
+                        </Button>
+                      </Link>
+                    </div>
+                    <Button 
+                      onClick={() => setIsDownloadReminderOpen(false)}
+                      className="mt-2"
+                    >
+                      Close
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
 
               {/* Conference Image */}
               <div className="mb-8">
