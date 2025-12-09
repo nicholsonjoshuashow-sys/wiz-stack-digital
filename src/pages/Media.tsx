@@ -93,6 +93,26 @@ const Media = () => {
       duration: "48:10",
       views: "1.2K",
       publishedAt: "2024-03-10"
+    },
+    {
+      id: "7",
+      title: "Cybersecurity Insights & Analysis",
+      description: "Expert analysis on current cybersecurity trends, threats, and defense strategies.",
+      thumbnail: "https://img.youtube.com/vi/uUhKouzdxRE/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/uUhKouzdxRE?si=pOR3d2chZgwyE8YF",
+      duration: "40:00",
+      views: "1.0K",
+      publishedAt: "2024-04-01"
+    },
+    {
+      id: "8",
+      title: "Security Best Practices Discussion",
+      description: "Comprehensive discussion on implementing security best practices in enterprise environments.",
+      thumbnail: "https://img.youtube.com/vi/jcp-YNDo0PI/maxresdefault.jpg",
+      videoUrl: "https://youtu.be/jcp-YNDo0PI?si=B122N3HHTYaGKmfa",
+      duration: "45:00",
+      views: "1.1K",
+      publishedAt: "2024-04-15"
     }
   ];
 
