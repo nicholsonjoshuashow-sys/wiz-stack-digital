@@ -158,7 +158,7 @@ const Media = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-4">Making Incident Response Planning Great Again</h3>
                 <div className="flex justify-center">
                   <iframe 
-                    src="https://making-incident-responde-d70t5fe.gamma.site/untitled" 
+                    src="https://making-incident-responde-d70t5fe.gamma.site/darkstack7"
                     style={{ width: '700px', maxWidth: '100%', height: '450px' }}
                     allow="fullscreen" 
                     title="Making Incident Response Planning Great Again"
