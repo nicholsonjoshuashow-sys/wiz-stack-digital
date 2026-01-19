@@ -140,11 +140,11 @@ const Contact = () => {
 
               {/* HubSpot Contact Form */}
               <div className="lg:col-span-2">
-                <Card className="p-8 border-2 border-red-500 min-h-[400px]">
+                <Card className="p-8 border-2 border-red-500 min-h-[400px] bg-white">
                   {isFormLoading && (
                     <div className="flex flex-col items-center justify-center py-16">
                       <Loader2 className="w-10 h-10 text-cyber-blue animate-spin mb-4" />
-                      <p className="text-muted-foreground">Loading form...</p>
+                      <p className="text-gray-600">Loading form...</p>
                     </div>
                   )}
                   <div 
