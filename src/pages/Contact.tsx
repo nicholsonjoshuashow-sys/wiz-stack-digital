@@ -2,99 +2,26 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { AlertTriangle, Mail, Phone, MapPin, Clock } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { useNavigate } from "react-router-dom";
+import { AlertTriangle, Mail, Phone, Clock } from "lucide-react";
+import { useEffect } from "react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    company: '',
-    position: '',
-    criticality: '',
-    services: [] as string[],
-    details: '',
-    newsletter: false
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  const navigate = useNavigate();
+  useEffect(() => {
+    // Load HubSpot forms script
+    const script = document.createElement('script');
+    script.src = 'https://js-na2.hsforms.net/forms/embed/243597457.js';
+    script.defer = true;
+    document.body.appendChild(script);
 
-  const handleServiceChange = (service: string, checked: boolean) => {
-    if (checked) {
-      setFormData(prev => ({ ...prev, services: [...prev.services, service] }));
-    } else {
-      setFormData(prev => ({ ...prev, services: prev.services.filter(s => s !== service) }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const contactData = {
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        services: formData.services,
-        priority: formData.criticality,
-        message: formData.details || 'No additional details provided'
-      };
-
-      const response = await fetch('https://jfreigfygqxnwaafgwvr.supabase.co/functions/v1/send-contact-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmcmVpZ2Z5Z3F4bndhYWZnd3ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1Njc1OTQsImV4cCI6MjA3MzE0MzU5NH0.YwrYcYFEh903zhF6G-rhf5E37uq9ZSKPsnV75_igJp0`
-        },
-        body: JSON.stringify(contactData)
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        // Redirect to Thank You page
-        navigate('/thank-you');
-      } else {
-        throw new Error(result.error || 'Failed to send message');
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://js-na2.hsforms.net/forms/embed/243597457.js"]');
+      if (existingScript) {
+        existingScript.remove();
       }
-
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast({
-        title: "Error Sending Message",
-        description: "Please try again or contact us directly at sales@darkstack7.com",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const services = [
-    'IR Response',
-    'IR Insider Threat', 
-    'IR Tabletop Exercise',
-    'Advisory - vCISO Retainer',
-    'Advisory - Security Consulting',
-    'Advisory - Network / Cloud Security',
-    'Advisory - Artificial Intelligence (AI)',
-    'Training & Speaking Opportunity',
-    'Other'
-  ];
+    };
+  }, []);
 
   return (
     <>
@@ -192,126 +119,15 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Contact Form */}
+              {/* HubSpot Contact Form */}
               <div className="lg:col-span-2">
                 <Card className="p-8 border-2 border-red-500">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="firstName">First Name *</Label>
-                        <Input
-                          id="firstName"
-                          value={formData.firstName}
-                          onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="lastName">Last Name *</Label>
-                        <Input
-                          id="lastName"
-                          value={formData.lastName}
-                          onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="company">Company Name</Label>
-                        <Input
-                          id="company"
-                          value={formData.company}
-                          onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="position">Position</Label>
-                        <Input
-                          id="position"
-                          value={formData.position}
-                          onChange={(e) => setFormData(prev => ({ ...prev, position: e.target.value }))}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="criticality">Issue Criticality *</Label>
-                      <Select value={formData.criticality} onValueChange={(value) => setFormData(prev => ({ ...prev, criticality: value }))}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select criticality level" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="low">Low criticality - Issue can wait until normal business hours</SelectItem>
-                          <SelectItem value="serious">Serious Situation</SelectItem>
-                          <SelectItem value="emergency">Cyber Emergency - Immediate Contact Needed</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label>The services I am interested in are:</Label>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
-                        {services.map((service) => (
-                          <div key={service} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={service}
-                              checked={formData.services.includes(service)}
-                              onCheckedChange={(checked) => handleServiceChange(service, checked as boolean)}
-                            />
-                            <Label htmlFor={service} className="text-sm">{service}</Label>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="details">Details:</Label>
-                      <Textarea
-                        id="details"
-                        rows={5}
-                        value={formData.details}
-                        onChange={(e) => setFormData(prev => ({ ...prev, details: e.target.value }))}
-                        placeholder="Please describe your situation or requirements..."
-                      />
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="newsletter"
-                        checked={formData.newsletter}
-                        onCheckedChange={(checked) => setFormData(prev => ({ ...prev, newsletter: checked as boolean }))}
-                      />
-                      <Label htmlFor="newsletter" className="text-sm">Yes, subscribe me to your newsletter.</Label>
-                    </div>
-
-                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-                      {isSubmitting ? "Sending..." : "Submit Request"}
-                    </Button>
-                  </form>
+                  <div 
+                    className="hs-form-frame" 
+                    data-region="na2" 
+                    data-form-id="7c66cff7-3de1-4e56-ae2e-3b32c418a9b9" 
+                    data-portal-id="243597457"
+                  ></div>
                 </Card>
               </div>
             </div>
