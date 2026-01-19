@@ -105,14 +105,22 @@ All colors MUST be HSL.
 .hs-form-frame,
 .hs-form {
   font-family: inherit !important;
+  color: #ffffff !important;
+}
+
+.hs-form-frame *,
+.hs-form * {
+  color: #ffffff !important;
 }
 
 .hs-form-frame .hs-form-field {
   margin-bottom: 1.25rem;
 }
 
-.hs-form-frame label {
-  color: hsl(210 40% 98%) !important;
+.hs-form-frame label,
+.hs-form-frame .hs-form-field > label,
+.hs-form-frame span {
+  color: #ffffff !important;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
   margin-bottom: 0.5rem !important;
