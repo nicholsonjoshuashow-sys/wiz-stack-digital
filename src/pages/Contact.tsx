@@ -3,10 +3,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card } from "@/components/ui/card";
-import { AlertTriangle, Mail, Phone, Clock } from "lucide-react";
-import { useEffect } from "react";
+import { AlertTriangle, Mail, Phone, Clock, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Contact = () => {
+  const [isFormLoading, setIsFormLoading] = useState(true);
+
   useEffect(() => {
     // Load HubSpot forms script
     const script = document.createElement('script');
@@ -14,7 +16,24 @@ const Contact = () => {
     script.defer = true;
     document.body.appendChild(script);
 
+    // Check for form load completion
+    const checkFormLoaded = setInterval(() => {
+      const formContainer = document.querySelector('.hs-form-frame form, .hs-form-frame .hs-form');
+      if (formContainer) {
+        setIsFormLoading(false);
+        clearInterval(checkFormLoaded);
+      }
+    }, 100);
+
+    // Fallback timeout after 5 seconds
+    const timeout = setTimeout(() => {
+      setIsFormLoading(false);
+      clearInterval(checkFormLoaded);
+    }, 5000);
+
     return () => {
+      clearInterval(checkFormLoaded);
+      clearTimeout(timeout);
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://js-na2.hsforms.net/forms/embed/243597457.js"]');
       if (existingScript) {
@@ -121,9 +140,15 @@ const Contact = () => {
 
               {/* HubSpot Contact Form */}
               <div className="lg:col-span-2">
-                <Card className="p-8 border-2 border-red-500">
+                <Card className="p-8 border-2 border-red-500 min-h-[400px]">
+                  {isFormLoading && (
+                    <div className="flex flex-col items-center justify-center py-16">
+                      <Loader2 className="w-10 h-10 text-cyber-blue animate-spin mb-4" />
+                      <p className="text-muted-foreground">Loading form...</p>
+                    </div>
+                  )}
                   <div 
-                    className="hs-form-frame" 
+                    className={`hs-form-frame ${isFormLoading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}
                     data-region="na2" 
                     data-form-id="7c66cff7-3de1-4e56-ae2e-3b32c418a9b9" 
                     data-portal-id="243597457"
