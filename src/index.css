@@ -109,7 +109,22 @@ All colors MUST be HSL.
 }
 
 .hs-form-frame *,
-.hs-form * {
+.hs-form *,
+.hs-form-frame p,
+.hs-form-frame h1,
+.hs-form-frame h2,
+.hs-form-frame h3,
+.hs-form-frame h4,
+.hs-form-frame h5,
+.hs-form-frame h6,
+.hs-form-frame div,
+.hs-form-frame span,
+.hs-form-frame strong,
+.hs-form-frame em,
+.hs-form-frame .hs-richtext,
+.hs-form-frame .hs-richtext p,
+.hs-form-frame .hs-richtext span,
+.hs-form-frame [class*="hs-"] {
   color: #ffffff !important;
 }
 
