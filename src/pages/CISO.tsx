@@ -212,8 +212,7 @@ const CISO = () => {
                     asChild
                   >
                     <a 
-                      href="/Darkstack7_Services_Deck.pdf" 
-                      download="Darkstack7_Services_Deck.pdf"
+                      href="https://gamma.app/docs/Darkstack7-Virtual-CISO-n4ul2kgeqgvy7v1" 
                       target="_blank"
                       rel="noopener noreferrer"
                     >
