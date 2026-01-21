@@ -92,69 +92,66 @@ const Contact = () => {
         {/* Contact Form Section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Get In Touch - Contact Information */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold text-foreground text-center mb-8">Get In Touch</h2>
               
-              {/* Contact Information */}
-              <div className="lg:col-span-1 bg-muted/20 p-6 rounded-lg">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h2>
-                
-                <div className="space-y-6">
-                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
-                        <Phone className="w-6 h-6 text-cyber-cyan" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">Emergency Hotline</h3>
-                        <p className="text-muted-foreground">24/7 Incident Response</p>
-                        <p className="text-cyber-cyan font-semibold">803-900-4609</p>
-                      </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-cyber-cyan" />
                     </div>
-                  </Card>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Emergency Hotline</h3>
+                      <p className="text-muted-foreground">24/7 Incident Response</p>
+                      <p className="text-cyber-cyan font-semibold">803-900-4609</p>
+                    </div>
+                  </div>
+                </Card>
 
-                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-cyber-cyan" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">Email Support</h3>
-                        <p className="text-muted-foreground">info@darkstack7.com</p>
-                      </div>
+                <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-cyber-cyan" />
                     </div>
-                  </Card>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Email Support</h3>
+                      <p className="text-muted-foreground">info@darkstack7.com</p>
+                    </div>
+                  </div>
+                </Card>
 
-                  <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
-                        <Clock className="w-6 h-6 text-cyber-cyan" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground">Response Time</h3>
-                        <p className="text-muted-foreground">15 minutes or less</p>
-                      </div>
+                <Card className="p-6 bg-gradient-cyber/10 border-cyber-blue/30 border-2 border-red-500">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-cyber-cyan" />
                     </div>
-                  </Card>
-                </div>
-              </div>
-
-              {/* HubSpot Contact Form */}
-              <div className="lg:col-span-2">
-                <Card className="p-8 border-2 border-red-500 min-h-[400px] bg-white">
-                  {isFormLoading && (
-                    <div className="flex flex-col items-center justify-center py-16">
-                      <Loader2 className="w-10 h-10 text-cyber-blue animate-spin mb-4" />
-                      <p className="text-gray-600">Loading form...</p>
+                    <div>
+                      <h3 className="font-semibold text-foreground">Response Time</h3>
+                      <p className="text-muted-foreground">15 minutes or less</p>
                     </div>
-                  )}
-                  <div 
-                    className={`hs-form-frame ${isFormLoading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}
-                    data-region="na2" 
-                    data-form-id="7c66cff7-3de1-4e56-ae2e-3b32c418a9b9" 
-                    data-portal-id="243597457"
-                  ></div>
+                  </div>
                 </Card>
               </div>
+            </div>
+
+            {/* HubSpot Contact Form */}
+            <div className="max-w-4xl mx-auto">
+              <Card className="p-8 border-2 border-red-500 min-h-[400px] bg-white">
+                {isFormLoading && (
+                  <div className="flex flex-col items-center justify-center py-16">
+                    <Loader2 className="w-10 h-10 text-cyber-blue animate-spin mb-4" />
+                    <p className="text-gray-600">Loading form...</p>
+                  </div>
+                )}
+                <div 
+                  className={`hs-form-frame ${isFormLoading ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}
+                  data-region="na2" 
+                  data-form-id="7c66cff7-3de1-4e56-ae2e-3b32c418a9b9" 
+                  data-portal-id="243597457"
+                ></div>
+              </Card>
             </div>
           </div>
         </section>
