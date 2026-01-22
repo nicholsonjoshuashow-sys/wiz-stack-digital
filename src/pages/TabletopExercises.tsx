@@ -166,18 +166,35 @@ const TabletopExercises = () => {
                   </div>
                 </Card>
 
-                {/* Gamma Presentation */}
+                {/* Gamma Presentation Link */}
                 <div className="mt-16 text-center">
                   <h3 className="text-2xl font-bold text-foreground mb-6">Tabletop Exercise Pricing Guide</h3>
-                  <div className="flex justify-center">
-                    <iframe 
-                      src="https://gamma.app/embed/pfez1moynmmcuet" 
-                      style={{ width: '700px', maxWidth: '100%', height: '450px' }}
-                      allow="fullscreen" 
-                      title="DarkStack7 Tabletop Exercise Pricing Guide"
-                      className="rounded-lg shadow-lg border border-cyber-gray/30"
-                    />
-                  </div>
+                  <a 
+                    href="https://gamma.app/docs/DarkStack7-Tabletop-Exercise-Pricing-Guide-pfez1moynmmcuet" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block group"
+                  >
+                    <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow max-w-md mx-auto">
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="w-20 h-20 rounded-full bg-cyber-blue/20 flex items-center justify-center group-hover:bg-cyber-blue/30 transition-colors">
+                          <FileText className="h-10 w-10 text-cyber-blue" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-cyber-blue transition-colors">
+                            View Pricing Guide
+                          </h4>
+                          <p className="text-muted-foreground text-sm">
+                            Click to view our complete tabletop exercise pricing and packages
+                          </p>
+                        </div>
+                        <Button variant="cyber" className="mt-2 group-hover:shadow-glow">
+                          Open Pricing Guide
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </div>
+                    </Card>
+                  </a>
                 </div>
               </div>
             </div>
