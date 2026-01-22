@@ -213,7 +213,7 @@ const Services = () => {
             variant="cyber" 
             size="lg" 
             className="text-lg px-8 py-3"
-            onClick={() => window.open('https:www.darkstack7.com/contact)}
+            onClick={() => window.open('https://www.darkstack7.com/contact')}
           >
             Schedule Consultation
             <ArrowRight className="ml-2 h-5 w-5" />
