@@ -98,57 +98,6 @@ const Expertise = () => {
         </div>
       </section>
 
-      {/* Neon CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-cyber-dark">
-        {/* Animated neon background effects */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/10 via-cyber-cyan/5 to-cyber-blue/10"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyber-blue/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyber-cyan/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
-            {/* Professional Image with neon glow */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyber-blue via-cyber-cyan to-cyber-blue rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-              <div className="relative w-40 h-40 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-cyber-blue shadow-[0_0_30px_rgba(0,212,255,0.5),0_0_60px_rgba(0,212,255,0.3),0_0_90px_rgba(0,212,255,0.1)]">
-                <img 
-                  src={ctaProfessional} 
-                  alt="Cybersecurity Expert" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            
-            {/* CTA Content */}
-            <div className="text-center lg:text-left">
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                Ready to <span className="text-cyber-blue drop-shadow-[0_0_10px_rgba(0,212,255,0.8)]">Secure</span> Your Business?
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-md">
-                Let's discuss your cybersecurity needs with a no-obligation consultation.
-              </p>
-              <Link to="/contact">
-                <Button 
-                  variant="cyber" 
-                  size="lg" 
-                  className="text-lg px-10 py-6 relative overflow-hidden group shadow-[0_0_20px_rgba(0,212,255,0.4),0_0_40px_rgba(0,212,255,0.2)] hover:shadow-[0_0_30px_rgba(0,212,255,0.6),0_0_60px_rgba(0,212,255,0.4)] transition-all duration-300"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Get Started with your free consultation Today!
-                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/20 to-cyber-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-        
-        {/* Neon line accents */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-blue to-transparent"></div>
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-cyan to-transparent"></div>
-      </section>
-
       {/* Leadership Profile Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
@@ -247,6 +196,57 @@ const Expertise = () => {
           </div>
         </Card>
         </div>
+      </section>
+
+      {/* Neon CTA Section */}
+      <section className="relative py-20 overflow-hidden bg-cyber-dark">
+        {/* Animated neon background effects */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/10 via-cyber-cyan/5 to-cyber-blue/10"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyber-blue/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyber-cyan/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+            {/* Professional Image with neon glow */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyber-blue via-cyber-cyan to-cyber-blue rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+              <div className="relative w-40 h-40 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-cyber-blue shadow-[0_0_30px_rgba(0,212,255,0.5),0_0_60px_rgba(0,212,255,0.3),0_0_90px_rgba(0,212,255,0.1)]">
+                <img 
+                  src={ctaProfessional} 
+                  alt="Cybersecurity Expert" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            {/* CTA Content */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                Ready to <span className="text-cyber-blue drop-shadow-[0_0_10px_rgba(0,212,255,0.8)]">Secure</span> Your Business?
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-md">
+                Let's discuss your cybersecurity needs with a no-obligation consultation.
+              </p>
+              <Link to="/contact">
+                <Button 
+                  variant="cyber" 
+                  size="lg" 
+                  className="text-lg px-10 py-6 relative overflow-hidden group shadow-[0_0_20px_rgba(0,212,255,0.4),0_0_40px_rgba(0,212,255,0.2)] hover:shadow-[0_0_30px_rgba(0,212,255,0.6),0_0_60px_rgba(0,212,255,0.4)] transition-all duration-300"
+                >
+                  <span className="relative z-10 flex items-center">
+                    Get Started with your free consultation Today!
+                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/20 to-cyber-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        
+        {/* Neon line accents */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-blue to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-cyan to-transparent"></div>
       </section>
     </>
   );
