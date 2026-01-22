@@ -52,7 +52,53 @@ const Expertise = () => {
 
   return (
     <>
-      {/* Neon CTA Section Before Expertise */}
+      {/* Our Expertise Section */}
+      <section id="expertise" className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Our <span className="bg-gradient-primary bg-clip-text text-transparent">Expertise</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Professional & Credible - "Elite Cybersecurity for High-Stakes Moments."
+            </p>
+          </div>
+
+          {/* Credentials Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {credentials.map((credential, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-cyber-blue mb-2">
+                  {credential.value}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {credential.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Expertise Areas */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {expertiseAreas.map((area, index) => (
+              <Card key={index} className="group p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
+                <div className="text-cyber-blue mb-4 group-hover:text-cyber-cyan transition-colors">
+                  {area.icon}
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-cyber-blue transition-colors">
+                  {area.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {area.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Neon CTA Section */}
       <section className="relative py-20 overflow-hidden bg-cyber-dark">
         {/* Animated neon background effects */}
         <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/10 via-cyber-cyan/5 to-cyber-blue/10"></div>
@@ -102,50 +148,10 @@ const Expertise = () => {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-blue to-transparent"></div>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber-cyan to-transparent"></div>
       </section>
-      <section id="expertise" className="py-20 bg-background">
+
+      {/* Leadership Profile Section */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
-          {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Our <span className="bg-gradient-primary bg-clip-text text-transparent">Expertise</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Professional & Credible - "Elite Cybersecurity for High-Stakes Moments."
-          </p>
-        </div>
-
-        {/* Credentials Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {credentials.map((credential, index) => (
-            <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-cyber-blue mb-2">
-                {credential.value}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                {credential.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Expertise Areas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {expertiseAreas.map((area, index) => (
-            <Card key={index} className="group p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
-              <div className="text-cyber-blue mb-4 group-hover:text-cyber-cyan transition-colors">
-                {area.icon}
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-cyber-blue transition-colors">
-                {area.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {area.description}
-              </p>
-            </Card>
-          ))}
-        </div>
-
-        {/* Leadership Profile */}
         <Card className="p-8 bg-gradient-cyber border-cyber-blue/20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <div>
