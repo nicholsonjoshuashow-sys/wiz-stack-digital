@@ -47,18 +47,6 @@ const Hero = () => {
             trusted by global enterprises and regulated industries.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex justify-center mb-16">
-            <Button 
-              variant="cyber" 
-              size="lg" 
-              className="text-lg px-8 py-3"
-              onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
-            >
-              Schedule Consultation
-            </Button>
-          </div>
-
           {/* Trust Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="flex flex-col items-center">
