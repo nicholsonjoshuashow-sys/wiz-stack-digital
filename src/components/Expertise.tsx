@@ -1,4 +1,6 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { 
   Trophy, 
   Globe, 
@@ -7,7 +9,8 @@ import {
   Lightbulb,
   Building2,
   Users,
-  Shield
+  Shield,
+  ArrowRight
 } from "lucide-react";
 
 const Expertise = () => {
@@ -47,9 +50,27 @@ const Expertise = () => {
   ];
 
   return (
-    <section id="expertise" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
+    <>
+      {/* CTA Section Before Expertise */}
+      <section className="py-16 bg-gradient-cyber">
+        <div className="container mx-auto px-6 text-center">
+          <Button 
+            variant="cyber" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            asChild
+          >
+            <Link to="/contact">
+              Get Started with your free consultation Today!
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      <section id="expertise" className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Our <span className="bg-gradient-primary bg-clip-text text-transparent">Expertise</span>
@@ -185,8 +206,9 @@ const Expertise = () => {
             </div>
           </div>
         </Card>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 
