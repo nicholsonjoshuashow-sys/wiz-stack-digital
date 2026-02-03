@@ -112,7 +112,7 @@ const PenetrationTesting = () => {
                     <img 
                       src={auditrolCeo} 
                       alt="Ashwin Nayak - CEO of Auditrol" 
-                      className="w-24 h-24 rounded-full object-cover border-2 border-cyber-blue/30"
+                      className="w-48 h-48 object-cover border-2 border-cyber-blue/30 rounded-lg"
                     />
                     <div className="text-center">
                       <p className="text-lg font-semibold text-foreground">Ashwin Nayak</p>
