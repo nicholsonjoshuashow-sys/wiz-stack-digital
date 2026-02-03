@@ -9,6 +9,7 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { penetrationTestingServiceData } from "@/data/structuredData";
 import auditrolLogo from "@/assets/auditrol-logo.jpg";
 import auditrolCeo from "@/assets/auditrol-ceo.jpg";
+import pentestHeroImage from "@/assets/pentest-hero-image.png";
 
 const PenetrationTesting = () => {
   const testingTypes = [
@@ -73,14 +74,19 @@ const PenetrationTesting = () => {
                 Comprehensive security assessments that uncover real risks, validate controls, and build practical, 
                 scalable, and resilient security strategies for your organization.
               </p>
-              <Button 
-                variant="cyber" 
-                size="lg" 
-                className="text-lg px-8 py-3"
-                onClick={() => window.location.href = '/services/requestquote'}
-              >
-                Request Quote
-              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Hero Image Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto">
+              <img 
+                src={pentestHeroImage} 
+                alt="Penetration testing - Hacker vs Security Professional" 
+                className="w-full rounded-lg shadow-2xl border border-cyber-blue/20"
+              />
             </div>
           </div>
         </section>
