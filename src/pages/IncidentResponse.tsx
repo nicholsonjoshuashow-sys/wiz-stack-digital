@@ -16,7 +16,7 @@ import {
   ArrowRight,
   CheckCircle
 } from "lucide-react";
-import irHeroBackground from "@/assets/ir-hero-background.avif";
+import irHeroBackground from "@/assets/ir-hero-background.png";
 
 const IncidentResponse = () => {
   const capabilities = [
