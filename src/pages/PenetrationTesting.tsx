@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { penetrationTestingServiceData } from "@/data/structuredData";
+import auditrolLogo from "@/assets/auditrol-logo.jpg";
 
 const PenetrationTesting = () => {
   const testingTypes = [
@@ -101,9 +102,16 @@ const PenetrationTesting = () => {
                     "Darkstack7 conducted a penetration test and broader cybersecurity assessment that validated our existing controls and identified targeted areas for improvement. The engagement was successful, well-managed, and provided practical guidance that strengthened our overall security posture."
                   </blockquote>
                   
-                  <div className="text-center">
-                    <p className="text-lg font-semibold text-foreground">Ashwin Nayak</p>
-                    <p className="text-cyber-cyan">CEO, AUDITROL</p>
+                  <div className="flex flex-col items-center gap-4">
+                    <img 
+                      src={auditrolLogo} 
+                      alt="AUDITROL Logo" 
+                      className="h-12 object-contain"
+                    />
+                    <div className="text-center">
+                      <p className="text-lg font-semibold text-foreground">Ashwin Nayak</p>
+                      <p className="text-cyber-cyan">CEO, AUDITROL</p>
+                    </div>
                   </div>
                   
                   <div className="mt-8 pt-8 border-t border-cyber-gray/30">
