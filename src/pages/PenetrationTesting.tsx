@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle } from "lucide-react";
+import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
@@ -220,9 +220,12 @@ const PenetrationTesting = () => {
                 variant="cyber" 
                 size="lg" 
                 className="text-lg px-8 py-3"
-                onClick={() => window.location.href = '/services/requestquote'}
+                asChild
               >
-                Request Quote
+                <a href="/Darkstack7_CISO_Cyber_Security_Services_Deck.pdf" download>
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Services Deck
+                </a>
               </Button>
             </div>
           </div>
