@@ -83,8 +83,53 @@ const PenetrationTesting = () => {
           </div>
         </section>
 
-        {/* Testing Types */}
+        {/* Customer Testimonial */}
         <section className="py-20">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <Card className="p-8 md:p-12 bg-card/50 backdrop-blur-sm border-cyber-blue/30 relative overflow-hidden">
+                {/* Decorative quote marks */}
+                <div className="absolute top-4 left-6 text-8xl text-cyber-blue/10 font-serif leading-none">"</div>
+                <div className="absolute bottom-4 right-6 text-8xl text-cyber-blue/10 font-serif leading-none rotate-180">"</div>
+                
+                <div className="relative z-10">
+                  <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-foreground">
+                    Customer <span className="bg-gradient-primary bg-clip-text text-transparent">Success Story</span>
+                  </h2>
+                  
+                  <blockquote className="text-xl md:text-2xl text-muted-foreground text-center italic leading-relaxed mb-8">
+                    "Darkstack7 conducted a penetration test and broader cybersecurity assessment that validated our existing controls and identified targeted areas for improvement. The engagement was successful, well-managed, and provided practical guidance that strengthened our overall security posture."
+                  </blockquote>
+                  
+                  <div className="text-center">
+                    <p className="text-lg font-semibold text-foreground">Ashwin Nayak</p>
+                    <p className="text-cyber-cyan">CEO, AUDITROL</p>
+                  </div>
+                  
+                  <div className="mt-8 pt-8 border-t border-cyber-gray/30">
+                    <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Results Delivered</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {[
+                        "Identified high-severity API authorization weaknesses",
+                        "Provided detailed remediation guidance",
+                        "Conducted formal retest validation",
+                        "Confirmed full resolution of material findings"
+                      ].map((result, index) => (
+                        <div key={index} className="flex items-center space-x-2">
+                          <CheckCircle className="h-4 w-4 text-cyber-cyan flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{result}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Testing Types */}
+        <section className="py-20 bg-gradient-dark">
           <div className="container mx-auto px-6">
             <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
               Testing <span className="bg-gradient-primary bg-clip-text text-transparent">Services</span>
@@ -92,7 +137,7 @@ const PenetrationTesting = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testingTypes.map((type, index) => (
-                <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 border-2 border-red-500">
+                <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300">
                   <div className="flex items-start space-x-4">
                     <div className="text-cyber-blue">
                       {type.icon}
@@ -123,7 +168,7 @@ const PenetrationTesting = () => {
               </div>
               
               <div>
-                <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30 border-2 border-red-500">
+                <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
                   <h3 className="text-xl font-bold text-foreground mb-6">Testing Process</h3>
                   <div className="space-y-4">
                     {methodology.map((step, index) => (
