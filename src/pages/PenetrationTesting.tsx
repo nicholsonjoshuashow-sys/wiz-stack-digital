@@ -53,13 +53,24 @@ const PenetrationTesting = () => {
         canonical="https://darkstack7.com/services/penetration-testing"
         structuredData={penetrationTestingServiceData}
       />
-      <div className="min-h-screen bg-background">
+      <div 
+        className="min-h-screen bg-background"
+        style={{
+          backgroundImage: `url(${pentestHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="min-h-screen bg-background/85">
         <Header />
         <BreadcrumbNavigation className="pt-20" />
 
         <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-dark">
+        <section className="py-20">
           <div className="container mx-auto px-6">
             <Link to="/" className="inline-flex items-center text-cyber-blue hover:text-cyber-cyan transition-colors mb-8">
               <ArrowLeft className="h-5 w-5 mr-2" />
@@ -74,19 +85,6 @@ const PenetrationTesting = () => {
                 Comprehensive security assessments that uncover real risks, validate controls, and build practical, 
                 scalable, and resilient security strategies for your organization.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Hero Image Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="max-w-2xl mx-auto">
-              <img 
-                src={pentestHeroImage} 
-                alt="Penetration testing - Hacker vs Security Professional" 
-                className="w-full rounded-lg shadow-2xl border border-cyber-blue/20"
-              />
             </div>
           </div>
         </section>
@@ -228,7 +226,8 @@ const PenetrationTesting = () => {
         </section>
       </main>
       <Footer />
-    </div>
+        </div>
+      </div>
     </>
   );
 };
