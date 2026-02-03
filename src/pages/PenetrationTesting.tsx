@@ -222,7 +222,7 @@ const PenetrationTesting = () => {
                 className="text-lg px-8 py-3"
                 asChild
               >
-                <a href="/Darkstack7_CISO_Cyber_Security_Services_Deck.pdf" download>
+                <a href="/DarkStack7-Penetration-Testing-Services.pdf" download>
                   <Download className="mr-2 h-5 w-5" />
                   Download Services Deck
                 </a>
