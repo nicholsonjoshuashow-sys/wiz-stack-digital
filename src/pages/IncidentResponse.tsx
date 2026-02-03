@@ -84,7 +84,7 @@ const IncidentResponse = () => {
         }}
       >
         {/* Dark overlay for readability */}
-        <div className="min-h-screen bg-background/85">
+        <div className="min-h-screen bg-background/70">
         <Header />
         <BreadcrumbNavigation className="pt-20" />
         
