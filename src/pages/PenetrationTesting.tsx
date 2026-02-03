@@ -81,9 +81,12 @@ const PenetrationTesting = () => {
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
                 Penetration <span className="bg-gradient-primary bg-clip-text text-transparent">Testing</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
                 Comprehensive security assessments that uncover real risks, validate controls, and build practical, 
                 scalable, and resilient security strategies for your organization.
+              </p>
+              <p className="text-lg text-cyber-cyan font-medium">
+                Our penetration testers work alongside Incident Response experts for a comprehensive, end-to-end security approach.
               </p>
             </div>
           </div>
