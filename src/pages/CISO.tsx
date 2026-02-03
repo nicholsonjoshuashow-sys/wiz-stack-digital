@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
+import cisoHeroImage from "@/assets/ciso-hero-image.png";
 
 const CISO = () => {
   const benefits = [
@@ -55,7 +56,18 @@ const CISO = () => {
         canonical="https://darkstack7.com/services/CISO"
       />
       
-      <div className="min-h-screen bg-gradient-dark">
+      <div 
+        className="min-h-screen bg-background"
+        style={{
+          backgroundImage: `url(${cisoHeroImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="min-h-screen bg-background/85">
         <Header />
         <BreadcrumbNavigation className="pt-20" />
         
@@ -226,6 +238,7 @@ const CISO = () => {
         </main>
 
         <Footer />
+        </div>
       </div>
     </>
   );
