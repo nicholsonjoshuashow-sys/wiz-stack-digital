@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { penetrationTestingServiceData } from "@/data/structuredData";
 import auditrolLogo from "@/assets/auditrol-logo.jpg";
+import auditrolCeo from "@/assets/auditrol-ceo.jpg";
 
 const PenetrationTesting = () => {
   const testingTypes = [
@@ -105,12 +106,17 @@ const PenetrationTesting = () => {
                   <div className="flex flex-col items-center gap-4">
                     <img 
                       src={auditrolLogo} 
-                      alt="AUDITROL Logo" 
-                      className="h-12 object-contain"
+                      alt="Auditrol Logo" 
+                      className="h-36 object-contain"
+                    />
+                    <img 
+                      src={auditrolCeo} 
+                      alt="Ashwin Nayak - CEO of Auditrol" 
+                      className="w-24 h-24 rounded-full object-cover border-2 border-cyber-blue/30"
                     />
                     <div className="text-center">
                       <p className="text-lg font-semibold text-foreground">Ashwin Nayak</p>
-                      <p className="text-cyber-cyan">CEO, AUDITROL</p>
+                      <p className="text-cyber-cyan">CEO, Auditrol</p>
                     </div>
                   </div>
                   
