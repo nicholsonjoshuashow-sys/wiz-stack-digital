@@ -73,14 +73,6 @@ const PenetrationTesting = () => {
                 Comprehensive security assessments that uncover real risks, validate controls, and build practical, 
                 scalable, and resilient security strategies for your organization.
               </p>
-              <Button 
-                variant="cyber" 
-                size="lg" 
-                className="text-lg px-8 py-3"
-                onClick={() => window.location.href = '/services/requestquote'}
-              >
-                Request Quote
-              </Button>
             </div>
           </div>
         </section>
