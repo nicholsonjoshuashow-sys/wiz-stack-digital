@@ -78,8 +78,6 @@ const PenetrationTesting = () => {
           </div>
         </section>
 
-        </section>
-
         {/* Hero Image Section */}
         <section className="py-16">
           <div className="container mx-auto px-6">
