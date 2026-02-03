@@ -9,6 +9,7 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { penetrationTestingServiceData } from "@/data/structuredData";
 import auditrolLogo from "@/assets/auditrol-logo.jpg";
 import auditrolCeo from "@/assets/auditrol-ceo.jpg";
+import pentestHeroImage from "@/assets/pentest-hero-image.png";
 
 const PenetrationTesting = () => {
   const testingTypes = [
