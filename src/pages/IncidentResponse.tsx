@@ -16,6 +16,7 @@ import {
   ArrowRight,
   CheckCircle
 } from "lucide-react";
+import irHeroBackground from "@/assets/ir-hero-background.avif";
 
 const IncidentResponse = () => {
   const capabilities = [
@@ -72,7 +73,18 @@ const IncidentResponse = () => {
         keywords="incident response, cyber incident, emergency response, digital forensics, breach response, IR commander, cybersecurity incident"
         canonical="https://darkstack7.com/services/IR"
       />
-      <div className="min-h-screen bg-background">
+      <div 
+        className="min-h-screen bg-background"
+        style={{
+          backgroundImage: `url(${irHeroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="min-h-screen bg-background/85">
         <Header />
         <BreadcrumbNavigation className="pt-20" />
         
@@ -273,6 +285,7 @@ const IncidentResponse = () => {
         </main>
 
         <Footer />
+        </div>
       </div>
     </>
   );
