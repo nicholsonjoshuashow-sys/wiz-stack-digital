@@ -35,13 +35,64 @@ const PenetrationTesting = () => {
     }
   ];
 
-  const methodology = [
-    "Reconnaissance & Information Gathering",
-    "Vulnerability Assessment & Analysis", 
-    "Exploitation & Privilege Escalation",
-    "Post-Exploitation & Persistence Testing",
-    "Documentation & Reporting",
-    "Remediation Support & Validation"
+  const methodologyPhases = [
+    {
+      phase: "Phase 1",
+      title: "Reconnaissance & Information Gathering",
+      icon: <Crosshair className="h-5 w-5" />,
+      description: "Comprehensive reconnaissance focusing on application components, attack surface enumeration, endpoint discovery, and workflow documentation including authentication flows and feature access paths."
+    },
+    {
+      phase: "Phase 2", 
+      title: "Vulnerability Assessment & Analysis",
+      icon: <FileSearch className="h-5 w-5" />,
+      description: "Automated vulnerability scanning supplemented by targeted manual validation. Focus on high-confidence findings with manual testing of critical security controls including authentication and authorization boundaries."
+    },
+    {
+      phase: "Phase 3",
+      title: "Exploitation & Validation",
+      icon: <Bug className="h-5 w-5" />,
+      description: "Exploitation validation targeting high-impact vulnerabilities with proof-of-concept development demonstrating exploitability and comprehensive impact analysis including privilege escalation testing."
+    },
+    {
+      phase: "Phase 4",
+      title: "Documentation & Reporting",
+      icon: <ClipboardList className="h-5 w-5" />,
+      description: "Detailed technical report with executive summary, vulnerability descriptions, CVSS risk ratings, affected components, proof-of-concept reproduction steps, and actionable remediation guidance."
+    }
+  ];
+
+  const scopeAreas = [
+    {
+      title: "Web Application Frontend",
+      icon: <Globe className="h-5 w-5" />,
+      items: ["UI functionality testing across workflows", "Client-side security controls assessment", "Pages and application component scanning"]
+    },
+    {
+      title: "Authentication & Sessions",
+      icon: <Lock className="h-5 w-5" />,
+      items: ["OIDC/OAuth flow testing", "JWT token validation (expiration, signatures)", "Session timeout & authorization controls"]
+    },
+    {
+      title: "API Security",
+      icon: <Server className="h-5 w-5" />,
+      items: ["REST API endpoint discovery", "Authentication & input validation testing", "Rate limiting & access control verification"]
+    },
+    {
+      title: "Data & Infrastructure",
+      icon: <Database className="h-5 w-5" />,
+      items: ["SQL injection & injection technique testing", "Data access control validation", "Sensitive data exposure assessment"]
+    },
+    {
+      title: "Application Logic",
+      icon: <Cpu className="h-5 w-5" />,
+      items: ["Business logic security assessment", "Feature enumeration & workflow testing", "Configuration security analysis"]
+    },
+    {
+      title: "AI/ML Integration Security",
+      icon: <Users className="h-5 w-5" />,
+      items: ["ML-exposed endpoint scanning", "Prompt injection testing", "ML input/output validation & access controls"]
+    }
   ];
 
   return (
