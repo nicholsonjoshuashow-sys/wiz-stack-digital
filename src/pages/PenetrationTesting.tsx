@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle, Download } from "lucide-react";
+import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle, Download, Crosshair, FileSearch, Bug, ClipboardList, Lock, Globe, Server, Database, Cpu, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
