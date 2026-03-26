@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle, Download } from "lucide-react";
+import { ArrowLeft, Shield, Search, Target, FileText, CheckCircle, Download, Crosshair, FileSearch, Bug, ClipboardList, Lock, Globe, Server, Database, Cpu, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Header from "@/components/Header";
@@ -35,13 +35,64 @@ const PenetrationTesting = () => {
     }
   ];
 
-  const methodology = [
-    "Reconnaissance & Information Gathering",
-    "Vulnerability Assessment & Analysis", 
-    "Exploitation & Privilege Escalation",
-    "Post-Exploitation & Persistence Testing",
-    "Documentation & Reporting",
-    "Remediation Support & Validation"
+  const methodologyPhases = [
+    {
+      phase: "Phase 1",
+      title: "Reconnaissance & Information Gathering",
+      icon: <Crosshair className="h-5 w-5" />,
+      description: "Comprehensive reconnaissance focusing on application components, attack surface enumeration, endpoint discovery, and workflow documentation including authentication flows and feature access paths."
+    },
+    {
+      phase: "Phase 2", 
+      title: "Vulnerability Assessment & Analysis",
+      icon: <FileSearch className="h-5 w-5" />,
+      description: "Automated vulnerability scanning supplemented by targeted manual validation. Focus on high-confidence findings with manual testing of critical security controls including authentication and authorization boundaries."
+    },
+    {
+      phase: "Phase 3",
+      title: "Exploitation & Validation",
+      icon: <Bug className="h-5 w-5" />,
+      description: "Exploitation validation targeting high-impact vulnerabilities with proof-of-concept development demonstrating exploitability and comprehensive impact analysis including privilege escalation testing."
+    },
+    {
+      phase: "Phase 4",
+      title: "Documentation & Reporting",
+      icon: <ClipboardList className="h-5 w-5" />,
+      description: "Detailed technical report with executive summary, vulnerability descriptions, CVSS risk ratings, affected components, proof-of-concept reproduction steps, and actionable remediation guidance."
+    }
+  ];
+
+  const scopeAreas = [
+    {
+      title: "Web Application Frontend",
+      icon: <Globe className="h-5 w-5" />,
+      items: ["UI functionality testing across workflows", "Client-side security controls assessment", "Pages and application component scanning"]
+    },
+    {
+      title: "Authentication & Sessions",
+      icon: <Lock className="h-5 w-5" />,
+      items: ["OIDC/OAuth flow testing", "JWT token validation (expiration, signatures)", "Session timeout & authorization controls"]
+    },
+    {
+      title: "API Security",
+      icon: <Server className="h-5 w-5" />,
+      items: ["REST API endpoint discovery", "Authentication & input validation testing", "Rate limiting & access control verification"]
+    },
+    {
+      title: "Data & Infrastructure",
+      icon: <Database className="h-5 w-5" />,
+      items: ["SQL injection & injection technique testing", "Data access control validation", "Sensitive data exposure assessment"]
+    },
+    {
+      title: "Application Logic",
+      icon: <Cpu className="h-5 w-5" />,
+      items: ["Business logic security assessment", "Feature enumeration & workflow testing", "Configuration security analysis"]
+    },
+    {
+      title: "AI/ML Integration Security",
+      icon: <Users className="h-5 w-5" />,
+      items: ["ML-exposed endpoint scanning", "Prompt injection testing", "ML input/output validation & access controls"]
+    }
   ];
 
   return (
@@ -177,28 +228,95 @@ const PenetrationTesting = () => {
         {/* Methodology */}
         <section className="py-20 bg-gradient-dark">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-4xl font-bold mb-8 text-foreground">
-                  Our <span className="bg-gradient-primary bg-clip-text text-transparent">Methodology</span>
-                </h2>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  We follow industry-standard penetration testing methodologies including PTES, OWASP, and NIST guidelines 
-                  to ensure comprehensive and reliable security assessments.
-                </p>
-              </div>
-              
-              <div>
-                <Card className="p-8 bg-card/50 backdrop-blur-sm border-cyber-gray/30">
-                  <h3 className="text-xl font-bold text-foreground mb-6">Testing Process</h3>
-                  <div className="space-y-4">
-                    {methodology.map((step, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <CheckCircle className="h-5 w-5 text-cyber-cyan flex-shrink-0" />
-                        <span className="text-muted-foreground">{step}</span>
-                      </div>
-                    ))}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6 text-foreground">
+                Our <span className="bg-gradient-primary bg-clip-text text-transparent">Methodology</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                DarkStack7 follows a structured penetration testing methodology aligned with the 
+                <strong className="text-foreground"> OWASP Testing Guide</strong>, 
+                <strong className="text-foreground"> PTES (Penetration Testing Execution Standard)</strong>, and 
+                <strong className="text-foreground"> NIST SP 800-115</strong> — combining automated scanning with expert manual validation.
+              </p>
+            </div>
+
+            {/* Phases */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              {methodologyPhases.map((phase, index) => (
+                <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-cyber-blue/10 flex items-center justify-center text-cyber-blue">
+                      {phase.icon}
+                    </div>
+                    <div>
+                      <span className="text-xs font-mono text-cyber-cyan uppercase tracking-wider">{phase.phase}</span>
+                      <h3 className="text-lg font-bold text-foreground">{phase.title}</h3>
+                    </div>
                   </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{phase.description}</p>
+                </Card>
+              ))}
+            </div>
+
+            {/* Scope Areas */}
+            <div className="text-center mb-10">
+              <h3 className="text-3xl font-bold text-foreground mb-4">
+                Testing <span className="bg-gradient-primary bg-clip-text text-transparent">Scope Areas</span>
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Our assessments cover the full application stack — from frontend interfaces to backend logic, APIs, data storage, and AI/ML integrations.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+              {scopeAreas.map((area, index) => (
+                <Card key={index} className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 rounded-lg bg-cyber-blue/10 flex items-center justify-center text-cyber-blue">
+                      {area.icon}
+                    </div>
+                    <h4 className="text-base font-bold text-foreground">{area.title}</h4>
+                  </div>
+                  <ul className="space-y-2">
+                    {area.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle className="h-4 w-4 text-cyber-cyan flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </div>
+
+            {/* Deliverables */}
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10">
+                <h3 className="text-3xl font-bold text-foreground mb-4">
+                  Engagement <span className="bg-gradient-primary bg-clip-text text-transparent">Deliverables</span>
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 text-center">
+                  <div className="w-12 h-12 rounded-full bg-cyber-blue/10 flex items-center justify-center mx-auto mb-4">
+                    <FileText className="h-6 w-6 text-cyber-blue" />
+                  </div>
+                  <h4 className="text-lg font-bold text-foreground mb-2">Technical Report</h4>
+                  <p className="text-sm text-muted-foreground">Detailed findings with CVSS ratings, proof-of-concept steps, affected components, and actionable remediation guidance.</p>
+                </Card>
+                <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 text-center">
+                  <div className="w-12 h-12 rounded-full bg-cyber-blue/10 flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-6 w-6 text-cyber-blue" />
+                  </div>
+                  <h4 className="text-lg font-bold text-foreground mb-2">Retest Validation</h4>
+                  <p className="text-sm text-muted-foreground">Follow-up retesting to verify remediated vulnerabilities are fully resolved with status classification for each finding.</p>
+                </Card>
+                <Card className="p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 text-center">
+                  <div className="w-12 h-12 rounded-full bg-cyber-blue/10 flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-6 w-6 text-cyber-blue" />
+                  </div>
+                  <h4 className="text-lg font-bold text-foreground mb-2">Findings Review Session</h4>
+                  <p className="text-sm text-muted-foreground">Presentation for your technical team and management covering findings, remediation results, and strategic recommendations.</p>
                 </Card>
               </div>
             </div>
