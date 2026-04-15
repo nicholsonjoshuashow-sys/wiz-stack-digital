@@ -300,17 +300,6 @@ const SecurityAssessmentsConsulting = () => {
                       <p className="text-muted-foreground text-sm">Written findings report with specific findings, remediation guidance, and executive risk summary.</p>
                     </div>
                   </div>
-                  <div className="flex justify-center mt-8">
-                    <Button 
-                      variant="cyber" 
-                      size="lg" 
-                      className="text-lg px-8 py-3"
-                      onClick={() => window.location.href = '/services/requestquote'}
-                    >
-                      Schedule a Scoping Call
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
                 </div>
               </div>
             </div>
