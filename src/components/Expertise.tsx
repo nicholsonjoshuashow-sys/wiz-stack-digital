@@ -10,7 +10,12 @@ import {
   Building2,
   Users,
   Shield,
-  ArrowRight
+  ArrowRight,
+  Cloud,
+  KeyRound,
+  Settings,
+  BookOpen,
+  FileText
 } from "lucide-react";
 import ctaProfessional from "@/assets/cta-professional.png";
 
@@ -94,6 +99,128 @@ const Expertise = () => {
                 </p>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Azure Cloud & Office 365 Security Assessment */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Cloud className="h-8 w-8 text-cyber-blue" />
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Azure Cloud & Office 365 <span className="text-cyber-blue">Security Assessment</span>
+              </h2>
+            </div>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A structured advisory engagement designed to give organizations a clear, prioritized view of their Microsoft cloud security posture — covering Azure infrastructure, Entra ID, and Office 365.
+            </p>
+          </div>
+
+          <div className="flex justify-center mb-12">
+            <img 
+              src="/lovable-uploads/azure-cloud-security-assessment.png" 
+              alt="DarkStack7 Azure Cloud and Office 365 Security Assessment workflow showing the process of finding and closing security weaknesses"
+              className="max-w-full md:max-w-3xl rounded-lg shadow-glow border border-cyber-gray/30"
+            />
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <Card className="group p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
+                <div className="flex items-center gap-3 mb-4">
+                  <Shield className="h-6 w-6 text-cyber-blue" />
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-cyber-blue transition-colors">Security Architecture</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Evaluate your overall security control framework and how it aligns with industry standards like NIST CSF and CIS Controls.
+                </p>
+                <ul className="space-y-2">
+                  {["Control framework alignment", "Logging & monitoring visibility", "Network segmentation review", "Secure Score assessment"].map((item, i) => (
+                    <li key={i} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full mr-3"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              <Card className="group p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
+                <div className="flex items-center gap-3 mb-4">
+                  <KeyRound className="h-6 w-6 text-cyber-blue" />
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-cyber-blue transition-colors">Identity & Access Management</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Review identity practices across Entra ID and M365 — from Conditional Access policies to privileged account hygiene.
+                </p>
+                <ul className="space-y-2">
+                  {["MFA enforcement & gaps", "Global Admin overuse", "Legacy authentication blocking", "Privileged Identity Management (PIM)"].map((item, i) => (
+                    <li key={i} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full mr-3"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              <Card className="group p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
+                <div className="flex items-center gap-3 mb-4">
+                  <Settings className="h-6 w-6 text-cyber-blue" />
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-cyber-blue transition-colors">Critical System Configuration</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  Hands-on review of Exchange, SharePoint, Teams, and Azure workload configurations for security misconfigurations.
+                </p>
+                <ul className="space-y-2">
+                  {["SharePoint external sharing settings", "Exchange mail forwarding rules", "Teams guest access policies", "Azure PaaS security controls"].map((item, i) => (
+                    <li key={i} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full mr-3"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+
+              <Card className="group p-6 bg-card/50 backdrop-blur-sm border-cyber-gray/30 hover:border-cyber-blue/50 transition-all duration-300 hover:shadow-glow">
+                <div className="flex items-center gap-3 mb-4">
+                  <BookOpen className="h-6 w-6 text-cyber-blue" />
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-cyber-blue transition-colors">Documentation & Reporting</h3>
+                </div>
+                <p className="text-muted-foreground mb-4">
+                  A written findings report structured for both your technical team and executive leadership, with prioritized remediation guidance.
+                </p>
+                <ul className="space-y-2">
+                  {["Executive-ready risk summary", "Technical remediation steps", "NIST CSF & CIS Controls mapping", "Compliance-aligned framing"].map((item, i) => (
+                    <li key={i} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full mr-3"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </div>
+
+            <div className="bg-card/80 backdrop-blur-sm border border-cyber-gray/30 rounded-lg p-8 shadow-glow">
+              <h3 className="text-2xl font-bold mb-6 text-foreground text-center">Engagement Details</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <Clock className="h-8 w-8 text-cyber-blue mx-auto mb-3" />
+                  <h4 className="font-semibold text-foreground mb-2">Timeline</h4>
+                  <p className="text-muted-foreground text-sm">2–4 weeks from kickoff to report delivery, depending on environment size and complexity.</p>
+                </div>
+                <div className="text-center">
+                  <KeyRound className="h-8 w-8 text-cyber-blue mx-auto mb-3" />
+                  <h4 className="font-semibold text-foreground mb-2">Access Required</h4>
+                  <p className="text-muted-foreground text-sm">Read-only access — Global Reader in Entra ID and Reader-level in Azure. No more than necessary.</p>
+                </div>
+                <div className="text-center">
+                  <FileText className="h-8 w-8 text-cyber-blue mx-auto mb-3" />
+                  <h4 className="font-semibold text-foreground mb-2">Deliverable</h4>
+                  <p className="text-muted-foreground text-sm">Written findings report with specific findings, remediation guidance, and executive risk summary.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
