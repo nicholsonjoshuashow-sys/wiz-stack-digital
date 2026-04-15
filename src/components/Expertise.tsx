@@ -10,7 +10,12 @@ import {
   Building2,
   Users,
   Shield,
-  ArrowRight
+  ArrowRight,
+  Cloud,
+  KeyRound,
+  Settings,
+  BookOpen,
+  FileText
 } from "lucide-react";
 import ctaProfessional from "@/assets/cta-professional.png";
 
