@@ -12,7 +12,11 @@ import {
   TrendingUp, 
   ArrowRight,
   Star,
-  Clock
+  Clock,
+  Cloud,
+  KeyRound,
+  Settings,
+  BookOpen
 } from "lucide-react";
 
 const SecurityAssessmentsConsulting = () => {
