@@ -14,7 +14,8 @@ import {
   AlertTriangle,
   Phone,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Download
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
 
@@ -148,7 +149,36 @@ const IncidentResponse = () => {
                 ))}
               </div>
 
-              <div className="flex justify-center mt-16">
+              <div className="max-w-3xl mx-auto mt-16 mb-12">
+                <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
+                    <div className="flex items-start gap-4">
+                      <div className="text-cyber-blue mt-1">
+                        <FileText className="h-8 w-8" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-1">
+                          Incident Response One-Pager
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                          Download our GTM overview detailing IR Commander capabilities, response process, and engagement model.
+                        </p>
+                      </div>
+                    </div>
+                    <Button variant="cyber" asChild className="shrink-0">
+                      <a
+                        href="/Darkstack7-Incident-Response-OnePager.pptx"
+                        download
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        Download
+                      </a>
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+
+              <div className="flex justify-center">
                 <div className="relative">
                   <img 
                     src="/lovable-uploads/12d91e59-5e83-4dd7-9feb-4f2fe1c2ae53.png" 
