@@ -18,6 +18,8 @@ import {
   Download
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
+import irOnePagerSlide1 from "@/assets/ir-onepager-slide-1.png";
+import irOnePagerSlide2 from "@/assets/ir-onepager-slide-2.png";
 
 const IncidentResponse = () => {
   const capabilities = [
@@ -149,7 +151,17 @@ const IncidentResponse = () => {
                 ))}
               </div>
 
-              <div className="max-w-3xl mx-auto mt-16 mb-12">
+              <div className="max-w-6xl mx-auto mt-16 mb-12 space-y-8">
+                <img
+                  src={irOnePagerSlide1}
+                  alt="Darkstack7 Incident Response overview slide"
+                  className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
+                />
+                <img
+                  src={irOnePagerSlide2}
+                  alt="Darkstack7 DFIR service program details slide"
+                  className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
+                />
                 <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
                     <div className="flex items-start gap-4">
