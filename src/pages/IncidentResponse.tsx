@@ -18,8 +18,15 @@ import {
   Download
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
-import irOnePagerSlide1 from "@/assets/ir-onepager-slide-1.png";
-import irOnePagerSlide2 from "@/assets/ir-onepager-slide-2.png";
+import irSlide1 from "@/assets/ir-slides/slide-1.png";
+import irSlide2 from "@/assets/ir-slides/slide-2.png";
+import irSlide3 from "@/assets/ir-slides/slide-3.png";
+import irSlide4 from "@/assets/ir-slides/slide-4.png";
+import irSlide5 from "@/assets/ir-slides/slide-5.png";
+import irSlide6 from "@/assets/ir-slides/slide-6.png";
+import irSlide7 from "@/assets/ir-slides/slide-7.png";
+
+const retainerSlides = [irSlide1, irSlide2, irSlide3, irSlide4, irSlide5, irSlide6, irSlide7];
 
 const IncidentResponse = () => {
   const capabilities = [
@@ -152,16 +159,14 @@ const IncidentResponse = () => {
               </div>
 
               <div className="max-w-6xl mx-auto mt-16 mb-12 space-y-8">
-                <img
-                  src={irOnePagerSlide1}
-                  alt="Darkstack7 Incident Response overview slide"
-                  className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
-                />
-                <img
-                  src={irOnePagerSlide2}
-                  alt="Darkstack7 DFIR service program details slide"
-                  className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
-                />
+                {retainerSlides.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`Darkstack7 Incident Response Retainer Program slide ${i + 1}`}
+                    className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
+                  />
+                ))}
                 <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
                     <div className="flex items-start gap-4">
@@ -179,7 +184,7 @@ const IncidentResponse = () => {
                     </div>
                     <Button variant="cyber" asChild className="shrink-0">
                       <a
-                        href="/Darkstack7-Incident-Response-OnePager.pptx"
+                        href="/Darkstack7-Incident-Response-Retainer-Program.pptx"
                         download
                       >
                         <Download className="mr-2 h-4 w-4" />
