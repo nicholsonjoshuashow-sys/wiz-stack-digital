@@ -18,6 +18,12 @@ import {
   Download
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
+import deckSlide1 from "@/assets/ir-deck/slide-1.png";
+import deckSlide2 from "@/assets/ir-deck/slide-2.png";
+import deckSlide3 from "@/assets/ir-deck/slide-3.png";
+import deckSlide4 from "@/assets/ir-deck/slide-4.png";
+import deckSlide5 from "@/assets/ir-deck/slide-5.png";
+import deckSlide6 from "@/assets/ir-deck/slide-6.png";
 
 const IncidentResponse = () => {
   const capabilities = [
@@ -150,6 +156,14 @@ const IncidentResponse = () => {
               </div>
 
               <div className="max-w-6xl mx-auto mt-16 mb-12 space-y-8">
+                {[deckSlide1, deckSlide2, deckSlide3, deckSlide4, deckSlide5, deckSlide6].map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`Darkstack7 Incident Response services deck slide ${i + 1}`}
+                    className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
+                  />
+                ))}
                 <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
                     <div className="flex items-start gap-4">
