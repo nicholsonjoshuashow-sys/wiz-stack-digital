@@ -98,7 +98,7 @@ const Podcast = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg">
                   <a 
-                    href="https://feeds.libsyn.com/506373/rss" 
+                    href="https://www.youtube.com/@cybersecurityamerica_show" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center"
