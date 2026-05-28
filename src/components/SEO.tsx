@@ -7,16 +7,18 @@ interface SEOProps {
   canonical?: string;
   ogType?: string;
   ogImage?: string;
+  ogUrl?: string;
   structuredData?: object;
 }
 
 const SEO = ({
-  title = "Darkstack7 - Elite Cybersecurity Leadership | Incident Response & Virtual CISO Services",
-  description = "Elite cybersecurity leadership for high-stakes moments. 24/7 incident response, virtual CISO services, penetration testing, and security consulting by experienced professionals.",
+  title = "Darkstack7 | Cybersecurity Leadership & Incident Response",
+  description = "Elite cybersecurity leadership. 24/7 incident response, virtual CISO, penetration testing, and security consulting.",
   keywords = "cybersecurity, incident response, virtual CISO, penetration testing, security consulting, cyber defense, darkstack7",
   canonical,
   ogType = "website",
   ogImage = "https://darkstack7.com/darkstack7-logo.png",
+  ogUrl,
   structuredData
 }: SEOProps) => {
   useEffect(() => {
@@ -50,6 +52,10 @@ const SEO = ({
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:type', ogType, true);
     updateMetaTag('og:image', ogImage, true);
+    const resolvedOgUrl = ogUrl || canonical || (typeof window !== 'undefined' ? window.location.href : undefined);
+    if (resolvedOgUrl) {
+      updateMetaTag('og:url', resolvedOgUrl, true);
+    }
 
     // Twitter Card tags
     updateMetaTag('twitter:card', 'summary_large_image');
@@ -78,7 +84,7 @@ const SEO = ({
       }
       scriptElement.textContent = JSON.stringify(structuredData);
     }
-  }, [title, description, keywords, canonical, ogType, ogImage, structuredData]);
+  }, [title, description, keywords, canonical, ogType, ogImage, ogUrl, structuredData]);
 
   return null;
 };

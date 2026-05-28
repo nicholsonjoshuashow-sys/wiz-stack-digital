@@ -50,10 +50,24 @@ const CISO = () => {
   return (
     <>
       <SEO
-        title="Virtual CISO Services - Executive Cybersecurity Leadership | Darkstack7"
-        description="Get executive-level cybersecurity leadership with our Virtual CISO services. Strategic planning, incident response, and hands-on security program development."
+        title="Virtual CISO Services | Darkstack7"
+        description="Executive-level cybersecurity leadership. Strategic planning, security architecture, and hands-on vCISO program development."
         keywords="virtual CISO, cybersecurity leadership, security strategy, incident response, executive security"
         canonical="https://darkstack7.com/services/CISO"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Virtual CISO (vCISO)",
+          "serviceType": "Cybersecurity Leadership",
+          "description": "Executive-level cybersecurity leadership delivering strategy, architecture, threat defense, and security engineering on a fractional basis.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Darkstack7",
+            "url": "https://darkstack7.com"
+          },
+          "areaServed": "Global",
+          "url": "https://darkstack7.com/services/CISO"
+        }}
       />
       
       <div 

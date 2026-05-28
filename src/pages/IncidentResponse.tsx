@@ -75,10 +75,24 @@ const IncidentResponse = () => {
   return (
     <>
       <SEO 
-        title="Incident Response Services | 24/7 Emergency Cyber Response | Darkstack7"
-        description="Expert incident response services with on-demand IR Commander leadership. 24/7 emergency response for active breaches, digital forensics, and board-level communication."
+        title="Incident Response & 24/7 Cyber Emergency | Darkstack7"
+        description="On-demand IR Commander leadership for active breaches. 24/7 emergency response, digital forensics, and board-level communication."
         keywords="incident response, cyber incident, emergency response, digital forensics, breach response, IR commander, cybersecurity incident"
         canonical="https://darkstack7.com/services/IR"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Incident Response",
+          "serviceType": "Cybersecurity Incident Response",
+          "description": "On-demand IR Commander leadership for active breaches with 24/7 emergency response, digital forensics, and executive crisis communication.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Darkstack7",
+            "url": "https://darkstack7.com"
+          },
+          "areaServed": "Global",
+          "url": "https://darkstack7.com/services/IR"
+        }}
       />
       <div 
         className="min-h-screen bg-background"
@@ -118,7 +132,7 @@ const IncidentResponse = () => {
                 <div className="flex justify-center">
                   <Button size="lg" variant="outline" asChild>
                     <Link to="/contact">
-                      Learn More
+                      Contact Incident Response Team
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>

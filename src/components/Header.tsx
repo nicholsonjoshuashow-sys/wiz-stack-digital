@@ -27,9 +27,9 @@ const Header = () => {
             rel="noopener noreferrer"
           >
             <div>
-              <h1 className="text-xl font-bold text-pearl-white">
+              <div className="text-xl font-bold text-pearl-white">
                 DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
-              </h1>
+              </div>
               <p className="text-sm font-bold text-pearl-white">Cyber Defense</p>
             </div>
           </a>
