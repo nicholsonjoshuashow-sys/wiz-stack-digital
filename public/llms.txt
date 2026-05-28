@@ -1,0 +1,25 @@
+# Darkstack7
+
+> Elite cybersecurity leadership for high-stakes moments: 24/7 incident response, virtual CISO services, penetration testing, and security consulting.
+
+Darkstack7 is a cybersecurity firm founded by Joshua R. Nicholson, a 24-year industry veteran and former U.S. Marine. The team delivers executive-level security leadership and emergency response for enterprises facing active breaches, regulatory pressure, and complex threat environments.
+
+## Pages
+
+- [Home](/): Overview of Darkstack7 services and leadership.
+- [Contact](/contact): Request a consultation or report a cyber incident.
+- [Media & Content](/media): Cybersecurity insights, videos, and expert interviews.
+- [News & Insights](/media/news): Latest cybersecurity news and LinkedIn content.
+- [Podcast: Cyber Security America](/podcast): Expert interviews and strategic cybersecurity discussions.
+- [Be a Podcast Guest](/podcast/guest): Apply to appear on the Cyber Security America podcast.
+
+## Services
+
+- [Incident Response](/services/IR): 24/7 On-Demand IR Commander leadership for active breaches and digital forensics.
+- [Virtual CISO (vCISO)](/services/CISO): Executive-level cybersecurity leadership on a fractional basis.
+- [Penetration Testing](/services/penetration-testing): Network, application, and cloud security assessments.
+- [Security Assessments & Consulting](/services/security-assessments-consulting): Gap analysis, compliance, and remediation roadmaps.
+- [Insider Threat Investigations](/services/insiderthreat): Behavioral analysis, digital forensics, and remediation.
+- [Tabletop Exercises](/services/tabletop_exercises): Custom incident response readiness scenarios.
+- [Solution Engineering](/services/solution-engineering): Strategic technology partnerships and MSSP integration.
+- [Training & Keynotes](/services/training-keynotes): Executive training, conference speaking, and workshops.
