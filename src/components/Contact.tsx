@@ -147,51 +147,63 @@ const Contact = () => {
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
+                  <label htmlFor="contact-first-name" className="text-sm font-medium text-foreground mb-2 block">
                     First Name
                   </label>
-                  <Input 
-                    placeholder="John" 
+                  <Input
+                    id="contact-first-name"
+                    name="firstName"
+                    placeholder="John"
                     className="bg-background/50 border-cyber-gray/50 focus:border-cyber-blue"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
+                  <label htmlFor="contact-last-name" className="text-sm font-medium text-foreground mb-2 block">
                     Last Name
                   </label>
-                  <Input 
-                    placeholder="Doe" 
+                  <Input
+                    id="contact-last-name"
+                    name="lastName"
+                    placeholder="Doe"
                     className="bg-background/50 border-cyber-gray/50 focus:border-cyber-blue"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
+                <label htmlFor="contact-email" className="text-sm font-medium text-foreground mb-2 block">
                   Email
                 </label>
-                <Input 
-                  type="email" 
-                  placeholder="john@company.com" 
+                <Input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="john@company.com"
                   className="bg-background/50 border-cyber-gray/50 focus:border-cyber-blue"
                 />
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
+                <label htmlFor="contact-company" className="text-sm font-medium text-foreground mb-2 block">
                   Company
                 </label>
-                <Input 
-                  placeholder="Your Company" 
+                <Input
+                  id="contact-company"
+                  name="company"
+                  placeholder="Your Company"
                   className="bg-background/50 border-cyber-gray/50 focus:border-cyber-blue"
                 />
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
+                <label htmlFor="contact-service" className="text-sm font-medium text-foreground mb-2 block">
                   Service Interest
                 </label>
-                <select className="w-full p-3 bg-background/50 border border-cyber-gray/50 rounded-lg text-foreground focus:border-cyber-blue focus:outline-none">
+                <select
+                  id="contact-service"
+                  name="service"
+                  className="w-full p-3 bg-background/50 border border-cyber-gray/50 rounded-lg text-foreground focus:border-cyber-blue focus:outline-none"
+                >
                   <option>Select a service</option>
                   <option>Emergency Incident Response</option>
                   <option>Virtual CISO (vCISO)</option>
@@ -203,11 +215,13 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
+                <label htmlFor="contact-message" className="text-sm font-medium text-foreground mb-2 block">
                   Message
                 </label>
-                <Textarea 
-                  placeholder="Tell us about your cybersecurity needs..." 
+                <Textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Tell us about your cybersecurity needs..."
                   rows={4}
                   className="bg-background/50 border-cyber-gray/50 focus:border-cyber-blue"
                 />

@@ -140,62 +140,62 @@ const Services = () => {
                 {service.id === "01" ? (
                   <Link to="/services/IR" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      View Incident Response services
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "02" ? (
                   <Link to="/services/CISO" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      Read Virtual CISO details
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "03" ? (
                   <Link to="/services/solution-engineering" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      Explore Solution Engineering
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "04" ? (
                   <Link to="/services/security-assessments-consulting" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      View Security Assessments
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "05" ? (
                   <Link to="/services/penetration-testing" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      Explore Penetration Testing
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "06" ? (
                   <Link to="/services/insiderthreat" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      View Insider Threat services
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "07" ? (
                   <Link to="/services/tabletop_exercises" className="block" onClick={handleServiceClick}>
                     <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      View Tabletop Exercises
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : service.id === "08" ? (
                   <Link to="/services/training-keynotes" className="block" onClick={handleServiceClick}>
                     <Button variant="cyber" size="sm" className="w-full group-hover:shadow-glow transition-all">
-                      Learn More
+                      View Training & Keynotes
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 ) : (
                   <Button variant={service.variant} size="sm" className="w-full group-hover:shadow-glow transition-all">
-                    Learn More
+                    View service details
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 )}
