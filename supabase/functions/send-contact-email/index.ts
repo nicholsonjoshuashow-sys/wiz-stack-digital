@@ -19,6 +19,19 @@ interface ContactRequest {
   message: string;
 }
 
+const esc = (s: unknown): string =>
+  String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+const clamp = (s: unknown, max: number): string => {
+  const str = String(s ?? "");
+  return str.length > max ? str.slice(0, max) : str;
+};
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -27,41 +40,48 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const contactData: ContactRequest = await req.json();
-    
-    console.log("Contact form submission received:", contactData);
 
-    // Format the services list
-    const servicesList = contactData.services.length > 0 
-      ? contactData.services.join(", ") 
-      : "Not specified";
+    console.log("Contact form submission received");
+
+    const name = clamp(contactData.name, 100);
+    const email = clamp(contactData.email, 254);
+    const company = clamp(contactData.company, 200);
+    const phone = clamp(contactData.phone, 50);
+    const priority = clamp(contactData.priority, 50);
+    const message = clamp(contactData.message, 5000);
+    const services = Array.isArray(contactData.services)
+      ? contactData.services.slice(0, 20).map((s) => clamp(s, 100))
+      : [];
+
+    const servicesList = services.length > 0 ? services.map(esc).join(", ") : "Not specified";
 
     // Send email to nicholson.joshua.show@gmail.com
     const emailResponse = await resend.emails.send({
       from: "Contact Form <noreply@resend.dev>",
       to: ["nicholson.joshua.show@gmail.com"],
-      subject: `New Contact Form Submission from ${contactData.name}`,
+      subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
         
         <h3>Contact Information</h3>
-        <p><strong>Name:</strong> ${contactData.name}</p>
-        <p><strong>Email:</strong> ${contactData.email}</p>
-        ${contactData.company ? `<p><strong>Company:</strong> ${contactData.company}</p>` : ''}
-        ${contactData.phone ? `<p><strong>Phone:</strong> ${contactData.phone}</p>` : ''}
+        <p><strong>Name:</strong> ${esc(name)}</p>
+        <p><strong>Email:</strong> ${esc(email)}</p>
+        ${company ? `<p><strong>Company:</strong> ${esc(company)}</p>` : ''}
+        ${phone ? `<p><strong>Phone:</strong> ${esc(phone)}</p>` : ''}
         
         <h3>Request Details</h3>
         <p><strong>Services Interested In:</strong> ${servicesList}</p>
-        <p><strong>Priority Level:</strong> ${contactData.priority}</p>
+        <p><strong>Priority Level:</strong> ${esc(priority)}</p>
         
         <h3>Message</h3>
-        <p>${contactData.message.replace(/\n/g, '<br>')}</p>
+        <p>${esc(message).replace(/\n/g, '<br>')}</p>
         
         <hr>
         <p><em>This message was sent from the DARKSTACK7 website contact form.</em></p>
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Email sent successfully");
 
     return new Response(
       JSON.stringify({ 
@@ -79,10 +99,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ 
-        error: "Failed to send email", 
-        details: error.message 
-      }),
+      JSON.stringify({ error: "An internal error occurred. Please try again." }),
       {
         status: 500,
         headers: { 

@@ -27,17 +27,54 @@ serve(async (req) => {
 
   try {
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-    
-    const { episodes } = await req.json() as { episodes: PodcastEpisode[] };
-    
-    if (!episodes || !Array.isArray(episodes)) {
-      throw new Error("Episodes array is required");
+
+    // Require an authenticated admin caller.
+    const authHeader = req.headers.get("Authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
     }
 
-    const { data, error } = await supabase
+    const authClient = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader } },
+    });
+    const token = authHeader.replace("Bearer ", "");
+    const { data: claimsData, error: claimsError } = await authClient.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims?.sub) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorized" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+
+    const admin = createClient(supabaseUrl, supabaseServiceKey);
+    const { data: isAdmin, error: roleError } = await admin
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", claimsData.claims.sub)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (roleError || !isAdmin) {
+      return new Response(
+        JSON.stringify({ error: "Forbidden" }),
+        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+
+    const { episodes } = await req.json() as { episodes: PodcastEpisode[] };
+
+    if (!episodes || !Array.isArray(episodes)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid request body" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+
+    const { data, error } = await admin
       .from("podcast_episodes")
       .insert(episodes)
       .select();
@@ -56,7 +93,7 @@ serve(async (req) => {
   } catch (error) {
     console.error("Error adding podcast episodes:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "An internal error occurred. Please try again." }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
