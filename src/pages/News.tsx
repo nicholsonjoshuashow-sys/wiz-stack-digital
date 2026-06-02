@@ -120,7 +120,6 @@ const News = () => {
                       href="https://www.darkstack7.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block rounded-lg overflow-hidden bg-white p-4 md:p-6 border border-border hover:border-cyber-blue/60 transition-colors flex-1 max-w-[280px]"
                       aria-label="Visit DarkStack7"
                     >
                       <img
@@ -137,7 +136,7 @@ const News = () => {
                       href="https://proxiio.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block rounded-lg overflow-hidden bg-white p-4 md:p-6 border border-border hover:border-cyber-blue/60 transition-colors flex-1 max-w-[280px]"
+                      className="block rounded-lg overflow-hidden bg-gray-200 p-4 md:p-6 border border-border hover:border-cyber-blue/60 transition-colors flex-1 max-w-[280px]"
                       aria-label="Visit Proxiio Global Solutions"
                     >
                       <img
