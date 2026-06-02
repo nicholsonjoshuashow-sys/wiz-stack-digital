@@ -115,20 +115,39 @@ const News = () => {
                   </div>
                 </div>
                 <CardContent className="p-8">
-                  <a
-                    href="https://proxiio.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mb-6 rounded-lg overflow-hidden bg-white p-6 border border-border hover:border-cyber-blue/60 transition-colors"
-                    aria-label="Visit Proxiio Global Solutions"
-                  >
-                    <img
-                      src={proxiioLogo.url}
-                      alt="Proxiio Global Solutions logo"
-                      className="mx-auto h-20 md:h-28 w-auto object-contain"
-                      loading="lazy"
-                    />
-                  </a>
+                  <div className="flex items-center justify-center gap-6 md:gap-10 mb-6">
+                    <a
+                      href="https://www.darkstack7.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-lg overflow-hidden bg-white p-4 md:p-6 border border-border hover:border-cyber-blue/60 transition-colors flex-1 max-w-[280px]"
+                      aria-label="Visit DarkStack7"
+                    >
+                      <img
+                        src={darkstackLogo.url}
+                        alt="DarkStack7 logo"
+                        className="mx-auto h-16 md:h-24 w-auto object-contain"
+                        loading="lazy"
+                      />
+                    </a>
+                    <div className="flex items-center justify-center">
+                      <Handshake className="h-8 w-8 md:h-10 md:w-10 text-cyber-blue" />
+                    </div>
+                    <a
+                      href="https://proxiio.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block rounded-lg overflow-hidden bg-white p-4 md:p-6 border border-border hover:border-cyber-blue/60 transition-colors flex-1 max-w-[280px]"
+                      aria-label="Visit Proxiio Global Solutions"
+                    >
+                      <img
+                        src={proxiioLogo.url}
+                        alt="Proxiio Global Solutions logo"
+                        className="mx-auto h-16 md:h-24 w-auto object-contain"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">
                     Strategic Partnership for End-to-End Data Breach Prevention, Response, and Compliance Solutions
                   </h2>
