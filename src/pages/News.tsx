@@ -175,7 +175,7 @@ const News = () => {
                         <span className="inline-block w-2 h-2 rounded-full bg-fire-red" />
                         Post-incident Data Breach Response
                       </h3>
-                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4 text-left inline-block">
+                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-8 text-left inline-block">
                         <li>Identification of PII, PHI, and Sensitive Data</li>
                         <li>AI-Powered Data Extraction and Classification</li>
                         <li>Breach-Specific Document Review Workflows</li>
