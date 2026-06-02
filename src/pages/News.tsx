@@ -156,8 +156,8 @@ const News = () => {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-8 mb-6 max-w-4xl mx-auto">
-                    <div className="space-y-3 text-center">
-                      <h3 className="font-semibold text-lg flex items-center justify-center gap-2 text-left">
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-lg flex items-center justify-start gap-2 text-left">
                         <span className="inline-block w-2 h-2 rounded-full bg-cyber-blue" />
                         Prevent & Response
                       </h3>
@@ -170,8 +170,8 @@ const News = () => {
                         <li>CMMC, NIST 800-171 & Regulatory Compliance</li>
                       </ul>
                     </div>
-                    <div className="space-y-3 text-center">
-                      <h3 className="font-semibold text-lg flex items-center justify-center gap-2 text-left">
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-lg flex items-center justify-start gap-2 text-left">
                         <span className="inline-block w-2 h-2 rounded-full bg-fire-red" />
                         Post-incident Data Breach Response
                       </h3>
