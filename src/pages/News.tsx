@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, ExternalLink, Linkedin } from "lucide-react";
+import { Calendar, ExternalLink, Handshake, Linkedin } from "lucide-react";
 
 // Mock LinkedIn posts data - In production, this would come from LinkedIn API
 const linkedInPosts = [
@@ -99,6 +99,80 @@ const News = () => {
                   Darkstack7 | Cybersecurity Leadership | Charlotte
                 </a>
               </div>
+            </div>
+
+            {/* Featured Partnership Announcement */}
+            <div className="mb-16">
+              <Card className="border-cyber-blue/40 shadow-glow overflow-hidden">
+                <div className="bg-gradient-to-r from-cyber-blue/10 to-fire-red/10 px-6 py-3 border-b border-cyber-blue/20">
+                  <div className="flex items-center gap-2">
+                    <Handshake className="h-5 w-5 text-cyber-blue" />
+                    <span className="text-sm font-semibold text-cyber-blue tracking-wide uppercase">
+                      Official Announcement
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-8">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                    Strategic Partnership for End-to-End Data Breach Prevention, Response, and Compliance Solutions
+                  </h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Proxiio Global Solutions has entered into a strategic partnership with DarkStack7 Cyber Defense to deliver comprehensive cybersecurity, incident response, and data breach management solutions for organizations operating in today's increasingly complex threat landscape.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-8 mb-6">
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-lg flex items-center gap-2">
+                        <span className="inline-block w-2 h-2 rounded-full bg-cyber-blue" />
+                        Proactive Cybersecurity & Threat Prevention
+                      </h3>
+                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4">
+                        <li>Penetration Testing (Network, Web, SaaS, Cloud, AI)</li>
+                        <li>Adversary Simulation & Red Team Exercises</li>
+                        <li>Digital Forensics & Incident Response (DFIR)</li>
+                        <li>Ransomware Investigation & Recovery Support</li>
+                        <li>Virtual CISO (vCISO) Services</li>
+                        <li>CMMC, NIST 800-171 & Regulatory Compliance</li>
+                      </ul>
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-lg flex items-center gap-2">
+                        <span className="inline-block w-2 h-2 rounded-full bg-fire-red" />
+                        Reactive Data Breach Response & Compliance
+                      </h3>
+                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4">
+                        <li>Identification of PII, PHI, and Sensitive Data</li>
+                        <li>AI-Powered Data Extraction and Classification</li>
+                        <li>Breach-Specific Document Review Workflows</li>
+                        <li>Advanced Anomaly Detection and Validation</li>
+                        <li>Regulatory Notification Support</li>
+                        <li>Legal and Compliance Coordination</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-muted/50 rounded-lg p-4 mb-6">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      This partnership combines advanced cybersecurity expertise with proven legal and compliance-driven breach response capabilities to provide organizations with a seamless, end-to-end solution across the entire breach lifecycle.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-4">
+                    <span className="text-xs text-muted-foreground">
+                      June 2025
+                    </span>
+                    <a
+                      href="https://www.darkstack7.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm text-cyber-blue hover:text-fire-red transition-colors font-medium"
+                    >
+                      Learn more about DarkStack7
+                      <ExternalLink className="h-3 w-3 ml-1" />
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* News Articles Grid */}
