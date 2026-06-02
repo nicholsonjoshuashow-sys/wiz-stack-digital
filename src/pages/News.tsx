@@ -148,7 +148,7 @@ const News = () => {
                       />
                     </a>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  <h2 className="text-2xl font-bold mb-4 md:text-2xl">
                     Strategic Partnership for End-to-End Data Breach Prevention, Response, and Compliance Solutions
                   </h2>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
