@@ -5,6 +5,7 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ExternalLink, Handshake, Linkedin } from "lucide-react";
+import proxiioLogo from "@/assets/proxiio-logo.jpg.asset.json";
 
 // Mock LinkedIn posts data - In production, this would come from LinkedIn API
 const linkedInPosts = [
@@ -113,6 +114,20 @@ const News = () => {
                   </div>
                 </div>
                 <CardContent className="p-8">
+                  <a
+                    href="https://proxiio.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mb-6 rounded-lg overflow-hidden bg-white p-6 border border-border hover:border-cyber-blue/60 transition-colors"
+                    aria-label="Visit Proxiio Global Solutions"
+                  >
+                    <img
+                      src={proxiioLogo.url}
+                      alt="Proxiio Global Solutions logo"
+                      className="mx-auto h-20 md:h-28 w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </a>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">
                     Strategic Partnership for End-to-End Data Breach Prevention, Response, and Compliance Solutions
                   </h2>
@@ -168,6 +183,15 @@ const News = () => {
                       className="inline-flex items-center text-sm text-cyber-blue hover:text-fire-red transition-colors font-medium"
                     >
                       Learn more about DarkStack7
+                      <ExternalLink className="h-3 w-3 ml-1" />
+                    </a>
+                    <a
+                      href="https://proxiio.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm text-cyber-blue hover:text-fire-red transition-colors font-medium"
+                    >
+                      Visit Proxiio
                       <ExternalLink className="h-3 w-3 ml-1" />
                     </a>
                   </div>
