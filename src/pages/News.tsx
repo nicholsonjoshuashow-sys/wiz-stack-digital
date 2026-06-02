@@ -155,13 +155,13 @@ const News = () => {
                     Proxiio Global Solutions has entered into a strategic partnership with DarkStack7 Cyber Defense to deliver comprehensive cybersecurity, incident response, and data breach management solutions for organizations operating in today's increasingly complex threat landscape.
                   </p>
 
-                  <div className="grid md:grid-cols-2 gap-8 mb-6">
-                    <div className="space-y-3">
-                      <h3 className="font-semibold text-lg flex items-center gap-2">
+                  <div className="grid md:grid-cols-2 gap-8 mb-6 max-w-4xl mx-auto">
+                    <div className="space-y-3 text-center">
+                      <h3 className="font-semibold text-lg flex items-center justify-center gap-2">
                         <span className="inline-block w-2 h-2 rounded-full bg-cyber-blue" />
-                        Proactive Cybersecurity & Threat Prevention
+                        Prevent & Response
                       </h3>
-                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4">
+                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4 text-left inline-block">
                         <li>Penetration Testing (Network, Web, SaaS, Cloud, AI)</li>
                         <li>Adversary Simulation & Red Team Exercises</li>
                         <li>Digital Forensics & Incident Response (DFIR)</li>
@@ -170,12 +170,12 @@ const News = () => {
                         <li>CMMC, NIST 800-171 & Regulatory Compliance</li>
                       </ul>
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="font-semibold text-lg flex items-center gap-2">
+                    <div className="space-y-3 text-center">
+                      <h3 className="font-semibold text-lg flex items-center justify-center gap-2">
                         <span className="inline-block w-2 h-2 rounded-full bg-fire-red" />
-                        Reactive Data Breach Response & Compliance
+                        Post-incident Data Breach Response
                       </h3>
-                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4">
+                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-4 text-left inline-block">
                         <li>Identification of PII, PHI, and Sensitive Data</li>
                         <li>AI-Powered Data Extraction and Classification</li>
                         <li>Breach-Specific Document Review Workflows</li>
