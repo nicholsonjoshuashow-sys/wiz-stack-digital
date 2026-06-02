@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ExternalLink, Handshake, Linkedin } from "lucide-react";
 import proxiioLogo from "@/assets/proxiio-logo.jpg.asset.json";
+import darkstackLogo from "@/assets/darkstack-logo.png.asset.json";
 
 // Mock LinkedIn posts data - In production, this would come from LinkedIn API
 const linkedInPosts = [
