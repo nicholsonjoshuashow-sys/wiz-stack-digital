@@ -471,10 +471,12 @@ const TabletopExercises = () => {
                     variant="cyber" 
                     size="lg" 
                     className="text-lg px-8"
-                    onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
+                    asChild
                   >
-                    Schedule TTX Scoping Call
-                    <Calendar className="ml-2 h-5 w-5" />
+                    <Link to="/contact">
+                      Schedule TTX Scoping Call
+                      <Calendar className="ml-2 h-5 w-5" />
+                    </Link>
                   </Button>
                 </div>
               </div>
