@@ -471,12 +471,10 @@ const TabletopExercises = () => {
                     variant="cyber" 
                     size="lg" 
                     className="text-lg px-8"
-                    asChild
+                    onClick={() => window.open('https://meetings-na2.hubspot.com/joshua-nicholson/ttx', '_blank')}
                   >
-                    <Link to="/contact">
-                      Schedule TTX Scoping Call
-                      <Calendar className="ml-2 h-5 w-5" />
-                    </Link>
+                    Schedule TTX Scoping Call
+                    <Calendar className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
               </div>
