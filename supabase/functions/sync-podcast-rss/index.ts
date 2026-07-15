@@ -38,7 +38,20 @@ serve(async (req) => {
     const xml = await res.text();
     const items = xml.match(/<item>[\s\S]*?<\/item>/g) ?? [];
 
-    const rows = items.map((item) => {
+    // First pass: parse everything and remember which items lack itunes:episode.
+    type Parsed = {
+      episode_number: number | null;
+      season: number;
+      title: string;
+      description: string;
+      audio_url: string;
+      duration: string;
+      published_at: string;
+      keywords: string[];
+      libsyn_link?: string;
+      is_published: boolean;
+    };
+    const parsed: Parsed[] = items.map((item) => {
       const epStr = pick(item, "itunes:episode");
       const seasonStr = pick(item, "itunes:season");
       const title = pick(item, "title") ?? "Untitled";
@@ -50,15 +63,15 @@ serve(async (req) => {
       const keywords = keywordsRaw.split(",").map((k) => k.trim()).filter(Boolean);
       const link = pick(item, "link") ?? undefined;
 
-      if (!epStr || !audioUrl || !pubDate) return null;
-      const episode_number = parseInt(epStr, 10);
-      if (Number.isNaN(episode_number)) return null;
-      const season = seasonStr ? parseInt(seasonStr, 10) : 2;
+      if (!audioUrl || !pubDate) return null as unknown as Parsed;
+      const parsedEp = epStr ? parseInt(epStr, 10) : NaN;
+      const episode_number = Number.isNaN(parsedEp) ? null : parsedEp;
+      const season = seasonStr ? parseInt(seasonStr, 10) : 1;
       const published_at = new Date(pubDate).toISOString().slice(0, 10);
 
       return {
         episode_number,
-        season: Number.isNaN(season) ? 2 : season,
+        season: Number.isNaN(season) ? 1 : season,
         title,
         description,
         audio_url: audioUrl,
@@ -68,12 +81,24 @@ serve(async (req) => {
         libsyn_link: link,
         is_published: true,
       };
-    }).filter(Boolean) as Array<Record<string, unknown>>;
+    }).filter(Boolean) as Parsed[];
 
-    // Deduplicate by episode_number, keeping the latest occurrence (feed lists newest first).
+    // For older items lacking itunes:episode, assign numbers descending from
+    // (min-known-episode - 1). Feed is newest-first, so iterate in order.
+    const knownNums = parsed.map((p) => p.episode_number).filter((n): n is number => n !== null);
+    let nextUnknown = (knownNums.length ? Math.min(...knownNums) : parsed.length + 1) - 1;
+    for (const p of parsed) {
+      if (p.episode_number === null) {
+        p.episode_number = nextUnknown--;
+      }
+    }
+
+    const rows = parsed as unknown as Array<Record<string, unknown> & { episode_number: number }>;
+
+    // Deduplicate by episode_number (feed occasionally reuses a number); keep the first (newest).
     const seen = new Set<number>();
     const uniqueRows = rows.filter((r) => {
-      const n = r.episode_number as number;
+      const n = r.episode_number;
       if (seen.has(n)) return false;
       seen.add(n);
       return true;
