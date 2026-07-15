@@ -1,0 +1,1 @@
+ALTER TABLE public.podcast_episodes ADD CONSTRAINT podcast_episodes_episode_number_key UNIQUE (episode_number);
