@@ -242,7 +242,18 @@ const Podcast = () => {
                           </div>
                           
                           <h3 className="text-xl font-bold mb-3">{episode.title}</h3>
-                          <p className="text-muted-foreground mb-4">{episode.description}</p>
+                          <p className="text-muted-foreground mb-4 line-clamp-4">
+                            {episode.description
+                              .replace(/<[^>]*>/g, ' ')
+                              .replace(/&nbsp;/gi, ' ')
+                              .replace(/&amp;/gi, '&')
+                              .replace(/&lt;/gi, '<')
+                              .replace(/&gt;/gi, '>')
+                              .replace(/&quot;/gi, '"')
+                              .replace(/&#39;/gi, "'")
+                              .replace(/\s+/g, ' ')
+                              .trim()}
+                          </p>
                           
                           <div className="flex flex-wrap gap-2 mb-4">
                             {episode.keywords.map((keyword) => (
