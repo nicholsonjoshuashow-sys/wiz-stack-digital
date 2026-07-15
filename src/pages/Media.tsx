@@ -172,8 +172,8 @@ const Media = () => {
   return (
     <>
       <SEO 
-        title="Media & Content - Joshua R. Nicholson | Cybersecurity Leadership"
-        description="Watch cybersecurity expert Joshua R. Nicholson share insights on incident response, virtual CISO services, and security leadership through videos, podcasts, and educational content."
+        title="Media & Content | Joshua R. Nicholson | Darkstack7"
+        description="Cybersecurity insights from Joshua R. Nicholson via videos, podcasts, and educational content on IR, vCISO, and leadership."
         keywords="cybersecurity media, security leadership content, Joshua Nicholson videos, incident response training, CISO insights, cybersecurity education"
         canonical="https://darkstack7.com/media"
       />

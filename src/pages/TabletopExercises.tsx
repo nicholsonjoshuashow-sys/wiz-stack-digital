@@ -83,8 +83,8 @@ const TabletopExercises = () => {
   return (
     <>
       <SEO 
-        title="Tabletop Exercises (TTX) - Incident Response Readiness | Darkstack7"
-        description="Custom incident response tabletop exercises designed to test your team's readiness. Professional scenarios, gap analysis, and IR playbook development by seasoned responders."
+        title="Tabletop Exercises (TTX) | Darkstack7"
+        description="Custom incident response tabletop exercises with professional scenarios, gap analysis, and IR playbook development."
         keywords="tabletop exercises, incident response training, IR readiness, cybersecurity drills, breach simulation, crisis management training, TTX"
         canonical="https://darkstack7.com/services/tabletop_exercises"
       />

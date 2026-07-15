@@ -80,8 +80,8 @@ const TrainingKeynotes = () => {
   return (
     <>
       <SEO 
-        title="Training & Keynotes | Executive Cybersecurity Education | Darkstack7"
-        description="Elite cybersecurity training and keynote speaking by Joshua R. Nicholson. Executive education, conference speaking, interactive workshops, and leadership development from a 24-year veteran."
+        title="Training & Keynotes | Cybersecurity Education | Darkstack7"
+        description="Elite cybersecurity training and keynote speaking by Joshua R. Nicholson — executive education, workshops, and leadership development."
         keywords="cybersecurity training, keynote speaker, executive education, conference speaking, leadership development, cybersecurity workshops"
         canonical="https://darkstack7.com/services/training-keynotes"
       />

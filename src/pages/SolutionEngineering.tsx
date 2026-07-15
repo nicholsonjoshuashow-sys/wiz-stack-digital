@@ -90,8 +90,8 @@ const SolutionEngineering = () => {
   return (
     <>
       <SEO 
-        title="Solution Engineering & Managed Services | Cybersecurity Integration | Darkstack7"
-        description="Expert solution engineering and managed security services. Strategic technology integration, MSSP coordination, and custom security architecture for optimal cybersecurity operations."
+        title="Solution Engineering & Managed Services | Darkstack7"
+        description="Strategic technology integration, MSSP coordination, and custom security architecture for optimal cyber operations."
         keywords="solution engineering, managed security services, MSSP, security integration, cybersecurity architecture, vendor management"
         canonical="https://darkstack7.com/services/solution-engineering"
       />

@@ -77,8 +77,8 @@ const InsiderThreat = () => {
   return (
     <>
       <SEO 
-        title="Insider Threat Investigation Services | Employee Security Investigations | Darkstack7"
-        description="Professional insider threat investigations using behavioral analysis, digital forensics, and activity reviews to identify malicious, negligent, or compromised insiders."
+        title="Insider Threat Investigations | Darkstack7"
+        description="Behavioral analysis, digital forensics, and activity reviews to identify malicious, negligent, or compromised insiders."
         keywords="insider threat, employee investigation, data theft investigation, behavioral analysis, digital forensics, contractor security, insider risk"
         canonical="https://darkstack7.com/services/insiderthreat"
       />

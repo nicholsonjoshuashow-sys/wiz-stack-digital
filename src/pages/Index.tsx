@@ -29,8 +29,8 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="Darkstack7 - Elite Cybersecurity Leadership | 24/7 Incident Response & Virtual CISO"
-        description="Elite cybersecurity leadership for high-stakes moments. 24/7 incident response, virtual CISO services, penetration testing by Joshua R. Nicholson - 24-year veteran & former U.S. Marine."
+        title="Darkstack7 — Elite Cybersecurity Leadership & vCISO"
+        description="Elite cybersecurity leadership from Joshua R. Nicholson: 24/7 incident response, virtual CISO, and penetration testing services."
         keywords="cybersecurity leadership, incident response, virtual CISO, penetration testing, security consulting, cyber defense, Joshua Nicholson, darkstack7, emergency response"
         canonical="https://darkstack7.com"
         structuredData={organizationStructuredData}
