@@ -71,7 +71,7 @@ const News = () => {
     <>
       <SEO 
         title="Cybersecurity News & Insights | Darkstack7"
-        description="Stay updated with the latest cybersecurity insights, industry news, and expert commentary from Darkstack7's leadership team. Professional security analysis and strategic guidance."
+        description="Latest cybersecurity insights, industry news, and expert commentary from the Darkstack7 leadership team."
         keywords="cybersecurity news, security insights, cyber threats, incident response updates, CISO guidance, penetration testing news, darkstack7 updates"
         canonical="https://darkstack7.com/media/news"
       />

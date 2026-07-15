@@ -85,8 +85,8 @@ const Podcast = () => {
   return (
     <>
       <SEO 
-        title="Cybersecurity America Podcast - Expert Insights & Industry Analysis"
-        description="Listen to the Cybersecurity America podcast hosted by Joshua R. Nicholson. Expert interviews, incident response insights, and strategic cybersecurity discussions with industry leaders."
+        title="Cybersecurity America Podcast | Darkstack7"
+        description="Expert interviews, incident response insights, and strategic cybersecurity discussions hosted by Joshua R. Nicholson."
         keywords="cybersecurity podcast, security leadership, incident response, CISO insights, cyber defense, Joshua Nicholson podcast"
         canonical="https://darkstack7.com/podcast"
       />

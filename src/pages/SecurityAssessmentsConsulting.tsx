@@ -79,8 +79,8 @@ const SecurityAssessmentsConsulting = () => {
   return (
     <>
       <SEO 
-        title="Security Assessments & Consulting | Expert Cybersecurity Advisory - Darkstack7"
-        description="Get clear, actionable security guidance with Darkstack7's expert consulting services. Comprehensive assessments, gap analysis, and strategic planning to strengthen your cybersecurity posture."
+        title="Security Assessments & Consulting | Darkstack7"
+        description="Comprehensive security assessments, gap analysis, and strategic planning to strengthen your cybersecurity posture."
         keywords="security assessment, cybersecurity consulting, security gap analysis, compliance assessment, security advisory, risk assessment, security strategy"
         canonical="https://darkstack7.com/services/security-assessments-consulting"
       />

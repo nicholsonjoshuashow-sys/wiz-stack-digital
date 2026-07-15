@@ -98,8 +98,8 @@ const PenetrationTesting = () => {
   return (
     <>
       <SEO 
-        title="Penetration Testing Services | Comprehensive Security Assessments - Darkstack7"
-        description="Professional penetration testing services including network security, web application testing, cloud infrastructure assessment, and mobile app security testing by cybersecurity experts."
+        title="Penetration Testing Services | Darkstack7"
+        description="Professional pentesting for network, web app, cloud, and mobile — actionable findings from seasoned cybersecurity experts."
         keywords="penetration testing, security assessment, network security testing, web application security, cloud security, mobile app testing, vulnerability assessment, OWASP testing"
         canonical="https://darkstack7.com/services/penetration-testing"
         structuredData={penetrationTestingServiceData}
