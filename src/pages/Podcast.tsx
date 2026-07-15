@@ -8,9 +8,29 @@ import { Badge } from "@/components/ui/badge";
 import { Play, Clock, Calendar, Download, ExternalLink, Headphones, Mic, Users, RefreshCw, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePodcastEpisodes } from "@/hooks/usePodcastEpisodes";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const Podcast = () => {
   const { data: podcastEpisodes = [], isLoading, error, refetch } = usePodcastEpisodes();
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  const handleRefresh = async () => {
+    setIsSyncing(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("sync-podcast-rss");
+      if (error) throw error;
+      const synced = (data as { synced?: number })?.synced ?? 0;
+      toast.success(`Synced ${synced} episode${synced === 1 ? "" : "s"} from RSS feed.`);
+      await refetch();
+    } catch (e) {
+      console.error(e);
+      toast.error("Failed to refresh from RSS feed.");
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   const podcastStats = [
     {
@@ -149,10 +169,11 @@ const Podcast = () => {
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    onClick={() => refetch()}
-                    disabled={isLoading}
+                    onClick={handleRefresh}
+                    disabled={isLoading || isSyncing}
                   >
-                    <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+                    <RefreshCw className={`h-4 w-4 mr-2 ${isSyncing || isLoading ? 'animate-spin' : ''}`} />
+                    {isSyncing ? "Syncing…" : "Refresh RSS"}
                   </Button>
                 </div>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -170,7 +191,7 @@ const Podcast = () => {
                         Unable to fetch the latest episodes. Please try refreshing the page.
                       </p>
                     </div>
-                    <Button variant="outline" size="sm" onClick={() => refetch()}>
+                    <Button variant="outline" size="sm" onClick={handleRefresh}>
                       Retry
                     </Button>
                   </div>
