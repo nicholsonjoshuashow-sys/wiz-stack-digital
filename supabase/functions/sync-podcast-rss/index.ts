@@ -70,7 +70,16 @@ serve(async (req) => {
       };
     }).filter(Boolean) as Array<Record<string, unknown>>;
 
-    if (rows.length === 0) {
+    // Deduplicate by episode_number, keeping the latest occurrence (feed lists newest first).
+    const seen = new Set<number>();
+    const uniqueRows = rows.filter((r) => {
+      const n = r.episode_number as number;
+      if (seen.has(n)) return false;
+      seen.add(n);
+      return true;
+    });
+
+    if (uniqueRows.length === 0) {
       return new Response(JSON.stringify({ synced: 0, message: "No items parsed" }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -78,7 +87,7 @@ serve(async (req) => {
 
     const { data, error } = await admin
       .from("podcast_episodes")
-      .upsert(rows, { onConflict: "episode_number", ignoreDuplicates: false })
+      .upsert(uniqueRows, { onConflict: "episode_number", ignoreDuplicates: false })
       .select("episode_number");
 
     if (error) {
@@ -88,7 +97,7 @@ serve(async (req) => {
       });
     }
 
-    return new Response(JSON.stringify({ synced: data?.length ?? 0, total_items: rows.length }), {
+    return new Response(JSON.stringify({ synced: data?.length ?? 0, total_items: uniqueRows.length }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
