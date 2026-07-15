@@ -161,7 +161,7 @@ const News = () => {
                         <span className="inline-block w-2 h-2 rounded-full bg-cyber-blue" />
                         Prevent & Response
                       </h3>
-                      <ul className="text-sm text-muted-foreground space-y-1.5 pl-8 text-left inline-block">
+                      <ul className="text-sm text-muted-foreground space-y-1.5 text-left list-disc list-inside">
                         <li>Penetration Testing (Network, Web, SaaS, Cloud, AI)</li>
                         <li>Adversary Simulation & Red Team Exercises</li>
                         <li>Digital Forensics & Incident Response (DFIR)</li>
