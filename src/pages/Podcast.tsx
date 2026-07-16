@@ -359,6 +359,27 @@ const Podcast = () => {
                               </a>
                             </Button>
                           )}
+                          
+                          <div className="mt-2 pt-3 border-t border-border/50">
+                            <p className="text-xs font-medium text-center text-muted-foreground mb-2">
+                              📱 Follow & Listen
+                            </p>
+                            <div className="grid grid-cols-3 gap-2">
+                              {episodeSocialLinks.map((link) => (
+                                <a
+                                  key={link.name}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  title={link.title}
+                                  aria-label={link.title}
+                                  className="flex items-center justify-center aspect-square rounded-full bg-muted hover:bg-primary/10 transition-colors text-lg"
+                                >
+                                  {link.icon}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
