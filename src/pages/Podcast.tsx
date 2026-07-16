@@ -124,7 +124,7 @@ const Podcast = () => {
   return (
     <>
       <SEO 
-        title="Cybersecurity America Podcast | Darkstack7"
+        title="Cyber Security America Podcast | Darkstack7"
         description="Expert interviews, incident response insights, and strategic cybersecurity discussions hosted by Joshua R. Nicholson."
         keywords="cybersecurity podcast, security leadership, incident response, CISO insights, cyber defense, Joshua Nicholson podcast"
         canonical="https://darkstack7.com/podcast"
@@ -142,12 +142,12 @@ const Podcast = () => {
                 Podcast
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Cybersecurity America
+                Cyber Security America
               </h1>
               <div className="max-w-2xl mx-auto mb-8">
                 <img 
                   src="/lovable-uploads/2181617d-b439-4735-840a-4c19fb47879a.png"
-                  alt="Cybersecurity America Podcast Cover - Joshua Nicholson"
+                  alt="Cyber Security America Podcast Cover - Joshua Nicholson"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
               </div>
@@ -438,7 +438,7 @@ const Podcast = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Listen Everywhere</h2>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                  Subscribe and listen to Cybersecurity America on your favorite podcast platform.
+                  Subscribe and listen to Cyber Security America on your favorite podcast platform.
                 </p>
               </div>
               
