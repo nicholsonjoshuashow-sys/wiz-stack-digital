@@ -187,8 +187,8 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
   return (
     <>
       <SEO 
-        title="Be a Guest on Cybersecurity America Podcast - DARKSTACK7"
-        description="Join Joshua Nicholson on the Cybersecurity America podcast. Share your expertise with cybersecurity professionals worldwide. Apply to be a guest today."
+        title="Be a Guest on Cyber Security America Podcast - DARKSTACK7"
+        description="Join Joshua Nicholson on the Cyber Security America podcast. Share your expertise with cybersecurity professionals worldwide. Apply to be a guest today."
         keywords="cybersecurity podcast guest, security expert interview, CISO podcast, cyber defense expert, Joshua Nicholson podcast"
         canonical="/podcast/guest"
       />
@@ -209,7 +209,7 @@ Newsletter Signup: ${formData.newsletter ? 'Yes' : 'No'}`
                 Share Your Expertise
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                Join Joshua Nicholson on Cybersecurity America and share your insights with thousands of cybersecurity professionals. 
+                Join Joshua Nicholson on Cyber Security America and share your insights with thousands of cybersecurity professionals. 
                 Help advance the industry through meaningful conversations about the challenges we face on the front lines of cyber defense.
               </p>
             </div>

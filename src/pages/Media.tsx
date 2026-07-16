@@ -56,8 +56,8 @@ const Media = () => {
     },
     {
       id: "3",
-      title: "Cybersecurity America Show - Special Episode",
-      description: "Special cybersecurity insights and industry analysis from the Cybersecurity America podcast series.",
+      title: "Cyber Security America Show - Special Episode",
+      description: "Special cybersecurity insights and industry analysis from the Cyber Security America podcast series.",
       thumbnail: "https://img.youtube.com/vi/3FzNgLO0K38/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=3FzNgLO0K38",
       duration: "38:20",
@@ -118,7 +118,7 @@ const Media = () => {
 
   const mediaHighlights = [
     {
-      title: "Cybersecurity America Show",
+      title: "Cyber Security America Show",
       description: "Weekly deep-dives into cybersecurity leadership, incident response, and strategic defense",
       link: "https://www.youtube.com/@cybersecurityamerica_show",
       type: "YouTube Channel"
