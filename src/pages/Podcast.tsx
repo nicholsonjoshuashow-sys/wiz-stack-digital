@@ -82,6 +82,45 @@ const Podcast = () => {
     }
   ];
 
+  const episodeSocialLinks = [
+    {
+      name: "Apple Podcasts",
+      url: "https://podcasts.apple.com/us/podcast/cyber-security-america/id1668216285",
+      icon: "🎙️",
+      title: "Listen on Apple Podcasts"
+    },
+    {
+      name: "Spotify",
+      url: "https://open.spotify.com/show/3wmyUbe1TY5hNl96Q8UFFI",
+      icon: "🎧",
+      title: "Listen on Spotify"
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/cybersecurityamericapodcast/",
+      icon: "📸",
+      title: "Follow on Instagram"
+    },
+    {
+      name: "TikTok",
+      url: "https://www.tiktok.com/@cybersecurityamerica",
+      icon: "🎵",
+      title: "Follow on TikTok"
+    },
+    {
+      name: "LinkedIn Show",
+      url: "https://www.linkedin.com/in/josh-nicholson-0844aa3a5/",
+      icon: "🎙️",
+      title: "Cyber Security America on LinkedIn"
+    },
+    {
+      name: "Host LinkedIn",
+      url: "https://www.linkedin.com/in/joshuarnicholson/",
+      icon: "👤",
+      title: "Host Joshua R. Nicholson"
+    }
+  ];
+
   return (
     <>
       <SEO 
