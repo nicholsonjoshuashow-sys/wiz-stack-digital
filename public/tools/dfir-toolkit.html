@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DFIR Incident Response — Triage & Scoping Console</title>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#12181f; --muted:#5b6673; --line:#e4e8ee;
+  --accent:#0b6bcb; --accent2:#0a3d62; --ok:#137a4c; --warn:#b7791f; --crit:#c0392b;
+  --code-bg:#0d1b2a; --code-ink:#e6edf3; --chip:#eef3fa; --shadow:0 1px 3px rgba(16,24,40,.08),0 1px 2px rgba(16,24,40,.06);
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header.top{background:linear-gradient(135deg,#0a3d62,#0b6bcb);color:#fff;padding:18px 22px}
+header.top h1{margin:0;font-size:19px;letter-spacing:.2px}
+header.top p{margin:4px 0 0;color:#d6e6f7;font-size:12.5px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+nav.sections{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:var(--shadow);overflow-x:auto;white-space:nowrap}
+nav.sections .inner{display:flex;gap:2px;max-width:1200px;margin:0 auto;padding:0 8px}
+nav.sections button{background:none;border:0;padding:13px 14px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent}
+nav.sections button:hover{color:var(--ink)}
+nav.sections button.active{color:var(--accent);border-bottom-color:var(--accent)}
+main{max-width:1200px;margin:0 auto;padding:22px 16px 80px}
+section.view{display:none;animation:fade .2s ease}
+section.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+h2.vt{font-size:20px;margin:0 0 4px}
+.lead{color:var(--muted);margin:0 0 18px;max-width:820px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:15px}
+.card h4{margin:16px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--accent2)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.p-crit{background:#fdecea;color:var(--crit)}
+.p-warn{background:#fef6e7;color:var(--warn)}
+.p-ok{background:#e7f5ee;color:var(--ok)}
+.p-info{background:#e9f1fb;color:var(--accent)}
+ol.steps{margin:0;padding-left:20px}
+ol.steps li{margin:6px 0}
+ul.tick{list-style:none;margin:0;padding:0}
+ul.tick li{position:relative;padding:5px 0 5px 26px;border-bottom:1px dashed var(--line)}
+ul.tick li:last-child{border-bottom:0}
+ul.tick li::before{content:"";position:absolute;left:2px;top:9px;width:14px;height:14px;border:1.5px solid var(--accent);border-radius:3px}
+.codewrap{position:relative;margin:10px 0}
+.codewrap .lbl{font-size:11px;color:var(--muted);margin-bottom:3px;font-weight:600}
+pre{background:var(--code-bg);color:var(--code-ink);border-radius:8px;padding:12px 40px 12px 14px;overflow-x:auto;font-family:var(--mono);font-size:12.3px;line-height:1.55;margin:0}
+pre .c{color:#7fb2e6}
+pre .k{color:#f0b859}
+pre .s{color:#8fd694}
+.copybtn{position:absolute;top:8px;right:8px;background:#1b3550;color:#cfe0f0;border:1px solid #2c4a6b;border-radius:6px;font-size:11px;padding:3px 8px;cursor:pointer}
+.copybtn:hover{background:#264866}
+.copybtn.done{background:#137a4c;color:#fff;border-color:#137a4c}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.tabs button{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:8px 13px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer}
+.tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tabpane{display:none}
+.tabpane.active{display:block}
+table{border-collapse:collapse;width:100%;font-size:12.7px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f0f4f9;font-size:11.5px;text-transform:uppercase;letter-spacing:.3px;color:var(--accent2)}
+tr:nth-child(even) td{background:#fafbfd}
+.search{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px;margin:0 0 12px}
+.linklist{columns:2;column-gap:24px}
+.linklist a{display:block;padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid;font-size:12.8px}
+.note{background:#fff8e6;border:1px solid #f0d488;border-radius:8px;padding:10px 12px;font-size:12.5px;margin:10px 0}
+.danger{background:#fdecea;border:1px solid #f0b4ac;border-radius:8px;padding:10px 12px;font-size:12.5px;margin:10px 0}
+.src{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--panel)}
+.src h4{margin:0 0 2px;font-size:13.5px;color:var(--ink);text-transform:none;letter-spacing:0}
+.src .use{font-size:12px;color:var(--muted);margin:6px 0 0}
+.src .when{font-size:11.7px;color:var(--accent2);margin:6px 0 0;font-style:italic}
+.q-item{border:1px solid var(--line);border-radius:8px;padding:0;margin:0 0 8px;overflow:hidden}
+.q-item summary{padding:11px 14px;cursor:pointer;font-weight:600;font-size:13px;list-style:none;background:var(--panel)}
+.q-item summary::-webkit-details-marker{display:none}
+.q-item summary::before{content:"▸ ";color:var(--accent)}
+.q-item[open] summary::before{content:"▾ "}
+.q-item .body{padding:2px 14px 12px 30px}
+.q-item .body li{margin:5px 0}
+.granola-out{background:#fbfcfe;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px;font-size:13px;min-height:60px;white-space:pre-wrap;line-height:1.6}
+.granola-out h1,.granola-out h2,.granola-out h3{font-size:14px;margin:12px 0 4px}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer}
+.btn:hover{background:#0a5cb0}
+.btn.sec{background:var(--chip);color:var(--accent);border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chips button{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;color:var(--accent2);font-weight:600}
+.chips button:hover{background:#e2ebf6}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #cfe0f0;border-top-color:var(--accent);border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.kbd{font-family:var(--mono);background:#eef1f5;border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:11.5px}
+.mini{font-size:11.5px;color:var(--muted)}
+.sev-table td:first-child{font-weight:700;white-space:nowrap}
+details.q-item .body ul{margin:4px 0;padding-left:18px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.two-col{grid-template-columns:1fr}.linklist{columns:1}}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:11.5px;padding:18px 16px;max-width:1200px;margin:0 auto}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>🛡️ DFIR Incident Response — Triage &amp; Scoping Console</h1>
+    <p>Operator-grade field reference · host investigation commands · threat hunting · intel &amp; OSINT · live Granola triage. Built for Darkstack7 engagements.</p>
+  </div>
+</header>
+
+<nav class="sections">
+  <div class="inner" id="secnav">
+    <button data-v="triage" class="active">① Triage Workflow</button>
+    <button data-v="hosts">② Host Investigation</button>
+    <button data-v="hunt">③ Velociraptor / CAPE</button>
+    <button data-v="sans">④ SANS Cheat Sheets</button>
+    <button data-v="intel">⑤ Threat Intel</button>
+    <button data-v="osint">⑥ OSINT / IOC</button>
+    <button data-v="quest">⑦ Triage Questionnaire</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================= 1. TRIAGE WORKFLOW ================= -->
+<section class="view active" id="v-triage">
+  <h2 class="vt">Incident Response Triage &amp; Scoping Workflow</h2>
+  <p class="lead">A repeatable path from first alert to a scoped engagement. Work top-to-bottom; capture everything in a timestamped case log. The goal of triage is <b>not</b> to fix — it is to confirm an incident, contain blast radius, preserve evidence, and scope the work.</p>
+
+  <div class="card">
+    <h3>The 6-phase flow (PICERL, aligned to NIST SP 800-61r2 &amp; SANS)</h3>
+    <div class="grid g3">
+      <div><span class="pill p-info">1 · PREPARE</span><p class="mini">Tooling ready (Velociraptor, KAPE/CAPE, SIFT), comms plan, authority to act, evidence handling / chain-of-custody template.</p></div>
+      <div><span class="pill p-crit">2 · IDENTIFY</span><p class="mini">Validate the alert. Real incident or false positive? Assign severity. Establish the initial timeline &amp; scope.</p></div>
+      <div><span class="pill p-warn">3 · CONTAIN</span><p class="mini">Short-term (isolate host, disable account, block C2) then long-term. <b>Preserve volatile evidence before pulling the plug.</b></p></div>
+      <div><span class="pill p-ok">4 · ERADICATE</span><p class="mini">Remove persistence, malware, rogue accounts, forwarding rules. Identify &amp; close the initial access vector.</p></div>
+      <div><span class="pill p-info">5 · RECOVER</span><p class="mini">Restore from known-good, rebuild, re-enable, monitor for reinfection. Validate before returning to production.</p></div>
+      <div><span class="pill p-info">6 · LESSONS</span><p class="mini">Blameless postmortem, IOCs to detections, report to client/regulators, update runbooks.</p></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>First 60 minutes — order of operations</h3>
+      <ol class="steps">
+        <li><b>Confirm &amp; log.</b> Who reported, when, what was seen. Start the case clock (UTC + local).</li>
+        <li><b>Establish authority &amp; scope of consent.</b> What are you authorized to touch? (esp. personal devices / classified environments — use screen-share, avoid pulling sensitive data offsite.)</li>
+        <li><b>Do no harm to evidence.</b> Prefer live-response collection over reboot/reimage. Order of volatility: RAM → network state → running procs → disk → logs → archival.</li>
+        <li><b>Isolate, don't power off</b> (unless ransomware actively encrypting). Network-isolate to preserve memory.</li>
+        <li><b>Triage collection.</b> Run the host commands (Tab ②) or deploy Velociraptor/KAPE (Tab ③) for the OS in scope.</li>
+        <li><b>Identify accounts/tokens at risk.</b> Reset creds, revoke sessions/tokens, kill OAuth grants &amp; mail forwarding rules.</li>
+        <li><b>Assign severity</b> (table below) and communicate status to stakeholders.</li>
+        <li><b>Scope:</b> how many hosts/identities/tenants? Data touched? Regulatory triggers (HIPAA/PCI/PII/breach law)?</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Severity matrix</h3>
+      <table class="sev-table">
+        <tr><th>Sev</th><th>Definition</th><th>Response</th></tr>
+        <tr><td><span class="pill p-crit">SEV-1</span></td><td>Active attacker, mass encryption, confirmed data exfil, domain/tenant compromise, safety impact.</td><td>All-hands, war room, exec + legal notify immediately.</td></tr>
+        <tr><td><span class="pill p-warn">SEV-2</span></td><td>Single-host/identity compromise with lateral movement potential; BEC with fraud in flight.</td><td>Dedicated IC, contain within hours, hourly updates.</td></tr>
+        <tr><td><span class="pill p-info">SEV-3</span></td><td>Contained single account (phish), no spread, no confirmed data loss.</td><td>Standard triage, same-day.</td></tr>
+        <tr><td><span class="pill p-ok">SEV-4</span></td><td>Suspicious activity, unconfirmed; policy/hygiene issue.</td><td>Investigate, monitor, document.</td></tr>
+      </table>
+      <div class="note"><b>Scoping questions never skip:</b> initial access vector · dwell time · persistence · privilege level reached · data accessed vs exfiltrated · backups intact? · is the actor still in?</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Evidence-handling reminders</h3>
+    <ul class="tick">
+      <li>Hash every artifact on acquisition (<span class="kbd">sha256</span>) and record it in the chain-of-custody log.</li>
+      <li>Never work on originals — image, verify hash, work on copies. Use write-blockers for physical media.</li>
+      <li>Record collector name, tool + version, timestamps, and system clock offset for every acquisition.</li>
+      <li>For cloud/M365: pull the Unified Audit Log &amp; mailbox audit <i>immediately</i> — retention windows expire.</li>
+      <li>Screen-share when client data is sensitive/classified; document what you observed rather than exfiltrating it.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 2. HOST INVESTIGATION ================= -->
+<section class="view" id="v-hosts">
+  <h2 class="vt">Compromised-Host Investigation — Quick Command Checklist</h2>
+  <p class="lead">Copy-paste live-response commands to triage a suspected compromised host. Run in an elevated/privileged context. Redirect output to your evidence share and hash it. Tabs by platform.</p>
+
+  <div class="tabs" id="hosttabs">
+    <button data-t="win" class="active">Windows 10 / 11</button>
+    <button data-t="srv">Windows Server</button>
+    <button data-t="exch">Exchange / M365 — BEC</button>
+    <button data-t="lin">Linux (Ubuntu / RHEL)</button>
+  </div>
+
+  <!-- WINDOWS 10/11 -->
+  <div class="tabpane active" id="tp-win">
+    <div class="danger">⚠ Preserve volatile data <b>first</b>. Capture RAM (WinPmem / Magnet RAM Capture / <span class="kbd">winpmem_mini_x64.exe mem.raw</span>) and network state before any remediation.</div>
+
+    <div class="card">
+      <h4>System, user &amp; session context</h4>
+      <div class="codewrap"><div class="lbl">CMD — baseline</div><pre>systeminfo
+whoami /all &amp; hostname &amp; date /t &amp; time /t
+query user            <span class="c">:: active logon sessions</span>
+net user &amp; net localgroup administrators
+wmic useraccount get name,sid,disabled,lockout</pre></div>
+      <div class="codewrap"><div class="lbl">PowerShell — local accounts &amp; recent logons</div><pre><span class="k">Get-LocalUser</span> | Select Name,Enabled,LastLogon,SID
+<span class="k">Get-LocalGroupMember</span> Administrators
+<span class="k">Get-WinEvent</span> -FilterHashtable @{LogName=<span class="s">'Security'</span>;Id=4624,4625,4672} -MaxEvents 200 |
+  Select TimeCreated,Id,@{n=<span class="s">'User'</span>;e={$_.Properties[5].Value}},@{n=<span class="s">'SrcIP'</span>;e={$_.Properties[18].Value}}</pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Processes, network connections &amp; C2</h4>
+      <div class="codewrap"><div class="lbl">PowerShell — running processes with paths &amp; hashes</div><pre><span class="k">Get-Process</span> | Select Id,ProcessName,Path,Company | Sort Path
+<span class="k">Get-CimInstance</span> Win32_Process | Select ProcessId,Name,CommandLine,ParentProcessId | Format-Table -Auto
+<span class="c"># hash a suspicious binary</span>
+<span class="k">Get-FileHash</span> -Algorithm SHA256 <span class="s">'C:\Users\Public\evil.exe'</span></pre></div>
+      <div class="codewrap"><div class="lbl">CMD / PowerShell — active connections mapped to process</div><pre>netstat -anob            <span class="c">:: connections + owning exe</span>
+<span class="k">Get-NetTCPConnection</span> -State Established |
+  Select LocalAddress,LocalPort,RemoteAddress,RemotePort,OwningProcess,
+  @{n=<span class="s">'Proc'</span>;e={(Get-Process -Id $_.OwningProcess).Name}} | Sort RemoteAddress
+<span class="k">Get-DnsClientCache</span> | Select Entry,Data   <span class="c"># resolved domains still cached</span></pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Persistence — autoruns, services, tasks, WMI</h4>
+      <div class="codewrap"><div class="lbl">PowerShell — the usual persistence homes</div><pre><span class="c"># Run/RunOnce keys (HKLM + HKCU)</span>
+<span class="k">Get-ItemProperty</span> HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run*,
+  HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run*
+<span class="k">Get-CimInstance</span> Win32_StartupCommand | Select Name,Command,Location,User
+<span class="c"># Services with non-standard / user-writable paths</span>
+<span class="k">Get-CimInstance</span> Win32_Service | Where {$_.PathName -notmatch <span class="s">'C:\\Windows'</span>} |
+  Select Name,State,StartMode,PathName
+<span class="c"># Scheduled tasks</span>
+<span class="k">Get-ScheduledTask</span> | Where State -ne <span class="s">'Disabled'</span> |
+  Select TaskName,TaskPath,@{n=<span class="s">'Action'</span>;e={($_.Actions.Execute)}}
+schtasks /query /fo LIST /v
+<span class="c"># WMI event subscriptions (fileless persistence)</span>
+<span class="k">Get-WmiObject</span> -Namespace root\Subscription -Class __EventFilter
+<span class="k">Get-WmiObject</span> -Namespace root\Subscription -Class CommandLineEventConsumer</pre></div>
+      <div class="note">Gold standard: <b>Sysinternals Autoruns</b> — <span class="kbd">autorunsc.exe -accepteula -a * -c -h -s * &gt; autoruns.csv</span> (VirusTotal-enrich with <span class="kbd">-vt</span>).</div>
+    </div>
+
+    <div class="card">
+      <h4>Files, PowerShell abuse &amp; recent activity</h4>
+      <div class="codewrap"><div class="lbl">PowerShell — recently modified binaries + script-block logs</div><pre><span class="c"># files created/modified in last 3 days in common drop paths</span>
+<span class="k">Get-ChildItem</span> C:\Users,C:\ProgramData,C:\Windows\Temp -Recurse -File -EA SilentlyContinue |
+  Where LastWriteTime -gt (Get-Date).AddDays(-3) |
+  Select FullName,LastWriteTime,Length | Sort LastWriteTime -Desc
+<span class="c"># PowerShell script-block logging (malicious commands)</span>
+<span class="k">Get-WinEvent</span> -LogName <span class="s">'Microsoft-Windows-PowerShell/Operational'</span> |
+  Where Id -eq 4104 | Select TimeCreated,Message -First 50
+<span class="c"># Prefetch = what ran &amp; when</span>
+<span class="k">Get-ChildItem</span> C:\Windows\Prefetch\*.pf | Select Name,LastWriteTime | Sort LastWriteTime -Desc</pre></div>
+      <div class="note">Fast forensic collection: <b>KAPE</b> — <span class="kbd">kape.exe --tsource C: --target !SANS_Triage --tdest E:\out --gui</span>. Parse with <b>Eric Zimmerman tools</b> (see SANS tab).</div>
+    </div>
+  </div>
+
+  <!-- WINDOWS SERVER -->
+  <div class="tabpane" id="tp-srv">
+    <div class="note">Everything on the Win10/11 tab applies. Below adds <b>Domain Controller / AD / server-role</b> checks where lateral movement and privilege escalation live.</div>
+
+    <div class="card">
+      <h4>Active Directory — accounts, privilege &amp; abuse</h4>
+      <div class="codewrap"><div class="lbl">PowerShell (RSAT / AD module)</div><pre><span class="c"># Privileged group membership</span>
+<span class="k">Get-ADGroupMember</span> <span class="s">'Domain Admins'</span> -Recursive | Select name,SamAccountName
+<span class="k">Get-ADGroupMember</span> <span class="s">'Enterprise Admins'</span>; Get-ADGroupMember <span class="s">'Schema Admins'</span>
+<span class="c"># Recently created / modified accounts (rogue admin hunt)</span>
+<span class="k">Get-ADUser</span> -Filter * -Properties whenCreated,whenChanged,adminCount |
+  Where whenCreated -gt (Get-Date).AddDays(-14) | Select Name,whenCreated,adminCount
+<span class="c"># Accounts with SPNs (Kerberoast targets) &amp; no-preauth (AS-REP roast)</span>
+<span class="k">Get-ADUser</span> -Filter {ServicePrincipalName -like <span class="s">'*'</span>} -Properties ServicePrincipalName
+<span class="k">Get-ADUser</span> -Filter {DoesNotRequirePreAuth -eq $true} -Properties DoesNotRequirePreAuth
+<span class="c"># Password-last-set anomalies on privileged accts, krbtgt reset age</span>
+<span class="k">Get-ADUser</span> krbtgt -Properties PasswordLastSet | Select PasswordLastSet</pre></div>
+      <div class="codewrap"><div class="lbl">Logon / replication / DCSync hunting</div><pre><span class="c"># DC security events: 4624/4672 (priv logon), 4768/4769 (Kerberos TGT/TGS),</span>
+<span class="c"># 4776 (NTLM), 4720 (user created), 4728/4732 (added to priv group)</span>
+<span class="k">Get-WinEvent</span> -FilterHashtable @{LogName=<span class="s">'Security'</span>;Id=4720,4728,4732,4756} -MaxEvents 100
+<span class="c"># DCSync detection = 4662 with replication GUID from a non-DC principal</span>
+<span class="k">Get-WinEvent</span> -FilterHashtable @{LogName=<span class="s">'Security'</span>;Id=4662} |
+  Where {$_.Message -match <span class="s">'1131f6aa|Replicating Directory Changes'</span>} | Select TimeCreated,Message -First 20</pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Server roles, shares, sessions &amp; lateral movement</h4>
+      <div class="codewrap"><div class="lbl">CMD / PowerShell</div><pre>net session                    <span class="c">:: inbound SMB sessions to this server</span>
+net use                        <span class="c">:: outbound mapped connections</span>
+<span class="k">Get-SmbShare</span>; Get-SmbOpenFile; Get-SmbSession
+<span class="c"># Remote admin tool artifacts (PsExec, WMI, WinRM, RDP)</span>
+<span class="k">Get-WinEvent</span> -LogName <span class="s">'Microsoft-Windows-TerminalServices-LocalSessionManager/Operational'</span> |
+  Where Id -in 21,25 | Select TimeCreated,Message -First 30   <span class="c"># RDP logons</span>
+<span class="k">Get-WinEvent</span> -LogName <span class="s">'Microsoft-Windows-WinRM/Operational'</span> -MaxEvents 50
+<span class="c"># IIS / web server logs (webshell hunt)</span>
+Select-String -Path C:\inetpub\logs\LogFiles\*\*.log -Pattern <span class="s">'\.aspx|cmd=|whoami|POST /'</span> |
+  Select -First 40</pre></div>
+      <div class="danger"><b>Do not reboot a DC</b> to "clear" anything until memory + AD DB (<span class="kbd">ntds.dit</span>) and SYSVOL are preserved. Consider golden/silver ticket &amp; DCSync exposure → plan a <b>double krbtgt reset</b> during recovery.</div>
+    </div>
+  </div>
+
+  <!-- EXCHANGE / M365 BEC -->
+  <div class="tabpane" id="tp-exch">
+    <div class="danger">BEC = <b>Business Email Compromise</b>. Time is money — fraudulent wires may be in flight. Freeze the fraud, preserve logs, then investigate. Retention windows on audit logs are short: pull them <b>now</b>.</div>
+
+    <div class="card">
+      <h3>BEC triage walk-through (Microsoft 365 / Exchange Online)</h3>
+      <ol class="steps">
+        <li><b>Contain the identity.</b> Reset password, <b>revoke all sessions/tokens</b>, require MFA re-registration, disable legacy auth.</li>
+        <li><b>Kill the actor's persistence:</b> mailbox rules (auto-forward/delete), mail-flow (transport) rules, delegated/OAuth app grants, added mobile devices, forwarding SMTP addresses.</li>
+        <li><b>Preserve:</b> Unified Audit Log, mailbox audit, message trace, Azure AD sign-in logs. Export before anything expires.</li>
+        <li><b>Scope:</b> which mailboxes, what was read/exported, any rogue global admins, spoofed look-alike domains, fraudulent invoices sent.</li>
+        <li><b>Notify:</b> finance/AP to halt wires; bank recall; affected external parties; legal/regulatory.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h4>Connect &amp; hunt malicious inbox / transport rules</h4>
+      <div class="codewrap"><div class="lbl">PowerShell — Exchange Online + Graph</div><pre>Connect-ExchangeOnline -UserPrincipalName admin@contoso.com
+Connect-IPPSSession        <span class="c"># Security &amp; Compliance for audit search</span>
+<span class="c"># Malicious inbox rules across ALL mailboxes (forward/delete/move to RSS)</span>
+<span class="k">Get-Mailbox</span> -ResultSize Unlimited | ForEach-Object {
+  Get-InboxRule -Mailbox $_.UserPrincipalName |
+  Where {$_.ForwardTo -or $_.RedirectTo -or $_.ForwardAsAttachmentTo -or $_.DeleteMessage} |
+  Select @{n=<span class="s">'Mbx'</span>;e={$_.MailboxOwnerId}},Name,Enabled,ForwardTo,RedirectTo,DeleteMessage }
+<span class="c"># Tenant-wide / mailbox forwarding addresses</span>
+<span class="k">Get-Mailbox</span> -ResultSize Unlimited |
+  Where {$_.ForwardingSmtpAddress -or $_.ForwardingAddress} |
+  Select DisplayName,ForwardingSmtpAddress,DeliverToMailboxAndForward
+<span class="c"># Malicious mail-flow (transport) rules</span>
+<span class="k">Get-TransportRule</span> | Select Name,State,BlindCopyTo,RedirectMessageTo,Description</pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Audit logs, sign-ins &amp; message trace</h4>
+      <div class="codewrap"><div class="lbl">PowerShell — Unified Audit Log &amp; suspicious ops</div><pre><span class="c"># Everything a compromised user did in the last 7 days</span>
+<span class="k">Search-UnifiedAuditLog</span> -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) `
+  -UserIds victim@contoso.com -ResultSize 5000 | Export-Csv ual.csv -NoTypeInformation
+<span class="c"># High-signal operations to filter for:</span>
+<span class="c">#  New-InboxRule, Set-InboxRule, UpdateInboxRules, Add-MailboxPermission,</span>
+<span class="c">#  Set-Mailbox (ForwardingSmtpAddress), New-TransportRule, Consent to application,</span>
+<span class="c">#  Add service principal, Update user (MFA/auth methods), MailItemsAccessed</span>
+<span class="k">Search-UnifiedAuditLog</span> -StartDate (Get-Date).AddDays(-30) -EndDate (Get-Date) `
+  -Operations <span class="s">"New-InboxRule,Set-InboxRule,Add-MailboxPermission,MailItemsAccessed"</span> -ResultSize 5000</pre></div>
+      <div class="codewrap"><div class="lbl">Message trace + rogue OAuth apps (Graph)</div><pre><span class="c"># Did the attacker blast invoices/phish? Trace outbound</span>
+<span class="k">Get-MessageTraceV2</span> -SenderAddress victim@contoso.com -StartDate (Get-Date).AddDays(-10) -EndDate (Get-Date)
+<span class="c"># Rogue app consents / service principals (illicit OAuth grant)</span>
+Connect-MgGraph -Scopes <span class="s">"Directory.Read.All","AuditLog.Read.All"</span>
+<span class="k">Get-MgOauth2PermissionGrant</span> -All | Select ClientId,ConsentType,Scope
+<span class="k">Get-MgAuditLogSignIn</span> -Top 200 -Filter <span class="s">"userPrincipalName eq 'victim@contoso.com'"</span> |
+  Select CreatedDateTime,IpAddress,AppDisplayName,
+  @{n=<span class="s">'Loc'</span>;e={$_.Location.CountryOrRegion}},ConflictWithLocation,Status</pre></div>
+      <div class="note"><b>Look for:</b> impossible-travel sign-ins, sign-ins from VPS/hosting ASNs, new "mail-reading" OAuth apps, rules that hide replies (move to RSS/Archive + mark read), and look-alike domains (one letter off — e.g. <span class="kbd">contos0.com</span>).</div>
+    </div>
+
+    <div class="card">
+      <h4>On-prem Exchange server (if hybrid / self-hosted)</h4>
+      <div class="codewrap"><div class="lbl">PowerShell / logs — webshell &amp; exploit hunt</div><pre><span class="c"># ProxyShell/ProxyLogon-style webshells drop in these paths</span>
+<span class="k">Get-ChildItem</span> -Recurse <span class="s">'C:\inetpub\wwwroot\aspnet_client'</span>,
+  <span class="s">'C:\Program Files\Microsoft\Exchange Server\V15\FrontEnd\HttpProxy\owa\auth'</span> `
+  -Include *.aspx,*.ashx -EA SilentlyContinue | Select FullName,LastWriteTime
+<span class="c"># IIS logs: OWA/ECP auth abuse, autodiscover POSTs</span>
+Select-String -Path <span class="s">'C:\inetpub\logs\LogFiles\W3SVC*\*.log'</span> `
+  -Pattern <span class="s">'/owa/auth/|/ecp/|autodiscover.*POST|X-BEResource'</span> | Select -First 40
+<span class="c"># Microsoft's own IOC scanner</span>
+.\Test-ProxyLogon.ps1 ; .\HealthChecker.ps1</pre></div>
+    </div>
+  </div>
+
+  <!-- LINUX -->
+  <div class="tabpane" id="tp-lin">
+    <div class="note">Works across Ubuntu/Debian &amp; RHEL/CentOS/Rocky/Alma. Where package managers differ: <span class="kbd">apt/dpkg</span> vs <span class="kbd">yum/dnf/rpm</span>. Run as root; redirect to an evidence share and hash.</div>
+
+    <div class="card">
+      <h4>Users, logins &amp; privilege</h4>
+      <div class="codewrap"><div class="lbl">bash</div><pre>id; w; who -a; last -Faiw | head -40      <span class="c"># current + historical logins</span>
+lastb | head -20                          <span class="c"># failed logins (btmp)</span>
+<span class="c"># UID 0 accounts (hidden root), empty passwords, recent passwd changes</span>
+awk -F: <span class="s">'$3==0{print $1}'</span> /etc/passwd
+awk -F: <span class="s">'($2==""){print $1}'</span> /etc/shadow
+sudo grep -E <span class="s">'sudo|su:|authentication failure'</span> /var/log/auth.log /var/log/secure 2&gt;/dev/null | tail -40
+ls -la /home/*/.ssh/authorized_keys; cat /home/*/.ssh/authorized_keys  <span class="c"># rogue keys</span></pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Processes, network &amp; C2</h4>
+      <div class="codewrap"><div class="lbl">bash</div><pre>ps auxfww                                 <span class="c"># full process tree</span>
+ss -tunap                                 <span class="c"># sockets + owning PID/program</span>
+lsof -i -Pn | grep -i estab              <span class="c"># established connections</span>
+<span class="c"># deleted-but-running binaries (classic malware tell)</span>
+ls -la /proc/*/exe 2&gt;/dev/null | grep -i deleted
+<span class="c"># inspect a suspicious PID</span>
+PID=1234; ls -la /proc/$PID/{exe,cwd}; cat /proc/$PID/cmdline | tr <span class="s">'\0'</span> <span class="s">' '</span>; cat /proc/$PID/environ | tr <span class="s">'\0'</span> <span class="s">'\n'</span>
+cat /etc/resolv.conf; cat /etc/hosts     <span class="c"># DNS hijack / pinned hosts</span></pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Persistence — cron, services, rc, profiles, modules</h4>
+      <div class="codewrap"><div class="lbl">bash</div><pre>for u in $(cut -f1 -d: /etc/passwd); do crontab -l -u $u 2&gt;/dev/null; done
+cat /etc/crontab; ls -la /etc/cron.*/ /var/spool/cron/
+systemctl list-unit-files --state=enabled; systemctl list-timers --all
+ls -la /etc/systemd/system /etc/init.d /etc/rc.local
+<span class="c"># shell init files often carry backdoors</span>
+grep -Rain <span class="s">'curl\|wget\|nc \|bash -i\|/dev/tcp\|base64 -d'</span> \
+  /etc/profile /etc/profile.d /root/.bashrc /home/*/.bashrc /etc/bash.bashrc 2&gt;/dev/null
+<span class="c"># LD_PRELOAD rootkit &amp; loaded kernel modules</span>
+cat /etc/ld.so.preload 2&gt;/dev/null; lsmod; kmod list</pre></div>
+    </div>
+
+    <div class="card">
+      <h4>Files, integrity &amp; timeline</h4>
+      <div class="codewrap"><div class="lbl">bash</div><pre><span class="c"># recently modified files across the system (last 3 days)</span>
+find / -xdev -type f -mtime -3 -not -path <span class="s">'/proc/*'</span> -not -path <span class="s">'/sys/*'</span> 2&gt;/dev/null | head -60
+<span class="c"># world-writable + SUID/SGID (privilege backdoors)</span>
+find / -xdev -perm -4000 -type f 2&gt;/dev/null       <span class="c"># SUID</span>
+find /tmp /dev/shm /var/tmp -type f 2&gt;/dev/null    <span class="c"># common drop dirs</span>
+<span class="c"># package integrity verification</span>
+rpm -Va 2&gt;/dev/null | grep -E <span class="s">'^..5'</span>            <span class="c"># RHEL: changed file hashes</span>
+dpkg --verify 2&gt;/dev/null                          <span class="c"># Debian/Ubuntu</span>
+<span class="c"># bash history for every user</span>
+cat /root/.bash_history /home/*/.bash_history 2&gt;/dev/null</pre></div>
+      <div class="note">Rapid triage collectors: <b>UAC</b> (Unix-like Artifacts Collector) — <span class="kbd">./uac -p full /evidence</span> · <b>Velociraptor</b> offline collector · image with <b>dd/dc3dd</b> for full disk (see Tab ③).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. VELOCIRAPTOR / CAPE ================= -->
+<section class="view" id="v-hunt">
+  <h2 class="vt">Threat Hunting &amp; Evidence Collection — Velociraptor, CAPE &amp; TSK</h2>
+  <p class="lead">Scale from a single host to a fleet. Velociraptor for endpoint hunting &amp; collection, CAPE for malware detonation &amp; memory/image analysis, The Sleuth Kit + Autopsy for disk forensics.</p>
+
+  <div class="grid g3">
+    <div class="src"><h4><a href="https://www.velociraptor-docs.org/" target="_blank">Velociraptor Docs ↗</a></h4><p class="use">Endpoint visibility &amp; hunting via VQL. Deploy as server + agents, or single-host offline collector.</p></div>
+    <div class="src"><h4><a href="https://www.sleuthkit.org/" target="_blank">The Sleuth Kit &amp; Autopsy ↗</a></h4><p class="use">Open-source disk &amp; filesystem forensics. CLI (TSK) + GUI (Autopsy) for timeline, deleted-file recovery, keyword search.</p></div>
+    <div class="src"><h4><a href="https://github.com/kevoreilly/CAPEv2" target="_blank">CAPE Sandbox ↗</a></h4><p class="use">Automated malware analysis &amp; config extraction — detonate samples, capture memory, unpack payloads.</p></div>
+  </div>
+
+  <div class="card">
+    <h3>Velociraptor — deploy &amp; hunt</h3>
+    <div class="codewrap"><div class="lbl">Server / client bootstrap</div><pre><span class="c"># Generate configs, run server, then deploy the client MSI/binary</span>
+velociraptor config generate &gt; server.config.yaml
+velociraptor --config server.config.yaml frontend -v
+velociraptor config client &gt; client.config.yaml
+<span class="c"># Standalone OFFLINE collector (single compromised host, no server):</span>
+velociraptor --config client.config.yaml artifacts collect \
+  Windows.KapeFiles.Targets --args Device=C: --args _SANS_Triage=Y --output collection.zip</pre></div>
+    <div class="codewrap"><div class="lbl">VQL hunts — highest-signal artifacts</div><pre><span class="c"># Windows triage pack (processes, netstat, autoruns, prefetch, etc.)</span>
+SELECT * FROM Artifact.Windows.Triage.ProcessMemory()
+SELECT * FROM Artifact.Windows.System.Pslist()      <span class="c"># process list + hashes</span>
+SELECT * FROM Artifact.Windows.Network.Netstat()
+SELECT * FROM Artifact.Windows.Persistence.PermanentWMIEvents()
+SELECT * FROM Artifact.Windows.Sys.StartupItems()
+<span class="c"># Detection content:</span>
+SELECT * FROM Artifact.Windows.Detection.Yara.Process(YaraRule=Rule)
+SELECT * FROM Artifact.Windows.EventLogs.Hayabusa()   <span class="c"># Sigma over evtx</span>
+<span class="c"># Hunt across the WHOLE fleet from the GUI or:</span>
+SELECT * FROM hunt_add(artifacts=<span class="s">"Windows.Detection.Amcache"</span>)</pre></div>
+    <div class="codewrap"><div class="lbl">Linux &amp; cross-platform artifacts</div><pre>SELECT * FROM Artifact.Linux.Sys.Pslist()
+SELECT * FROM Artifact.Linux.Sys.Crontab()
+SELECT * FROM Artifact.Linux.Detection.SSHKeys()
+SELECT * FROM Artifact.Linux.Collection.CatchAll()   <span class="c"># broad triage bundle</span>
+SELECT * FROM Artifact.Generic.Detection.Yara.Glob(YaraRule=Rule, Glob=<span class="s">'/tmp/**'</span>)</pre></div>
+    <div class="note">Run <span class="kbd">velociraptor gui</span> for a zero-config local server + notebook to develop VQL, then push as a fleet <b>Hunt</b>. Export results to your case notebook for reporting.</div>
+  </div>
+
+  <div class="card">
+    <h3>Memory &amp; malware — capture, image, detonate</h3>
+    <div class="two-col">
+      <div>
+        <h4>RAM &amp; disk imaging</h4>
+        <div class="codewrap"><div class="lbl">Windows memory</div><pre>winpmem_mini_x64.exe mem.raw
+<span class="c"># or Magnet RAM Capture / DumpIt</span></pre></div>
+        <div class="codewrap"><div class="lbl">Linux memory (AVML) + disk image</div><pre>./avml mem.lime                <span class="c"># Microsoft AVML</span>
+sudo dc3dd if=/dev/sda of=/eu/disk.img hash=sha256 log=img.log
+<span class="c"># verify</span>
+sha256sum disk.img</pre></div>
+      </div>
+      <div>
+        <h4>Volatility 3 — memory analysis</h4>
+        <div class="codewrap"><div class="lbl">bash</div><pre>vol -f mem.raw windows.info
+vol -f mem.raw windows.pslist
+vol -f mem.raw windows.pstree
+vol -f mem.raw windows.netscan
+vol -f mem.raw windows.malfind      <span class="c"># injected code</span>
+vol -f mem.raw windows.cmdline
+vol -f mem.raw windows.dumpfiles --pid 1234
+<span class="c"># Linux:</span>
+vol -f mem.lime linux.pslist; vol -f mem.lime linux.bash</pre></div>
+      </div>
+    </div>
+    <h4>CAPE Sandbox — automated detonation &amp; config extraction</h4>
+    <div class="codewrap"><div class="lbl">Submit &amp; retrieve</div><pre><span class="c"># submit a sample (CLI)</span>
+python3 utils/submit.py --machine win10 /samples/evil.exe
+<span class="c"># via REST API</span>
+curl -F file=@evil.exe http://cape:8000/apiv2/tasks/create/file/
+curl http://cape:8000/apiv2/tasks/report/&lt;task_id&gt;/    <span class="c"># JSON report</span>
+<span class="c"># CAPE auto-produces: behavior, dropped files, memory dumps, network PCAP,</span>
+<span class="c"># CAPE-extracted malware CONFIG (C2, keys) — feed IOCs into Tab ⑤/⑥</span>
+python3 utils/process.py -r &lt;task_id&gt;    <span class="c"># reprocess a task</span></pre></div>
+  </div>
+
+  <div class="card">
+    <h3>The Sleuth Kit (TSK) — disk forensics CLI</h3>
+    <div class="codewrap"><div class="lbl">bash</div><pre>mmls disk.img                          <span class="c"># partition layout + offsets</span>
+fsstat -o 2048 disk.img                <span class="c"># filesystem details</span>
+fls -r -o 2048 disk.img | head         <span class="c"># list files incl. deleted (*)</span>
+icat -o 2048 disk.img 34815 &gt; recovered.docx   <span class="c"># recover by inode</span>
+<span class="c"># Build a super-timeline</span>
+fls -r -m C: -o 2048 disk.img &gt; body.txt
+mactime -b body.txt -d &gt; timeline.csv
+<span class="c"># Or full pipeline with log2timeline/plaso:</span>
+log2timeline.py --parsers win7 timeline.plaso disk.img
+psort.py -o l2tcsv -w super_timeline.csv timeline.plaso</pre></div>
+    <div class="note"><b>Autopsy</b> (GUI front-end to TSK) — ingest image, run keyword search, web/email artifacts, hash lookups, and generate a report. Ideal for handing findings to non-CLI stakeholders.</div>
+  </div>
+</section>
+
+<!-- ================= 4. SANS CHEAT SHEETS ================= -->
+<section class="view" id="v-sans">
+  <h2 class="vt">SANS Cheat Sheets — Rapid Access</h2>
+  <p class="lead">The full SANS "Ultimate List" of cheat sheets, deep-linked. Filter with the box. Opens in a new tab. <a href="https://www.sans.org/blog/the-ultimate-list-of-sans-cheat-sheets" target="_blank">Source list ↗</a></p>
+  <input class="search" id="sansSearch" placeholder="🔍 Filter cheat sheets (e.g. powershell, memory, nmap, forensics)…">
+
+  <div class="card sans-cat">
+    <h3>Digital Forensics &amp; Incident Response <span class="pill p-info">DFIR</span></h3>
+    <div class="linklist">
+      <a href="https://www.sans.org/posters/sift-cheat-sheet/" target="_blank">SIFT Workstation Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/memory-forensics-cheat-sheet/" target="_blank">Memory Forensics Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/eric-zimmerman-tools-cheat-sheet/" target="_blank">Eric Zimmerman's Tools Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/hex-and-regex-forensics-cheat-sheet/" target="_blank">Hex and Regex Forensics Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/rekall-cheat-sheet/" target="_blank">Rekall Memory Forensics Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/tips-for-reverse-engineering-malicious-code/" target="_blank">Tips for Reverse-Engineering Malicious Code</a>
+      <a href="https://www.sans.org/posters/remnux-usage-tips-for-malware-analysis-on-linux/" target="_blank">REMnux Usage Tips (Malware Analysis)</a>
+      <a href="https://www.sans.org/posters/cheat-sheet-for-analyzing-malicious-documents/" target="_blank">Analyzing Malicious Documents</a>
+      <a href="https://www.sans.org/posters/malware-analysis-and-reverse-engineering-cheat-sheet/" target="_blank">Malware Analysis &amp; Reverse-Engineering</a>
+      <a href="https://www.sans.org/posters/oledump-py-quick-reference/" target="_blank">oledump.py Quick Reference</a>
+      <a href="https://www.sans.org/posters/json-and-jq-quick-start-guide/" target="_blank">JSON and jq Quick Start Guide</a>
+      <a href="https://www.sans.org/posters/sqlite-pocket-reference-guide/" target="_blank">SQLite Pocket Reference Guide</a>
+      <a href="https://www.sans.org/posters/linux-shell-survival-guide/" target="_blank">Linux Shell Survival Guide</a>
+      <a href="https://www.sans.org/posters/windows-to-unix-cheat-sheet/" target="_blank">Windows to Unix Cheat Sheet</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blt61c336e02577e733/5eb0940e248a28605479ccf0/FOR518_APFS_CheatSheet_012020.pdf" target="_blank">FOR518 Mac &amp; iOS HFS+ Reference</a>
+      <a href="https://www.sans.org/posters/ios-third-party-apps-forensics-reference-guide-poster/" target="_blank">iOS Third-Party Apps Forensics</a>
+      <a href="https://www.sans.org/blog/?focus-area=digital-forensics" target="_blank">▸ All DFIR cheat sheets (index)</a>
+    </div>
+  </div>
+
+  <div class="card sans-cat">
+    <h3>Incident Response &amp; General Security</h3>
+    <div class="linklist">
+      <a href="https://zeltser.com/media/docs/security-incident-survey-cheat-sheet.pdf" target="_blank">Security Incident Survey (Server Admins)</a>
+      <a href="https://zeltser.com/media/docs/ddos-incident-cheat-sheet.pdf" target="_blank">Network DDoS Incident Response</a>
+      <a href="https://zeltser.com/media/docs/security-assessment-report-cheat-sheet.pdf" target="_blank">Strong Cybersecurity Assessment Report</a>
+      <a href="https://zeltser.com/media/docs/security-architecture-cheat-sheet.pdf" target="_blank">Security Architecture (Internet Apps)</a>
+      <a href="https://zeltser.com/media/docs/security-assessment-rfp-cheat-sheet.pdf" target="_blank">Infosec Assessment RFP</a>
+      <a href="https://www.sans.org/posters/linux-essentials-cheat-sheet/" target="_blank">Linux Essentials</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/bltea7de5267932e94b/5eb08aafcf88d36e47cf0644/Cheatsheet_SEC301-401_R7.pdf" target="_blank">Windows &amp; Linux Terminals / Command Lines</a>
+      <a href="https://sansorg.egnyte.com/dl/8VIrX1K87d/" target="_blank">TCP/IP and tcpdump</a>
+      <a href="https://www.sans.org/posters/ipv6-pocket-guide/" target="_blank">IPv6 Pocket Guide</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/bltf146e4f361db3938/5e34a7bc946d717e2eab6139/power-shell-cheat-sheet-v41.pdf" target="_blank">PowerShell Cheat Sheet</a>
+      <a href="https://www.sans.org/blog/sans-cheat-sheet-python-3/" target="_blank">Python 3 Essentials</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blt88a4f4d475dd6337/6140c2e9d4224e7daaed054f/Flyer_ABCs-Cybersecurity-Terms_v1.pdf" target="_blank">ABCs of Cybersecurity</a>
+    </div>
+  </div>
+
+  <div class="card sans-cat">
+    <h3>Offensive Ops / Intrusion Discovery</h3>
+    <div class="linklist">
+      <a href="https://www.sans.org/posters/intrusion-discovery-cheat-sheet-for-windows/" target="_blank">Windows Intrusion Discovery v3.0</a>
+      <a href="https://www.sans.org/posters/intrusion-discovery-cheat-sheet-for-linux/" target="_blank">Linux Intrusion Discovery v2.0</a>
+      <a href="https://www.sans.org/posters/windows-command-line-cheat-sheet/" target="_blank">Windows Command Line</a>
+      <a href="https://www.sans.org/posters/netcat-cheat-sheet/" target="_blank">Netcat Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/bloodhound-cheat-sheet/" target="_blank">BloodHound Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/burp-suite-cheat-sheet/" target="_blank">Burp Suite Cheat Sheet</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blte37ba962036d487b/5eb08aae26a7212f2db1c1da/NmapCheatSheetv1.1.pdf" target="_blank">Nmap Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/misc-pen-test-tools-cheat-sheet/" target="_blank">Misc Pen Test Tools</a>
+      <a href="https://sansorg.egnyte.com/dl/kZpaAx3eX0" target="_blank">Pivot Cheat Sheet</a>
+      <a href="https://www.sans.org/security-resources/GoogleCheatSheet.pdf" target="_blank">Google Hacking &amp; Defense</a>
+      <a href="https://wiki.sans.blue/Tools/pdfs/ScapyCheatSheet_v0.2.pdf" target="_blank">Scapy Cheat Sheet</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/blta6a2ae64ec0ed535/5eb08aaeead3926127b4df44/SMB-Access-from-Linux.pdf" target="_blank">SMB Access from Linux</a>
+    </div>
+  </div>
+
+  <div class="card sans-cat">
+    <h3>Cloud, Blue-Team Primers &amp; Leadership</h3>
+    <div class="linklist">
+      <a href="https://www.sans.org/posters/kubernetes-cheat-sheet" target="_blank">Kubernetes Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/cloud-native-security-tool-cheat-sheet/" target="_blank">Cloud Native Security Tool</a>
+      <a href="https://www.sans.org/posters/multicloud-cheat-sheet/" target="_blank">Multicloud Cheat Sheet</a>
+      <a href="https://www.sans.org/posters/delos-azure-aws-cheat-sheet/" target="_blank">Azure to AWS Identity Architecture</a>
+      <a href="https://www.sans.org/posters/delos-azure-gpc-cheat-sheet/" target="_blank">Azure to GCP Identity Architecture</a>
+      <a href="https://www.sans.org/posters/powershell-enterprise-cloud-compliance/" target="_blank">PowerShell for Enterprise &amp; Cloud Compliance</a>
+      <a href="https://wiki.sans.blue/Tools/pdfs/LinuxCLI101.pdf" target="_blank">Linux CLI 101 (Blue Primer)</a>
+      <a href="https://wiki.sans.blue/Tools/pdfs/LinuxCLI.pdf" target="_blank">Linux CLI (Blue Primer)</a>
+      <a href="https://wiki.sans.blue/Tools/pdfs/PowerShell.pdf" target="_blank">PowerShell Primer</a>
+      <a href="https://wiki.sans.blue/Tools/pdfs/Get-WinEvent.pdf" target="_blank">PowerShell Get-WinEvent</a>
+      <a href="https://assets.contentstack.io/v3/assets/blt36c2e63521272fdc/bltd41927f0239e7120/656e67c010cf605315e4153a/LDR_-_Cheat_Sheet_LDR553_-_3rd-Party_Supply_Chain_%E2%80%93_WEB.pdf" target="_blank">3rd-Party / Supply-Chain Incident Mgmt</a>
+      <a href="https://www.sans.org/posters/soc-2-examination/" target="_blank">SOC 2 Examination</a>
+    </div>
+  </div>
+  <p class="mini" id="sansEmpty" style="display:none">No cheat sheets match that filter.</p>
+</section>
+
+<!-- ================= 5. THREAT INTEL ================= -->
+<section class="view" id="v-intel">
+  <h2 class="vt">Threat Intelligence Dashboard</h2>
+  <p class="lead">Where to enrich an IOC and what each platform is best at. Match the artifact type (hash / IP / domain / URL / email) to the right tool, and the situation to the right source.</p>
+  <input class="search" id="intelSearch" placeholder="🔍 Filter by tool, artifact type, or use case…">
+
+  <div class="grid g2" id="intelGrid">
+    <div class="src intel-card"><h4><a href="https://www.virustotal.com/" target="_blank">VirusTotal ↗</a></h4>
+      <p class="use"><b>Files, hashes, IPs, domains, URLs.</b> 70+ AV engines, behavioral sandboxes, relations graph, community comments. The default first-stop for any IOC.</p>
+      <p class="when">Use when: you have a hash/URL and need reputation + pivot pfast. VT Graph to map related infrastructure. Mind OPSEC — uploads are shared.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://otx.alienvault.com/" target="_blank">LevelBlue OTX (AlienVault) ↗</a></h4>
+      <p class="use"><b>Community feed / "Pulses".</b> 19M+ indicators daily, campaign context bundling IOCs with narrative. Free API.</p>
+      <p class="when">Use when: you want to know if an IOC is tied to a named campaign/actor and grab the full indicator set for detections.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://www.abuseipdb.com/" target="_blank">AbuseIPDB ↗</a></h4>
+      <p class="use"><b>IP reputation.</b> Crowd-sourced abuse reports with confidence score &amp; categories (brute-force, C2, scanning).</p>
+      <p class="when">Use when: triaging a suspicious source IP from logs/sign-ins — is it a known-bad / abusive host?</p></div>
+
+    <div class="src intel-card"><h4><a href="https://www.greynoise.io/" target="_blank">GreyNoise ↗</a></h4>
+      <p class="use"><b>Internet-noise context.</b> Tells you if an IP is mass-scanning the whole internet (benign noise) vs targeted.</p>
+      <p class="when">Use when: you need to de-prioritize alert noise or confirm an IP is opportunistic scanning vs specifically after you.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://pulsedive.com/" target="_blank">Pulsedive ↗</a></h4>
+      <p class="use"><b>IOC enrichment + risk scoring</b> for IPs/domains/URLs with passive DNS, ports, and linked threats. Generous free tier.</p>
+      <p class="when">Use when: you want a single enriched risk view of a domain/IP with related indicators and no login friction.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://threatfox.abuse.ch/" target="_blank">ThreatFox / URLhaus (abuse.ch) ↗</a></h4>
+      <p class="use"><b>Fresh malware C2 &amp; payload URLs.</b> Free, high-fidelity, exportable feeds (also MalwareBazaar for samples, Feodo Tracker for botnet C2).</p>
+      <p class="when">Use when: you extracted a C2 from CAPE and want corroboration, or need a blocklist of live malware infrastructure.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://exchange.xforce.ibmcloud.com/" target="_blank">IBM X-Force Exchange ↗</a></h4>
+      <p class="use"><b>Aggregated intel + reports.</b> IP/URL/malware scoring, vulnerability data, curated threat reports. SIEM integration.</p>
+      <p class="when">Use when: you want vendor-grade context/scoring and written threat reports to support a client briefing.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://www.shodan.io/" target="_blank">Shodan ↗</a></h4>
+      <p class="use"><b>Internet-exposed asset intel.</b> What services/banners/vulns an IP exposes; historical scans; SSL/JARM pivoting.</p>
+      <p class="when">Use when: profiling attacker infra (what's the C2 host running?) or checking a victim's external exposure.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://search.censys.io/" target="_blank">Censys ↗</a></h4>
+      <p class="use"><b>Attack-surface &amp; certificate intel.</b> Deep host/cert search; pivot on TLS certs and JARM to find related attacker infrastructure.</p>
+      <p class="when">Use when: mapping an actor's broader infrastructure from one seed IP/cert/domain.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://www.misp-project.org/" target="_blank">MISP ↗</a></h4>
+      <p class="use"><b>Threat-sharing platform.</b> Store, correlate, and share IOCs/events across trust groups; export to IDS/SIEM formats.</p>
+      <p class="when">Use when: running your own intel repository across engagements or consuming ISAC/community feeds at scale.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://any.run/" target="_blank">ANY.RUN ↗</a></h4>
+      <p class="use"><b>Interactive malware sandbox.</b> Detonate &amp; interact with a sample live in-browser; watch process tree, network, drops.</p>
+      <p class="when">Use when: you need dynamic behavior + extracted IOCs from a suspicious file/URL and want to click through the detonation.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://www.hybrid-analysis.com/" target="_blank">Hybrid Analysis ↗</a></h4>
+      <p class="use"><b>Free Falcon Sandbox.</b> Static + dynamic file analysis with MITRE ATT&amp;CK mapping and downloadable IOCs.</p>
+      <p class="when">Use when: you want a free, thorough automated malware report with ATT&amp;CK technique mapping.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://attack.mitre.org/" target="_blank">MITRE ATT&amp;CK ↗</a></h4>
+      <p class="use"><b>TTP knowledge base.</b> Map observed behavior to techniques, pivot to actor groups, and drive detection/hunt coverage.</p>
+      <p class="when">Use when: framing what the attacker did, communicating it to stakeholders, and finding gaps in your hunt.</p></div>
+
+    <div class="src intel-card"><h4><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank">CISA KEV Catalog ↗</a></h4>
+      <p class="use"><b>Known Exploited Vulnerabilities.</b> Authoritative list of CVEs actively exploited in the wild, with due-date guidance.</p>
+      <p class="when">Use when: determining if the likely initial-access vector is a known, actively-exploited vuln to prioritize patching.</p></div>
+  </div>
+  <p class="mini" id="intelEmpty" style="display:none">No sources match that filter.</p>
+</section>
+
+<!-- ================= 6. OSINT / IOC ================= -->
+<section class="view" id="v-osint">
+  <h2 class="vt">OSINT &amp; IOC Repository Search</h2>
+  <p class="lead">Once you have IOCs from the host or CAPE, pivot through OSINT sources and repositories to find related samples, infrastructure, credentials, and public exposure. <b>Watch OPSEC</b> — some lookups (esp. uploading samples) tip off the adversary.</p>
+  <input class="search" id="osintSearch" placeholder="🔍 Filter OSINT tools by name or use case…">
+
+  <div class="grid g2" id="osintGrid">
+    <div class="src osint-card"><h4><a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar ↗</a></h4>
+      <p class="use">Search &amp; download malware samples by hash, YARA, tag, or imphash. Pivot from one sample to a family.</p>
+      <p class="when">Use when: you have a hash and want the sample + related variants for analysis.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://search.marginalia.nu/" target="_blank">Maltego ↗</a> / <a href="https://github.com/smicallef/spiderfoot" target="_blank">SpiderFoot</a></h4>
+      <p class="use">Graph-based OSINT automation. Feed a domain/IP/email/name and auto-pivot across 200+ data sources into a link graph.</p>
+      <p class="when">Use when: mapping relationships between IOCs, infrastructure, and identities during scoping.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://viz.greynoise.io/" target="_blank">GreyNoise Visualizer ↗</a> / <a href="https://otx.alienvault.com/" target="_blank">OTX</a></h4>
+      <p class="use">Search indicators across community intel and scanning telemetry to attribute an IOC to campaigns.</p>
+      <p class="when">Use when: enriching an IP/domain with actor/campaign attribution.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned ↗</a></h4>
+      <p class="use">Check whether an email/domain appears in known breaches — a likely credential-stuffing / initial-access source.</p>
+      <p class="when">Use when: scoping how a victim account's credentials may have leaked; check <span class="kbd">domain search</span> for org-wide exposure.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://dehashed.com/" target="_blank">DeHashed / IntelX ↗</a></h4>
+      <p class="use">Search leaked credential datasets and paste/breach repositories by email, username, domain, IP, or password.</p>
+      <p class="when">Use when: confirming which specific creds leaked and whether they match the compromised account.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://github.com/search" target="_blank">GitHub / Gist code search ↗</a></h4>
+      <p class="use">Search public repos/gists for leaked secrets, hard-coded IOCs, and reused attacker tooling. Pair with <b>trufflehog</b> / <b>gitleaks</b>.</p>
+      <p class="when">Use when: hunting for leaked org secrets, or finding attacker tooling/config posted publicly by IOC string.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://urlscan.io/" target="_blank">urlscan.io ↗</a></h4>
+      <p class="use">Sandbox a URL: screenshots, DOM, requests, and linked infrastructure. Search historical scans by domain/IP/hash.</p>
+      <p class="when">Use when: investigating a phishing/lure URL safely and finding other pages on the same kit/infrastructure.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://viewdns.info/" target="_blank">ViewDNS / SecurityTrails ↗</a></h4>
+      <p class="use">Passive DNS, historical WHOIS, reverse-IP, and subdomain enumeration to pivot on attacker domains.</p>
+      <p class="when">Use when: a domain is an IOC and you need its history, related domains, and hosting timeline.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://whoisxmlapi.com/" target="_blank">WHOIS / DomainTools ↗</a></h4>
+      <p class="use">Registration data, registrant pivots, and look-alike/typosquat domain discovery (key for BEC).</p>
+      <p class="when">Use when: chasing spoofed look-alike domains in a BEC case, or attributing registration patterns.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://phishtank.org/" target="_blank">PhishTank / OpenPhish ↗</a></h4>
+      <p class="use">Community/curated feeds of known phishing URLs for corroboration and blocklisting.</p>
+      <p class="when">Use when: verifying a suspected phishing URL is already reported and getting related indicators.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://github.com/Neo23x0/Loki" target="_blank">Loki / THOR Lite ↗</a> (YARA scanners)</h4>
+      <p class="use">Scan hosts/images with curated YARA + IOC rulesets to sweep for known-bad across the estate.</p>
+      <p class="when">Use when: you have IOCs/YARA and want to sweep additional hosts for the same compromise.</p></div>
+
+    <div class="src osint-card"><h4><a href="https://otx.alienvault.com/api" target="_blank">IOC automation: MISP + OpenCTI ↗</a></h4>
+      <p class="use">Ingest, correlate, and operationalize IOCs across the investigation; export to SIEM/EDR/IDS.</p>
+      <p class="when">Use when: the IOC set is large and you want correlation + detection deployment, not one-off lookups.</p></div>
+  </div>
+  <p class="mini" id="osintEmpty" style="display:none">No tools match that filter.</p>
+  <div class="note">OPSEC rule of thumb: <b>never</b> upload a live sample or click attacker infrastructure from an attributable IP if the actor may still be watching. Use hash-only lookups first; detonate in isolated sandboxes.</div>
+</section>
+
+<!-- ================= 7. QUESTIONNAIRE + GRANOLA ================= -->
+<section class="view" id="v-quest">
+  <h2 class="vt">IR Triage Questionnaire &amp; Live Granola Analysis</h2>
+  <p class="lead">Work this questionnaire in the incident meeting to cover every base. Then run it against your Granola incident notes — Claude reads the meeting and tells you which questions are answered and which are <b>gaps</b> you still need to chase.</p>
+
+  <div class="card">
+    <h3>🎙️ Run the questionnaire against a specific Granola incident meeting</h3>
+    <p class="mini">Paste the <b>Granola meeting-notes URL or ID</b> for the incident you're triaging. The analysis is scoped to that meeting only — it does not pull in your other meetings. Optionally add a one-line description for extra context.</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+      <input class="search" id="incUrl" style="margin:0" placeholder="Granola meeting notes URL or meeting ID (e.g. https://notes.granola.ai/d/…  or a UUID)">
+      <input class="search" id="incInput" style="margin:0" placeholder="Optional: short incident description (e.g. 'BEC — finance mailbox, wire fraud in flight')">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button class="btn" id="runGranola">Analyze incident notes ▶</button>
+        <button class="btn sec" id="gapOnly">Gaps only</button>
+      </div>
+    </div>
+    <div class="granola-out" id="granolaOut">Paste a meeting URL/ID above and click Analyze. This calls your Granola MCP connector live, scoped to that one meeting. If you leave the URL blank, it runs an open query across your recent notes for the incident you describe.</div>
+    <p class="mini">Citations like <span class="kbd">[[0]]</span> link back to the source Granola note. Tip: in Granola, use <b>Share → Copy link</b> to get the meeting URL.</p>
+  </div>
+
+  <div class="card">
+    <h3>The questionnaire — 9 domains</h3>
+    <p class="mini">Expand each. These are the same questions sent to Granola for coverage analysis.</p>
+
+    <details class="q-item" open><summary>1 · Incident identification &amp; reporting</summary><div class="body"><ul>
+      <li>Who first detected/reported it, and how (alert, user, third party)?</li>
+      <li>Date/time first observed vs first reported? What is the current status (ongoing vs contained)?</li>
+      <li>What exactly was observed (symptoms, anomalies)?</li>
+      <li>Has anyone already taken action that could affect evidence?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>2 · Scope &amp; affected assets</summary><div class="body"><ul>
+      <li>Which hosts, identities, mailboxes, tenants, cloud accounts, and networks are involved?</li>
+      <li>How many endpoints/users total in the environment (managed vs unmanaged)?</li>
+      <li>What business systems/data are affected (M365, AD, finance/ERP, SaaS)?</li>
+      <li>Is this a single-host issue or is there evidence of spread / lateral movement?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>3 · Initial access &amp; attack vector</summary><div class="body"><ul>
+      <li>Suspected entry point (phish, exposed service, stolen creds, vendor/supply chain, physical)?</li>
+      <li>Any known exploited vuln (check CISA KEV)? Unpatched internet-facing systems?</li>
+      <li>Were credentials leaked/reused (HIBP/DeHashed)? Was MFA present &amp; enforced?</li>
+      <li>Timeline of first malicious activity vs first legitimate-looking anomaly?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>4 · Attacker actions, persistence &amp; privilege</summary><div class="body"><ul>
+      <li>What privilege level did the actor reach (user, local admin, domain/global admin)?</li>
+      <li>Persistence observed (rules, tasks, services, WMI, keys, OAuth grants)?</li>
+      <li>Rogue/new accounts, added devices, or forwarding rules?</li>
+      <li>Malware/C2 identified? Any extracted config/IOCs (IPs, domains, hashes)?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>5 · Data impact &amp; exfiltration</summary><div class="body"><ul>
+      <li>What data was accessed vs actually exfiltrated? Evidence for each?</li>
+      <li>Any regulated data (PII, PHI/HIPAA, PCI, classified/CUI)?</li>
+      <li>Financial impact — fraudulent wires/invoices in flight? Amounts &amp; accounts?</li>
+      <li>Are backups intact, and are they clean / offline?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>6 · Containment &amp; eradication status</summary><div class="body"><ul>
+      <li>What containment is already done (isolation, disabled accounts, revoked sessions/tokens)?</li>
+      <li>Passwords reset? MFA enforced? Forwarding/transport rules removed?</li>
+      <li>Is the actor believed to still have access? Any re-entry after containment?</li>
+      <li>Initial access vector closed?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>7 · Evidence, tooling &amp; forensics</summary><div class="body"><ul>
+      <li>What evidence is preserved (RAM, disk images, logs, audit exports) and where?</li>
+      <li>Chain of custody &amp; hashing in place? Log retention windows at risk?</li>
+      <li>Access constraints (sensitive/classified data → screen-share only)?</li>
+      <li>What collection tooling is deployed (Velociraptor, KAPE, CAPE, cloud audit)?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>8 · Stakeholders, authority &amp; comms</summary><div class="body"><ul>
+      <li>Who is the incident commander / decision-maker? Authority to act on which systems?</li>
+      <li>Legal, insurance/cyber policy, and law-enforcement engaged?</li>
+      <li>Notification obligations (regulators, customers, partners) &amp; deadlines?</li>
+      <li>Communication cadence &amp; out-of-band channel (in case email is compromised)?</li>
+    </ul></div></details>
+
+    <details class="q-item"><summary>9 · Engagement scoping &amp; next steps</summary><div class="body"><ul>
+      <li>Objective — contain &amp; monitor, full forensics, root-cause, or attribution?</li>
+      <li>Estimated hours / effort &amp; resource needs? Environment access method?</li>
+      <li>Deliverables (report, IOC list, remediation plan, breach notification support)?</li>
+      <li>Immediate next actions &amp; owners with deadlines?</li>
+    </ul></div></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  DFIR IR Triage &amp; Scoping Console · reference material, verify commands against your environment before running · commands are for authorized IR only.
+  Data sources: SANS Cheat Sheet list · Velociraptor / Sleuth Kit / CAPE docs · public threat-intel platforms · your connected Granola meeting notes.
+</footer>
+
+<script>
+// ---- section nav ----
+document.getElementById('secnav').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#secnav button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.querySelectorAll('section.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('v-'+b.dataset.v).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+// ---- host sub-tabs ----
+document.getElementById('hosttabs').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#hosttabs button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.querySelectorAll('#v-hosts .tabpane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tp-'+b.dataset.t).classList.add('active');
+});
+// ---- copy buttons on every <pre> ----
+document.querySelectorAll('pre').forEach(pre=>{
+  const w=pre.closest('.codewrap')||pre.parentElement;
+  const btn=document.createElement('button'); btn.className='copybtn'; btn.textContent='Copy';
+  if(getComputedStyle(w).position==='static') w.style.position='relative';
+  w.appendChild(btn);
+  btn.addEventListener('click',()=>{
+    navigator.clipboard.writeText(pre.innerText).then(()=>{
+      btn.textContent='Copied'; btn.classList.add('done');
+      setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('done')},1400);
+    });
+  });
+});
+// ---- filters ----
+function wireFilter(inputId, cardSel, emptyId){
+  const inp=document.getElementById(inputId); if(!inp)return;
+  inp.addEventListener('input',()=>{
+    const q=inp.value.toLowerCase().trim(); let shown=0;
+    document.querySelectorAll(cardSel).forEach(c=>{
+      const hit=c.innerText.toLowerCase().includes(q);
+      c.style.display=hit?'':'none'; if(hit)shown++;
+    });
+    const em=document.getElementById(emptyId); if(em)em.style.display=shown?'none':'';
+  });
+}
+wireFilter('intelSearch','.intel-card','intelEmpty');
+wireFilter('osintSearch','.osint-card','osintEmpty');
+// SANS filter operates on links + hides empty categories
+(function(){
+  const inp=document.getElementById('sansSearch'); if(!inp)return;
+  inp.addEventListener('input',()=>{
+    const q=inp.value.toLowerCase().trim(); let total=0;
+    document.querySelectorAll('.sans-cat').forEach(cat=>{
+      let vis=0;
+      cat.querySelectorAll('a').forEach(a=>{
+        const hit=a.textContent.toLowerCase().includes(q);
+        a.style.display=hit?'':'none'; if(hit)vis++;
+      });
+      cat.style.display=vis?'':'none'; total+=vis;
+    });
+    document.getElementById('sansEmpty').style.display=total?'none':'';
+  });
+})();
+
+// ---- Granola live analysis ----
+const QUESTIONNAIRE = `You are assisting an incident-response consultant. Using ONLY the Granola meeting notes provided {INCIDENT}, answer the IR triage questionnaire below. For EACH of the 9 domains, give a short bullet of what the notes DO cover, then explicitly flag what is MISSING as "GAP:" items the consultant still needs to ask. Be concise. Preserve any citation links.
+
+1. Incident identification & reporting (who/when detected, status, symptoms, actions taken)
+2. Scope & affected assets (hosts, identities, mailboxes, tenants, counts, spread/lateral movement)
+3. Initial access & attack vector (entry point, exploited vuln, leaked creds, MFA present)
+4. Attacker actions, persistence & privilege (privilege reached, persistence, rogue accounts/rules, malware/C2/IOCs)
+5. Data impact & exfiltration (accessed vs exfiltrated, regulated data, financial/fraud, backups)
+6. Containment & eradication status (isolation, resets, MFA, rules removed, actor still in, vector closed)
+7. Evidence, tooling & forensics (what preserved & where, chain of custody, retention risk, access constraints, tooling)
+8. Stakeholders, authority & comms (IC/decision-maker, legal/insurance/LE, notification obligations, comms channel)
+9. Engagement scoping & next steps (objective, effort estimate, deliverables, next actions & owners)
+
+End with a short "TOP GAPS TO CLOSE" list of the 3-5 most important unanswered questions.`;
+
+const GAP_PROMPT = `Using ONLY the Granola meeting notes provided {INCIDENT}, list the 5-8 most important UNANSWERED incident-response triage questions across: scope, initial access vector, privilege reached, persistence, data exfiltrated vs accessed, regulated-data/breach obligations, containment completeness, evidence preserved, and engagement scoping. Output as a short "GAPS TO CLOSE" checklist. Be concise and preserve citation links.`;
+
+const GRANOLA_TOOL='mcp__e9e8558c-b996-4956-986e-7b16569209c6__query_granola_meetings';
+const outEl=document.getElementById('granolaOut');
+const incInput=document.getElementById('incInput');
+const incUrl=document.getElementById('incUrl');
+
+// pull the first UUID out of a pasted Granola URL or raw ID
+function extractId(s){
+  if(!s) return null;
+  const m=s.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+  return m?m[0]:null;
+}
+
+function renderText(t){
+  // linkify markdown links [[n]](url) and (url), escape html
+  let s=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  s=s.replace(/\[\[(\d+)\]\]\((https?:[^)]+)\)/g,'<a href="$2" target="_blank">[$1]</a>');
+  s=s.replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g,'<a href="$2" target="_blank">$1</a>');
+  s=s.replace(/^###?\s*(.+)$/gm,'<h3>$1</h3>');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  return s;
+}
+
+async function runAnalysis(prompt){
+  const id=extractId(incUrl.value.trim());
+  const desc=incInput.value.trim();
+  const incPhrase = id
+    ? 'for the incident meeting supplied'+(desc?' ('+desc+')':'')
+    : 'for '+(desc||'the most recent incident response engagement');
+  outEl.innerHTML='<span class="spin"></span>Querying Granola '+(id?'meeting <b>'+id+'</b>':'notes')+'…';
+  if(!(window.cowork&&window.cowork.callMcpTool)){
+    outEl.innerHTML='⚠ Live Granola querying is only available when this artifact runs inside Cowork. Open it from the Cowork sidebar to enable it.';
+    return;
+  }
+  if(incUrl.value.trim() && !id){
+    outEl.innerHTML='⚠ Could not find a meeting ID in that URL. Paste the full Granola meeting link (it contains a UUID) or the meeting UUID itself — or leave it blank to run an open query.';
+    return;
+  }
+  try{
+    const q=prompt.replace('{INCIDENT}',incPhrase);
+    const args={query:q};
+    if(id) args.document_ids=[id];
+    const r=await window.cowork.callMcpTool(GRANOLA_TOOL,args);
+    let text='';
+    if(r&&r.isError){ text='⚠ Granola returned an error: '+(r.content&&r.content[0]?r.content[0].text:'unknown'); }
+    else if(r&&r.structuredContent&&typeof r.structuredContent==='string'){ text=r.structuredContent; }
+    else if(r&&r.content&&r.content[0]&&r.content[0].text){ text=r.content[0].text; }
+    else { text=JSON.stringify(r,null,2); }
+    outEl.innerHTML=renderText(text);
+  }catch(err){
+    outEl.innerHTML='⚠ Could not reach Granola: '+(err&&err.message?err.message:err);
+  }
+}
+document.getElementById('runGranola').addEventListener('click',()=>runAnalysis(QUESTIONNAIRE));
+document.getElementById('gapOnly').addEventListener('click',()=>runAnalysis(GAP_PROMPT));
+</script>
+</body>
+</html>
