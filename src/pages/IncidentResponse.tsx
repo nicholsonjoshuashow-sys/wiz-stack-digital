@@ -198,80 +198,37 @@ const IncidentResponse = () => {
             </div>
           </section>
 
-          {/* Core Capabilities */}
-          <section id="capabilities" className="py-20 bg-background">
+          {/* Response Process */}
+          <section className="py-20 bg-background">
             <div className="container mx-auto px-6">
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold mb-6 text-foreground">
-                  Emergency Response <span className="text-cyber-blue">Capabilities</span>
+                  Our Incident Response <span className="text-cyber-blue">Process</span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  When every move counts, we bring calm, confidence, and command to your incident response.
+                  A proven methodology that brings order to chaos during critical security incidents.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                {capabilities.map((capability, index) => (
-                  <Card key={index} className="p-6 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
-                    <div className="text-cyber-blue mb-4">
-                      {capability.icon}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {processSteps.map((step, index) => (
+                  <div key={index} className="text-center">
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-xl font-bold text-white">{step.step}</span>
+                      </div>
+                      {index < processSteps.length - 1 && (
+                        <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-cyber-blue/30 -z-10"></div>
+                      )}
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">
-                      {capability.title}
+                    <h3 className="text-lg font-bold text-foreground mb-3">
+                      {step.title}
                     </h3>
-                    <p className="text-muted-foreground">
-                      {capability.description}
+                    <p className="text-muted-foreground text-sm">
+                      {step.description}
                     </p>
-                  </Card>
-                ))}
-              </div>
-
-              <div className="max-w-6xl mx-auto mt-16 mb-12 space-y-8">
-                {[deckSlide1, deckSlide2, deckSlide3, deckSlide4, deckSlide5, deckSlide6].map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`Darkstack7 Incident Response services deck slide ${i + 1}`}
-                    className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
-                  />
-                ))}
-                <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
-                    <div className="flex items-start gap-4">
-                      <div className="text-cyber-blue mt-1">
-                        <FileText className="h-8 w-8" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground mb-1">
-                          Incident Response One-Pager
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          Download our GTM overview detailing IR Commander capabilities, response process, and engagement model.
-                        </p>
-                      </div>
-                    </div>
-                    <Button variant="cyber" asChild className="shrink-0">
-                      <a
-                        href="/Darkstack7-Incident-Response-Retainer-Program.pptx"
-                        download
-                      >
-                        <Download className="mr-2 h-4 w-4" />
-                        Download
-                      </a>
-                    </Button>
                   </div>
-                </Card>
-              </div>
-
-              <div className="flex justify-center">
-                <div className="relative">
-                  <img 
-                    src="/lovable-uploads/12d91e59-5e83-4dd7-9feb-4f2fe1c2ae53.png" 
-                    alt="Darkstack7 Incident Response Expert" 
-                    className="w-48 h-48 rounded-full object-cover border-4 border-cyber-blue/30 shadow-lg"
-                  />
-                  <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
-                </div>
+                ))}
               </div>
             </div>
           </section>
@@ -293,7 +250,7 @@ const IncidentResponse = () => {
                   </p>
                 </div>
 
-                <div className="space-y-8 mb-16">
+                <div className="space-y-8">
                   {/* Ingredient 1 */}
                   <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                     <div className="flex items-start gap-5">
@@ -468,34 +425,84 @@ const IncidentResponse = () => {
                     </div>
                   </Card>
                 </div>
+              </div>
+            </div>
+          </section>
 
-                {/* Darkstack7 Difference */}
-                <Card className="p-8 md:p-10 border-cyber-blue/50 bg-gradient-to-br from-cyber-blue/10 to-background overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-cyber-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
-                        <Crosshair className="h-5 w-5 text-white" />
+          {/* Core Capabilities */}
+          <section id="capabilities" className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">
+                  Emergency Response <span className="text-cyber-blue">Capabilities</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  When every move counts, we bring calm, confidence, and command to your incident response.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                {capabilities.map((capability, index) => (
+                  <Card key={index} className="p-6 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <div className="text-cyber-blue mb-4">
+                      {capability.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      {capability.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {capability.description}
+                    </p>
+                  </Card>
+                ))}
+              </div>
+
+              <div className="max-w-6xl mx-auto mt-16 mb-12 space-y-8">
+                {[deckSlide1, deckSlide2, deckSlide3, deckSlide4, deckSlide5, deckSlide6].map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`Darkstack7 Incident Response services deck slide ${i + 1}`}
+                    className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
+                  />
+                ))}
+                <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
+                    <div className="flex items-start gap-4">
+                      <div className="text-cyber-blue mt-1">
+                        <FileText className="h-8 w-8" />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">The Darkstack7 Difference</h3>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-1">
+                          Incident Response One-Pager
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                          Download our GTM overview detailing IR Commander capabilities, response process, and engagement model.
+                        </p>
+                      </div>
                     </div>
-                    <h4 className="text-xl font-bold text-cyber-blue mb-4">Pre-Staged IR Hunting Agents on Critical Assets</h4>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Most IR firms show up to a destructive ransomware event with empty hands. They land on the bridge call, ask for VPN credentials, request RDP access, beg for a jump box, and spend the first 8 to 12 hours just getting positioned to start the investigation — while encryption is still spreading, evidence is being destroyed, and the executive team is asking why nothing is happening.
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed mb-8">
-                      A serious IR partner has solved all of this before the incident. Pre-positioned Velociraptor hunting agents, staged credentials, tested break-glass access, and a named IR Commander who has already walked your environment mean the first hour is spent investigating — not provisioning.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button size="lg" variant="outline" asChild>
-                        <a href="/Darkstack7-Incident-Response-Retainer-Program.pptx" download>
-                          <Download className="mr-2 h-5 w-5" />
-                          Download IR One-Pager
-                        </a>
-                      </Button>
-                    </div>
+                    <Button variant="cyber" asChild className="shrink-0">
+                      <a
+                        href="/Darkstack7-Incident-Response-Retainer-Program.pptx"
+                        download
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        Download
+                      </a>
+                    </Button>
                   </div>
                 </Card>
+              </div>
+
+              <div className="flex justify-center">
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/12d91e59-5e83-4dd7-9feb-4f2fe1c2ae53.png" 
+                    alt="Darkstack7 Incident Response Expert" 
+                    className="w-48 h-48 rounded-full object-cover border-4 border-cyber-blue/30 shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
+                </div>
               </div>
             </div>
           </section>
@@ -564,77 +571,57 @@ const IncidentResponse = () => {
             </div>
           </section>
 
-          {/* Response Process */}
-          <section className="py-20 bg-background">
-            <div className="container mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-6 text-foreground">
-                  Our Incident Response <span className="text-cyber-blue">Process</span>
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  A proven methodology that brings order to chaos during critical security incidents.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {processSteps.map((step, index) => (
-                  <div key={index} className="text-center">
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-xl font-bold text-white">{step.step}</span>
-                      </div>
-                      {index < processSteps.length - 1 && (
-                        <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-cyber-blue/30 -z-10"></div>
-                      )}
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* LinkedIn Newsletter */}
-          <section className="py-16 bg-background">
-            <div className="container mx-auto px-6 text-center">
-              <h2 className="text-3xl font-bold mb-4 text-foreground">
-                Stay Ahead of Cyber Threats
-              </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Subscribe to the Darkstack7 newsletter for cybersecurity insights, incident response guidance, and industry updates.
-              </p>
-              <a
-                className="inline-flex flex-col justify-center text-center outline-none no-underline text-white w-[200px] h-[32px] rounded-[16px] bg-[#0A66C2] font-sans text-sm mx-auto"
-                href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7458615032311062528"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Subscribe on LinkedIn
-              </a>
-            </div>
-          </section>
-
-          {/* CTA Section */}
+          {/* Darkstack7 Difference + LinkedIn Newsletter */}
           <section className="py-20 bg-gradient-dark">
-            <div className="container mx-auto px-6 text-center">
-              <h2 className="text-4xl font-bold mb-6 text-foreground">
-                Need Emergency Response?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Don't wait during a security incident. Contact our emergency response team immediately.
-              </p>
-              <div className="flex justify-center">
-                <Button size="lg" variant="cyber" className="text-lg" asChild>
-                  <Link to="/contact">
-                    Contact Incident Response Team
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
+            <div className="container mx-auto px-6">
+              <div className="max-w-5xl mx-auto">
+                <Card className="p-8 md:p-10 border-cyber-blue/50 bg-gradient-to-br from-cyber-blue/10 to-background overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-cyber-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
+                        <Crosshair className="h-5 w-5 text-white" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">The Darkstack7 Difference</h3>
+                    </div>
+                    <h4 className="text-xl font-bold text-cyber-blue mb-4">Pre-Staged IR Hunting Agents on Critical Assets</h4>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Most IR firms show up to a destructive ransomware event with empty hands. They land on the bridge call, ask for VPN credentials, request RDP access, beg for a jump box, and spend the first 8 to 12 hours just getting positioned to start the investigation — while encryption is still spreading, evidence is being destroyed, and the executive team is asking why nothing is happening.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed mb-10">
+                      A serious IR partner has solved all of this before the incident. Pre-positioned Velociraptor hunting agents, staged credentials, tested break-glass access, and a named IR Commander who has already walked your environment mean the first hour is spent investigating — not provisioning.
+                    </p>
+
+                    {/* LinkedIn Newsletter */}
+                    <div className="border-t border-cyber-blue/20 pt-8 mb-8">
+                      <h4 className="text-2xl font-bold mb-3 text-center text-foreground">
+                        Stay Ahead of Cyber Threats
+                      </h4>
+                      <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-center">
+                        Subscribe to the Darkstack7 newsletter for cybersecurity insights, incident response guidance, and industry updates.
+                      </p>
+                      <div className="flex justify-center">
+                        <a
+                          className="inline-flex flex-col justify-center text-center outline-none no-underline text-white w-[200px] h-[32px] rounded-[16px] bg-[#0A66C2] font-sans text-sm"
+                          href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7458615032311062528"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Subscribe on LinkedIn
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button size="lg" variant="outline" asChild>
+                        <a href="/Darkstack7-Incident-Response-Retainer-Program.pptx" download>
+                          <Download className="mr-2 h-5 w-5" />
+                          Download IR One-Pager
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </section>
