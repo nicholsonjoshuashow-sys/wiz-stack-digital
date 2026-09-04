@@ -161,14 +161,6 @@ const IncidentResponse = () => {
                   with clarity and control.
                 </p>
                 
-                <div className="flex justify-center">
-                  <Button size="lg" variant="outline" asChild>
-                    <Link to="/contact">
-                      Contact Incident Response Team
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                </div>
               </div>
             </div>
           </section>
@@ -197,16 +189,10 @@ const IncidentResponse = () => {
                   ))}
                 </div>
                 <div className="text-center">
-                  <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-xl text-muted-foreground leading-relaxed">
                     These questions expose blind spots most businesses don't realize they have.
                     If you want clarity, confidence, and a real cybersecurity strategy — let's talk.
                   </p>
-                  <Button size="lg" variant="cyber" asChild>
-                    <Link to="/contact">
-                      Contact Incident Response Team
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
                 </div>
               </div>
             </div>
@@ -501,12 +487,6 @@ const IncidentResponse = () => {
                       A serious IR partner has solved all of this before the incident. Pre-positioned Velociraptor hunting agents, staged credentials, tested break-glass access, and a named IR Commander who has already walked your environment mean the first hour is spent investigating — not provisioning.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button size="lg" variant="cyber" asChild>
-                        <Link to="/contact">
-                          Contact Incident Response Team
-                          <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                      </Button>
                       <Button size="lg" variant="outline" asChild>
                         <a href="/Darkstack7-Incident-Response-Retainer-Program.pptx" download>
                           <Download className="mr-2 h-5 w-5" />
@@ -649,14 +629,11 @@ const IncidentResponse = () => {
                 Don't wait during a security incident. Contact our emergency response team immediately.
               </p>
               <div className="flex justify-center">
-                <Button 
-                  size="lg" 
-                  variant="cyber"
-                  className="text-lg"
-                  onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
-                >
-                  Schedule Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" variant="cyber" className="text-lg" asChild>
+                  <Link to="/contact">
+                    Contact Incident Response Team
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
             </div>
