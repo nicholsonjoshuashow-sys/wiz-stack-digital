@@ -24,12 +24,6 @@ import {
   Crosshair
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
-import deckSlide1 from "@/assets/ir-deck/slide-1.png";
-import deckSlide2 from "@/assets/ir-deck/slide-2.png";
-import deckSlide3 from "@/assets/ir-deck/slide-3.png";
-import deckSlide4 from "@/assets/ir-deck/slide-4.png";
-import deckSlide5 from "@/assets/ir-deck/slide-5.png";
-import deckSlide6 from "@/assets/ir-deck/slide-6.png";
 
 const IncidentResponse = () => {
   useEffect(() => {
@@ -152,7 +146,7 @@ const IncidentResponse = () => {
                 </Badge>
                 
                 <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-                  Incident <span className="bg-gradient-primary bg-clip-text text-transparent">Response</span>
+                  Digital Forensics & Incident Response <span className="bg-gradient-primary bg-clip-text text-transparent">(DFIR)</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
@@ -166,7 +160,7 @@ const IncidentResponse = () => {
           </section>
 
           {/* 5 Questions Every Organization Should Ask Themselves */}
-          <section className="py-20 bg-gradient-dark">
+          <section className="py-20 bg-secondary">
             <div className="container mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-foreground">
@@ -218,7 +212,7 @@ const IncidentResponse = () => {
 
                 <div className="space-y-8">
                   {/* Ingredient 1 */}
-                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                     <div className="flex items-start gap-5">
                       <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
                         <Users className="h-6 w-6 text-white" />
@@ -252,7 +246,7 @@ const IncidentResponse = () => {
                   </Card>
 
                   {/* Ingredient 2 */}
-                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                     <div className="flex items-start gap-5">
                       <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
                         <Network className="h-6 w-6 text-white" />
@@ -287,7 +281,7 @@ const IncidentResponse = () => {
                   </Card>
 
                   {/* Ingredient 3 */}
-                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                     <div className="flex items-start gap-5">
                       <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
                         <Eye className="h-6 w-6 text-white" />
@@ -322,7 +316,7 @@ const IncidentResponse = () => {
                   </Card>
 
                   {/* Ingredient 4 */}
-                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                     <div className="flex items-start gap-5">
                       <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
                         <Monitor className="h-6 w-6 text-white" />
@@ -357,7 +351,7 @@ const IncidentResponse = () => {
                   </Card>
 
                   {/* Ingredient 5 */}
-                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                  <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
                     <div className="flex items-start gap-5">
                       <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
                         <UserCheck className="h-6 w-6 text-white" />
@@ -423,16 +417,6 @@ const IncidentResponse = () => {
                 ))}
               </div>
 
-              <div className="max-w-6xl mx-auto mt-16 mb-12 space-y-8">
-                {[deckSlide1, deckSlide2, deckSlide3, deckSlide4, deckSlide5, deckSlide6].map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`Darkstack7 Incident Response services deck slide ${i + 1}`}
-                    className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
-                  />
-                ))}
-              </div>
 
               <div className="flex justify-center">
                 <div className="relative">
