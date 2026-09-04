@@ -243,32 +243,6 @@ const Header = () => {
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-pearl-white hover:text-cyber-blue bg-transparent border-0 p-0 h-auto">
-                  Tools
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 bg-background border border-border">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <a
-                          href="/tools/dfir-toolkit.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cn(
-                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          )}
-                        >
-                          <div className="text-sm font-medium leading-none">DFIR Toolkit</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Incident response triage & scoping console
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
           
