@@ -649,14 +649,11 @@ const IncidentResponse = () => {
                 Don't wait during a security incident. Contact our emergency response team immediately.
               </p>
               <div className="flex justify-center">
-                <Button 
-                  size="lg" 
-                  variant="cyber"
-                  className="text-lg"
-                  onClick={() => window.open('https://outlook.office.com/bookwithme/user/a36dd60bc57d4471926cdb17d751f663@DarkStack7.com?anonymous&ismsaljsauthenabled&ep=plink', '_blank')}
-                >
-                  Schedule Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" variant="cyber" className="text-lg" asChild>
+                  <Link to="/contact">
+                    Contact Incident Response Team
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
             </div>
