@@ -161,14 +161,6 @@ const IncidentResponse = () => {
                   with clarity and control.
                 </p>
                 
-                <div className="flex justify-center">
-                  <Button size="lg" variant="outline" asChild>
-                    <Link to="/contact">
-                      Contact Incident Response Team
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                </div>
               </div>
             </div>
           </section>
