@@ -197,16 +197,10 @@ const IncidentResponse = () => {
                   ))}
                 </div>
                 <div className="text-center">
-                  <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-xl text-muted-foreground leading-relaxed">
                     These questions expose blind spots most businesses don't realize they have.
                     If you want clarity, confidence, and a real cybersecurity strategy — let's talk.
                   </p>
-                  <Button size="lg" variant="cyber" asChild>
-                    <Link to="/contact">
-                      Contact Incident Response Team
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
                 </div>
               </div>
             </div>
