@@ -370,6 +370,17 @@ const IncidentResponse = () => {
         </main>
 
         <Footer />
+
+        {/* LinkedIn Insight Tag noscript fallback */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://px.ads.linkedin.com/collect/?pid=9970732&fmt=gif"
+          />
+        </noscript>
         </div>
       </div>
     </>
