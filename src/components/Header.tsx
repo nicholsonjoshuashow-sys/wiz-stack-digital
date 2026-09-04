@@ -21,10 +21,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a 
-            href="https://www.darkstack7.com" 
+            href="https://darkstack7.net" 
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <div>
               <div className="text-xl font-bold text-pearl-white">
