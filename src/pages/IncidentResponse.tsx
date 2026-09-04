@@ -501,12 +501,6 @@ const IncidentResponse = () => {
                       A serious IR partner has solved all of this before the incident. Pre-positioned Velociraptor hunting agents, staged credentials, tested break-glass access, and a named IR Commander who has already walked your environment mean the first hour is spent investigating — not provisioning.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button size="lg" variant="cyber" asChild>
-                        <Link to="/contact">
-                          Contact Incident Response Team
-                          <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                      </Button>
                       <Button size="lg" variant="outline" asChild>
                         <a href="/Darkstack7-Incident-Response-Retainer-Program.pptx" download>
                           <Download className="mr-2 h-5 w-5" />
