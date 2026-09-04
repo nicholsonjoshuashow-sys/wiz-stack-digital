@@ -117,7 +117,7 @@ Submitted: ${new Date().toLocaleString()}
         title="Request a Quote - Darkstack7 Cybersecurity Services"
         description="Get a customized quote for elite cybersecurity services including incident response, virtual CISO, penetration testing, and security consulting."
         keywords="cybersecurity quote, security services pricing, incident response quote, virtual CISO pricing, penetration testing cost"
-        canonical="https://darkstack7.com/services/requestquote"
+        canonical="https://darkstack7.net/services/requestquote"
       />
       <div className="min-h-screen bg-background">
         <Header />

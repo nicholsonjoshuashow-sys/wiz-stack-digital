@@ -80,7 +80,7 @@ const InsiderThreat = () => {
         title="Insider Threat Investigations | Darkstack7"
         description="Behavioral analysis, digital forensics, and activity reviews to identify malicious, negligent, or compromised insiders."
         keywords="insider threat, employee investigation, data theft investigation, behavioral analysis, digital forensics, contractor security, insider risk"
-        canonical="https://darkstack7.com/services/insiderthreat"
+        canonical="https://darkstack7.net/services/insiderthreat"
       />
       <div className="min-h-screen bg-background">
         <Header />

@@ -3,8 +3,8 @@ export const organizationStructuredData = {
   "@type": "Organization",
   "name": "Darkstack7",
   "alternateName": "Darkstack7 Cyber Defense",
-  "url": "https://darkstack7.com",
-  "logo": "https://darkstack7.com/logo.png",
+  "url": "https://darkstack7.net",
+  "logo": "https://darkstack7.net/logo.png",
   "description": "Elite cybersecurity leadership for high-stakes moments. 24/7 incident response, virtual CISO services, penetration testing, and security consulting.",
   "founder": {
     "@type": "Person",
@@ -74,7 +74,7 @@ export const penetrationTestingServiceData = {
   "provider": {
     "@type": "Organization",
     "name": "Darkstack7",
-    "url": "https://darkstack7.com"
+    "url": "https://darkstack7.net"
   },
   "serviceType": "Cybersecurity Testing",
   "category": "Information Security",

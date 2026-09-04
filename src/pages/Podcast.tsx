@@ -127,7 +127,7 @@ const Podcast = () => {
         title="Cyber Security America Podcast | Darkstack7"
         description="Expert interviews, incident response insights, and strategic cybersecurity discussions hosted by Joshua R. Nicholson."
         keywords="cybersecurity podcast, security leadership, incident response, CISO insights, cyber defense, Joshua Nicholson podcast"
-        canonical="https://darkstack7.com/podcast"
+        canonical="https://darkstack7.net/podcast"
       />
       <div className="min-h-screen bg-background">
         <Header />

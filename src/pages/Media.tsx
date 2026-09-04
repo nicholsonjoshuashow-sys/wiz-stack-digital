@@ -175,7 +175,7 @@ const Media = () => {
         title="Media & Content | Joshua R. Nicholson | Darkstack7"
         description="Cybersecurity insights from Joshua R. Nicholson via videos, podcasts, and educational content on IR, vCISO, and leadership."
         keywords="cybersecurity media, security leadership content, Joshua Nicholson videos, incident response training, CISO insights, cybersecurity education"
-        canonical="https://darkstack7.com/media"
+        canonical="https://darkstack7.net/media"
       />
       <div className="min-h-screen bg-background">
         <Header />

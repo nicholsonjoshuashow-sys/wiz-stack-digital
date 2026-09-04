@@ -82,7 +82,7 @@ const SecurityAssessmentsConsulting = () => {
         title="Security Assessments & Consulting | Darkstack7"
         description="Comprehensive security assessments, gap analysis, and strategic planning to strengthen your cybersecurity posture."
         keywords="security assessment, cybersecurity consulting, security gap analysis, compliance assessment, security advisory, risk assessment, security strategy"
-        canonical="https://darkstack7.com/services/security-assessments-consulting"
+        canonical="https://darkstack7.net/services/security-assessments-consulting"
       />
       <div className="min-h-screen bg-background">
         <Header />
