@@ -384,6 +384,26 @@ const IncidentResponse = () => {
             </div>
           </section>
 
+          {/* LinkedIn Newsletter */}
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-6 text-center">
+              <h2 className="text-3xl font-bold mb-4 text-foreground">
+                Stay Ahead of Cyber Threats
+              </h2>
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Subscribe to the Darkstack7 newsletter for cybersecurity insights, incident response guidance, and industry updates.
+              </p>
+              <a
+                className="inline-flex flex-col justify-center text-center outline-none no-underline text-white w-[200px] h-[32px] rounded-[16px] bg-[#0A66C2] font-sans text-sm mx-auto"
+                href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7458615032311062528"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Subscribe on LinkedIn
+              </a>
+            </div>
+          </section>
+
           {/* CTA Section */}
           <section className="py-20 bg-gradient-dark">
             <div className="container mx-auto px-6 text-center">
