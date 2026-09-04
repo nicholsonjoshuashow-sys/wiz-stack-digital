@@ -168,6 +168,45 @@ const IncidentResponse = () => {
             </div>
           </section>
 
+          {/* 5 Questions Every Organization Should Ask Themselves */}
+          <section className="py-20 bg-gradient-dark">
+            <div className="container mx-auto px-6">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-foreground">
+                  5 Questions Every Organization Should Ask Themselves
+                </h2>
+                <div className="space-y-6 mb-10">
+                  {[
+                    "Do we truly know our current security posture?",
+                    "Could we detect and respond to an incident today?",
+                    "Are we compliant — or just hoping we are?",
+                    "Do we have visibility into our vulnerabilities?",
+                    "Are we prepared for the legal, financial, and operational impact of a breach?"
+                  ].map((question, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-gradient-primary flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-white font-bold text-sm">{index + 1}</span>
+                      </div>
+                      <p className="text-lg text-foreground">{question}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center">
+                  <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                    These questions expose blind spots most businesses don't realize they have.
+                    If you want clarity, confidence, and a real cybersecurity strategy — let's talk.
+                  </p>
+                  <Button size="lg" variant="cyber" asChild>
+                    <Link to="/contact">
+                      Contact Incident Response Team
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Core Capabilities */}
           <section id="capabilities" className="py-20 bg-background">
             <div className="container mx-auto px-6">
