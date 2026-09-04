@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -26,6 +27,32 @@ import deckSlide5 from "@/assets/ir-deck/slide-5.png";
 import deckSlide6 from "@/assets/ir-deck/slide-6.png";
 
 const IncidentResponse = () => {
+  useEffect(() => {
+    // LinkedIn Insight Tag for campaign tracking
+    const partnerId = "9970732";
+    (window as any)._linkedin_partner_id = partnerId;
+    (window as any)._linkedin_data_partner_ids = (window as any)._linkedin_data_partner_ids || [];
+    (window as any)._linkedin_data_partner_ids.push(partnerId);
+
+    const lintrk = (window as any).lintrk;
+    if (!lintrk) {
+      (window as any).lintrk = function(a: unknown, b: unknown) {
+        ((window as any).lintrk.q = (window as any).lintrk.q || []).push([a, b]);
+      };
+      (window as any).lintrk.q = [];
+    }
+
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    const firstScript = document.getElementsByTagName("script")[0];
+    if (firstScript && firstScript.parentNode) {
+      firstScript.parentNode.insertBefore(script, firstScript);
+    } else {
+      document.body.appendChild(script);
+    }
+  }, []);
   const capabilities = [
     {
       icon: <AlertTriangle className="h-6 w-6" />,
