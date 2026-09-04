@@ -198,40 +198,6 @@ const IncidentResponse = () => {
             </div>
           </section>
 
-          {/* Response Process */}
-          <section className="py-20 bg-background">
-            <div className="container mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-6 text-foreground">
-                  Our Incident Response <span className="text-cyber-blue">Process</span>
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  A proven methodology that brings order to chaos during critical security incidents.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {processSteps.map((step, index) => (
-                  <div key={index} className="text-center">
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-xl font-bold text-white">{step.step}</span>
-                      </div>
-                      {index < processSteps.length - 1 && (
-                        <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-cyber-blue/30 -z-10"></div>
-                      )}
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
 
           {/* Five Ingredients of an IR Plan That Doesn't Suck */}
           <section className="py-20 bg-gradient-dark">
@@ -466,32 +432,6 @@ const IncidentResponse = () => {
                     className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
                   />
                 ))}
-                <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
-                    <div className="flex items-start gap-4">
-                      <div className="text-cyber-blue mt-1">
-                        <FileText className="h-8 w-8" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground mb-1">
-                          Incident Response One-Pager
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          Download our GTM overview detailing IR Commander capabilities, response process, and engagement model.
-                        </p>
-                      </div>
-                    </div>
-                    <Button variant="cyber" asChild className="shrink-0">
-                      <a
-                        href="/Darkstack7-Incident-Response-Retainer-Program.pptx"
-                        download
-                      >
-                        <Download className="mr-2 h-4 w-4" />
-                        Download
-                      </a>
-                    </Button>
-                  </div>
-                </Card>
               </div>
 
               <div className="flex justify-center">
@@ -507,7 +447,43 @@ const IncidentResponse = () => {
             </div>
           </section>
 
+          {/* Response Process */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-6 text-foreground">
+                  Our Incident Response <span className="text-cyber-blue">Process</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  A proven methodology that brings order to chaos during critical security incidents.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {processSteps.map((step, index) => (
+                  <div key={index} className="text-center">
+                    <div className="relative mb-6">
+                      <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-xl font-bold text-white">{step.step}</span>
+                      </div>
+                      {index < processSteps.length - 1 && (
+                        <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-cyber-blue/30 -z-10"></div>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Service Description */}
+
           <section className="py-20 bg-gradient-dark">
             <div className="container mx-auto px-6">
               <div className="max-w-4xl mx-auto">
