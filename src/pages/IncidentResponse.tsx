@@ -16,7 +16,12 @@ import {
   Phone,
   ArrowRight,
   CheckCircle,
-  Download
+  Download,
+  Network,
+  Eye,
+  Monitor,
+  UserCheck,
+  Crosshair
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
 import deckSlide1 from "@/assets/ir-deck/slide-1.png";
@@ -281,6 +286,236 @@ const IncidentResponse = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Five Ingredients of an IR Plan That Doesn't Suck */}
+          <section className="py-20 bg-gradient-dark">
+            <div className="container mx-auto px-6">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-16">
+                  <Badge variant="outline" className="mb-6 border-cyber-blue/30 text-cyber-blue">
+                    <ShieldAlert className="h-4 w-4 mr-2" />
+                    DFIR Best Practices
+                  </Badge>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                    The Five Ingredients of an <span className="text-cyber-blue">IR Plan That Doesn't Suck</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Most IR plans fail at 3 a.m. for the same five reasons. Fix these, and your plan will hold under fire.
+                  </p>
+                </div>
+
+                <div className="space-y-8 mb-16">
+                  {/* Ingredient 1 */}
+                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
+                        <Users className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-8 h-8 rounded-full bg-cyber-blue/20 text-cyber-blue flex items-center justify-center font-bold text-sm">1</span>
+                          <h3 className="text-2xl font-bold text-foreground">A Live, Tested Contact Tree With Cleared Lines of Authority</h3>
+                        </div>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          The first 30 minutes of a major incident are spent finding people and getting permission. A great IR plan eliminates both.
+                        </p>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {[
+                            "24/7 reachable contacts for every key role — IR Commander, CISO, CEO, General Counsel, Communications lead, Insurance broker, IT operations lead, DR lead, BC lead",
+                            "Cleared decision authority documented in writing — who can declare an incident, authorize containment, approve public statements, and sign engagement letters",
+                            "Pre-built escalation paths for board notification, regulatory notification, and law enforcement engagement",
+                            "Out-of-band communication channels ready to go — Signal groups, phone trees, and pre-printed call sheets"
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <CheckCircle className="h-4 w-4 text-cyber-blue shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 text-foreground font-medium">
+                          If you cannot reach the right humans in 15 minutes, the next 15 hours cost more.
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Ingredient 2 */}
+                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
+                        <Network className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-8 h-8 rounded-full bg-cyber-blue/20 text-cyber-blue flex items-center justify-center font-bold text-sm">2</span>
+                          <h3 className="text-2xl font-bold text-foreground">Current Network Diagrams, System Documentation, and a Mature IR Runbook</h3>
+                        </div>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          Containment without documentation is guessing — and guessing during a destructive event is how organizations break the things they were trying to save.
+                        </p>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {[
+                            "Network diagrams that match production reality — updated quarterly, not from the last audit",
+                            "Asset inventory with criticality ratings, data classification, and ownership",
+                            "System documentation for every business-critical platform including SaaS, identity providers, and cloud workloads",
+                            "Mature IR runbook with repeatable playbooks for ransomware, BEC, insider threat, cloud account takeover, and supply chain compromise",
+                            "A 'go-to-green' plan for staged reintroduction into hardened recovery VLANs"
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <CheckCircle className="h-4 w-4 text-cyber-blue shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 text-foreground font-medium">
+                          The plan should be specific enough that a senior engineer who has never seen the environment could execute the first hour of containment from the documentation alone.
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Ingredient 3 */}
+                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
+                        <Eye className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-8 h-8 rounded-full bg-cyber-blue/20 text-cyber-blue flex items-center justify-center font-bold text-sm">3</span>
+                          <h3 className="text-2xl font-bold text-foreground">Comprehensive Detection and Logging Capabilities</h3>
+                        </div>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          You cannot investigate what you did not log. Forensics depends on telemetry that exists before the incident — not telemetry you wish you had after the fact.
+                        </p>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {[
+                            "Centralized logging across endpoints, network infrastructure, identity providers, cloud control planes, and critical SaaS platforms",
+                            "Sufficient log retention — minimum 90 days for active investigation, 12 months for compliance and pattern-of-life analysis",
+                            "SIEM correlation rules tuned to your environment and mapped to MITRE ATT&CK TTPs",
+                            "Identity-centric detection for compromised accounts and privilege escalation",
+                            "Cloud-native logging turned on and forwarded before the incident"
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <CheckCircle className="h-4 w-4 text-cyber-blue shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 text-foreground font-medium">
+                          If your detection stack only sees endpoints, you are blind to the half of the attack chain that lives in identity and cloud.
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Ingredient 4 */}
+                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
+                        <Monitor className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-8 h-8 rounded-full bg-cyber-blue/20 text-cyber-blue flex items-center justify-center font-bold text-sm">4</span>
+                          <h3 className="text-2xl font-bold text-foreground">EDR on Every Host, Monitored 24/7 by an MDR Service</h3>
+                        </div>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          The ransomware industry has industrialized off-hours detonation. If no one is watching the EDR alerts at 3 a.m. on Saturday, encryption finishes before anyone notices.
+                        </p>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {[
+                            "EDR coverage on every endpoint — workstations, servers, domain controllers, jump boxes, and legacy systems",
+                            "24/7 MDR overwatch — either an in-house SOC running three shifts, or a managed MDR partner",
+                            "Pre-authorized containment playbooks so analysts can isolate hosts immediately",
+                            "EDR telemetry feeding the IR investigation, forensics, eradication, and recovery validation",
+                            "A vendor-agnostic posture that works across an ecosystem of EDR platforms"
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <CheckCircle className="h-4 w-4 text-cyber-blue shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 text-foreground font-medium">
+                          EDR without 24/7 monitoring is a smoke detector with the battery removed.
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+
+                  {/* Ingredient 5 */}
+                  <Card className="p-8 border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <div className="flex items-start gap-5">
+                      <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
+                        <UserCheck className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-8 h-8 rounded-full bg-cyber-blue/20 text-cyber-blue flex items-center justify-center font-bold text-sm">5</span>
+                          <h3 className="text-2xl font-bold text-foreground">Skilled IR Personnel Pre-Onboarded, With Break-Glass Access Already Tested</h3>
+                        </div>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          The first four hours of an unfamiliar engagement are almost always spent on access — credentials, jump boxes, VPN tokens, MFA bypass, and the inevitable "wait, who has the local admin password for that server?"
+                        </p>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {[
+                            "Pre-positioned tooling — Velociraptor IR hunting agents, EDR collectors, memory imaging utilities, and pre-loaded forensic playbooks",
+                            "Credentials staged and tested — break-glass accounts created, documented in escrow, and verified quarterly",
+                            "A named senior IR Commander assigned to your account — not a round-robin queue",
+                            "Pre-negotiated rates and SLAs locked in before the incident",
+                            "Annual joint tabletop exercises with DR, BC, executives, and the insurance broker"
+                          ].map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <CheckCircle className="h-4 w-4 text-cyber-blue shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 text-foreground font-medium">
+                          The plan that doesn't suck assumes the attacker is already inside, the executive team is unreachable, the on-call engineer just quit, and the backups are partially encrypted. It works anyway.
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+
+                {/* Darkstack7 Difference */}
+                <Card className="p-8 md:p-10 border-cyber-blue/50 bg-gradient-to-br from-cyber-blue/10 to-background overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-cyber-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
+                        <Crosshair className="h-5 w-5 text-white" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">The Darkstack7 Difference</h3>
+                    </div>
+                    <h4 className="text-xl font-bold text-cyber-blue mb-4">Pre-Staged IR Hunting Agents on Critical Assets</h4>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Most IR firms show up to a destructive ransomware event with empty hands. They land on the bridge call, ask for VPN credentials, request RDP access, beg for a jump box, and spend the first 8 to 12 hours just getting positioned to start the investigation — while encryption is still spreading, evidence is being destroyed, and the executive team is asking why nothing is happening.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed mb-8">
+                      A serious IR partner has solved all of this before the incident. Pre-positioned Velociraptor hunting agents, staged credentials, tested break-glass access, and a named IR Commander who has already walked your environment mean the first hour is spent investigating — not provisioning.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button size="lg" variant="cyber" asChild>
+                        <Link to="/contact">
+                          Contact Incident Response Team
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
+                      <Button size="lg" variant="outline" asChild>
+                        <a href="/Darkstack7-Incident-Response-Retainer-Program.pptx" download>
+                          <Download className="mr-2 h-5 w-5" />
+                          Download IR One-Pager
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </section>
