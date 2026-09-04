@@ -318,19 +318,6 @@ const Header = () => {
               <Link to="/contact" className="text-pearl-white hover:text-cyber-blue transition-colors">
                 Contact Us
               </Link>
-              <div className="space-y-2">
-                <div className="text-pearl-white font-medium">Tools</div>
-                <div className="pl-4 space-y-2">
-                  <a
-                    href="/tools/dfir-toolkit.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-pearl-white/80 hover:text-cyber-blue transition-colors text-sm"
-                  >
-                    DFIR Toolkit
-                  </a>
-                </div>
-              </div>
               <Button 
                 variant="incident" 
                 size="sm" 
