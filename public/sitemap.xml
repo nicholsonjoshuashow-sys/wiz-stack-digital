@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://darkstack7.com/</loc>
+    <loc>https://darkstack7.net/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/security-assessments-consulting</loc>
+    <loc>https://darkstack7.net/services/security-assessments-consulting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/penetration-testing</loc>
+    <loc>https://darkstack7.net/services/penetration-testing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/CISO</loc>
+    <loc>https://darkstack7.net/services/CISO</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/IR</loc>
+    <loc>https://darkstack7.net/services/IR</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/insiderthreat</loc>
+    <loc>https://darkstack7.net/services/insiderthreat</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/tabletop_exercises</loc>
+    <loc>https://darkstack7.net/services/tabletop_exercises</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/solution-engineering</loc>
+    <loc>https://darkstack7.net/services/solution-engineering</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/services/training-keynotes</loc>
+    <loc>https://darkstack7.net/services/training-keynotes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/contact</loc>
+    <loc>https://darkstack7.net/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/thank-you</loc>
+    <loc>https://darkstack7.net/thank-you</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/media</loc>
+    <loc>https://darkstack7.net/media</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/media/news</loc>
+    <loc>https://darkstack7.net/media/news</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/podcast</loc>
+    <loc>https://darkstack7.net/podcast</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://darkstack7.com/podcast/guest</loc>
+    <loc>https://darkstack7.net/podcast/guest</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -105,7 +105,7 @@ const IncidentResponse = () => {
         title="Incident Response & 24/7 Cyber Emergency | Darkstack7"
         description="On-demand IR Commander leadership for active breaches. 24/7 emergency response, digital forensics, and board-level communication."
         keywords="incident response, cyber incident, emergency response, digital forensics, breach response, IR commander, cybersecurity incident"
-        canonical="https://darkstack7.com/services/IR"
+        canonical="https://darkstack7.net/services/IR"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -115,10 +115,10 @@ const IncidentResponse = () => {
           "provider": {
             "@type": "Organization",
             "name": "Darkstack7",
-            "url": "https://darkstack7.com"
+            "url": "https://darkstack7.net"
           },
           "areaServed": "Global",
-          "url": "https://darkstack7.com/services/IR"
+          "url": "https://darkstack7.net/services/IR"
         }}
       />
       <div 

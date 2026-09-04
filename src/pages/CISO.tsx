@@ -53,7 +53,7 @@ const CISO = () => {
         title="Virtual CISO Services | Darkstack7"
         description="Executive-level cybersecurity leadership. Strategic planning, security architecture, and hands-on vCISO program development."
         keywords="virtual CISO, cybersecurity leadership, security strategy, incident response, executive security"
-        canonical="https://darkstack7.com/services/CISO"
+        canonical="https://darkstack7.net/services/CISO"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -63,10 +63,10 @@ const CISO = () => {
           "provider": {
             "@type": "Organization",
             "name": "Darkstack7",
-            "url": "https://darkstack7.com"
+            "url": "https://darkstack7.net"
           },
           "areaServed": "Global",
-          "url": "https://darkstack7.com/services/CISO"
+          "url": "https://darkstack7.net/services/CISO"
         }}
       />
       

@@ -73,7 +73,7 @@ const News = () => {
         title="Cybersecurity News & Insights | Darkstack7"
         description="Latest cybersecurity insights, industry news, and expert commentary from the Darkstack7 leadership team."
         keywords="cybersecurity news, security insights, cyber threats, incident response updates, CISO guidance, penetration testing news, darkstack7 updates"
-        canonical="https://darkstack7.com/media/news"
+        canonical="https://darkstack7.net/media/news"
       />
       <div className="min-h-screen bg-background">
         <Header />
@@ -117,7 +117,7 @@ const News = () => {
                 <CardContent className="p-8">
                   <div className="flex items-center justify-center gap-6 md:gap-10 mb-6">
                     <a
-                      href="https://www.darkstack7.com/"
+                      href="https://www.darkstack7.net/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block rounded-lg overflow-hidden bg-gray-200 p-4 md:p-6 border border-border hover:border-cyber-blue/60 transition-colors flex-1 max-w-[280px]"
@@ -197,7 +197,7 @@ const News = () => {
                       June 2025
                     </span>
                     <a
-                      href="https://www.darkstack7.com/"
+                      href="https://www.darkstack7.net/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm text-cyber-blue hover:text-fire-red transition-colors font-medium"

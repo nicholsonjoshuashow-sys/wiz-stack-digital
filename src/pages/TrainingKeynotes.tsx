@@ -83,7 +83,7 @@ const TrainingKeynotes = () => {
         title="Training & Keynotes | Cybersecurity Education | Darkstack7"
         description="Elite cybersecurity training and keynote speaking by Joshua R. Nicholson — executive education, workshops, and leadership development."
         keywords="cybersecurity training, keynote speaker, executive education, conference speaking, leadership development, cybersecurity workshops"
-        canonical="https://darkstack7.com/services/training-keynotes"
+        canonical="https://darkstack7.net/services/training-keynotes"
       />
       <div className="min-h-screen bg-background">
         <Header />

@@ -17,7 +17,7 @@ const SEO = ({
   keywords = "cybersecurity, incident response, virtual CISO, penetration testing, security consulting, cyber defense, darkstack7",
   canonical,
   ogType = "website",
-  ogImage = "https://darkstack7.com/darkstack7-logo.png",
+  ogImage = "https://darkstack7.net/darkstack7-logo.png",
   ogUrl,
   structuredData
 }: SEOProps) => {

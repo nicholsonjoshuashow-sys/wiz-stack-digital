@@ -32,7 +32,7 @@ const Index = () => {
         title="Darkstack7 — Elite Cybersecurity Leadership & vCISO"
         description="Elite cybersecurity leadership from Joshua R. Nicholson: 24/7 incident response, virtual CISO, and penetration testing services."
         keywords="cybersecurity leadership, incident response, virtual CISO, penetration testing, security consulting, cyber defense, Joshua Nicholson, darkstack7, emergency response"
-        canonical="https://darkstack7.com"
+        canonical="https://darkstack7.net"
         structuredData={organizationStructuredData}
       />
       <div className="min-h-screen bg-background">
