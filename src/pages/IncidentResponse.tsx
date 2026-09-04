@@ -16,7 +16,12 @@ import {
   Phone,
   ArrowRight,
   CheckCircle,
-  Download
+  Download,
+  Network,
+  Eye,
+  Monitor,
+  UserCheck,
+  Crosshair
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
 import deckSlide1 from "@/assets/ir-deck/slide-1.png";
