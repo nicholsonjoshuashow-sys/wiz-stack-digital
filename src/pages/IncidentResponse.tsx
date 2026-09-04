@@ -432,32 +432,6 @@ const IncidentResponse = () => {
                     className="w-full h-auto rounded-lg border border-cyber-blue/30 shadow-lg"
                   />
                 ))}
-                <Card className="p-6 border-cyber-blue/40 bg-card/50 backdrop-blur-sm">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
-                    <div className="flex items-start gap-4">
-                      <div className="text-cyber-blue mt-1">
-                        <FileText className="h-8 w-8" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground mb-1">
-                          Incident Response One-Pager
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          Download our GTM overview detailing IR Commander capabilities, response process, and engagement model.
-                        </p>
-                      </div>
-                    </div>
-                    <Button variant="cyber" asChild className="shrink-0">
-                      <a
-                        href="/Darkstack7-Incident-Response-Retainer-Program.pptx"
-                        download
-                      >
-                        <Download className="mr-2 h-4 w-4" />
-                        Download
-                      </a>
-                    </Button>
-                  </div>
-                </Card>
               </div>
 
               <div className="flex justify-center">
