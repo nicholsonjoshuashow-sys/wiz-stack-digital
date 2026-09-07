@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-cybersecurity.jpg";
-const heroProfessionalImage = "/lovable-uploads/67b11867-0e34-4757-b1c0-a136f9e5deaf.png";
+const heroProfessionalImage = "/lovable-uploads/1a3296a0-be16-468e-8e7d-049aff4813b4.png";
 
 const Hero = () => {
   return (
