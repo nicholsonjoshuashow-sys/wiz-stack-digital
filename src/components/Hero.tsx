@@ -16,7 +16,7 @@ const Hero = () => {
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-cyber-dark/90 bg-gradient-dark"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark/60 via-cyber-dark/75 to-cyber-dark/85"></div>
       </div>
 
       {/* Content */}
