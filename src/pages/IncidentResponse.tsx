@@ -508,6 +508,204 @@ const IncidentResponse = () => {
             </div>
           </section>
 
+          {/* Compromise Assessment */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-6">
+              <div className="max-w-5xl mx-auto">
+                <div className="text-center mb-16">
+                  <Badge variant="outline" className="mb-6 border-cyber-blue/30 text-cyber-blue">
+                    <Search className="h-4 w-4 mr-2" />
+                    IR Service
+                  </Badge>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                    Compromise <span className="text-cyber-blue">Assessment</span>
+                  </h2>
+                  <p className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                    You Can’t Monitor Your Way to Certainty
+                  </p>
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                    Your SIEM is green. Your EDR hasn’t fired. Your last pen test came back clean. And none of that answers the only question that actually matters — is someone already inside, quietly, right now?
+                  </p>
+                </div>
+
+                <div className="space-y-6 mb-16">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Routine monitoring is built to catch the loud, the known, and the obvious. The adversaries worth worrying about are none of those things. They live off the land, blend into normal admin activity, sit dormant for months, and detonate at 3 a.m. on a Saturday when no one is watching.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    In the Marine Corps, we didn’t wait for the enemy to announce themselves. We ran reconnaissance and active patrols to find them before they found us. A compromise assessment is that patrol for your network — a deliberate, intelligence-led hunt for the attacker your dashboards can’t see.
+                  </p>
+                </div>
+
+                {/* What it is */}
+                <div className="mb-16">
+                  <h3 className="text-3xl font-bold text-foreground mb-6">
+                    What a Compromise Assessment Actually Is
+                  </h3>
+                  <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                      A compromise assessment is an exploratory, intelligence-led investigation that combines digital forensics, enterprise endpoint telemetry, and proactive threat hunting to surface both active and historical attacker activity that routine monitoring may have missed.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="flex items-start gap-3">
+                        <Target className="h-5 w-5 text-cyber-blue shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold text-foreground mb-1">Not a Penetration Test</h4>
+                          <p className="text-sm text-muted-foreground">
+                            A pen test asks, “could an attacker get in?” A compromise assessment asks the far more urgent question: “is an attacker already in — or were they in, and did they leave something behind?”
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <ShieldCheck className="h-5 w-5 text-cyber-blue shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-bold text-foreground mb-1">Not a Compliance Audit</h4>
+                          <p className="text-sm text-muted-foreground">
+                            Vulnerability scans and audits measure posture against a checklist. A compromise assessment applies DFIR discipline to a single objective: find the evidence of intrusion that everything else missed.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mt-6 text-foreground font-medium leading-relaxed">
+                      The defining trait is hypothesis-driven hunting for attacker tactics, techniques, and procedures — the behaviors a skilled adversary can’t avoid leaving, even when they’ve scrubbed the obvious artifacts.
+                    </p>
+                  </Card>
+                </div>
+
+                {/* Two moments */}
+                <div className="mb-16">
+                  <h3 className="text-3xl font-bold text-foreground mb-6 text-center">
+                    Two Moments You Need One
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
+                          <Search className="h-5 w-5 text-white" />
+                        </div>
+                        <h4 className="text-xl font-bold text-foreground">When You Suspect a Resident Attacker</h4>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        The dangerous intrusions aren’t the ones that trip an alert on day one. They dwell — median attacker dwell time is still measured in weeks. Dormant footholds, backdoored service accounts, scheduled tasks on a forgotten backup domain controller, and remote-access tooling that looks just enough like legitimate IT survive reboots, password resets, and the “we think we cleaned it up” declaration. A compromise assessment replaces “we think we’re clean” with “here is the evidence, one way or the other.”
+                      </p>
+                    </Card>
+                    <Card className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
+                          <Building2 className="h-5 w-5 text-white" />
+                        </div>
+                        <h4 className="text-xl font-bold text-foreground">When You’re Acquiring a Company</h4>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Acquiring an organization means acquiring its history — including any unresolved intrusions, dormant attacker access, and control weaknesses that predate the deal. The moment you merge networks, trust relationships, and identity systems, you can extend an attacker’s foothold from the acquired company straight into the parent enterprise. A compromise assessment gives the acquirer evidence-based answers instead of the seller’s reassurance.
+                      </p>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Five phases */}
+                <div className="mb-16">
+                  <div className="text-center mb-12">
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                      How We Run It: The Five Phases
+                    </h3>
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                      A compromise assessment is not an open-ended fishing expedition. Because the true scope is unknown at the start, the engagement is built to discover and refine its own scope as evidence comes in.
+                    </p>
+                  </div>
+                  <div className="space-y-6">
+                    {[
+                      {
+                        phase: "Phase 1",
+                        title: "Discovery and Scoping",
+                        icon: <Crosshair className="h-5 w-5 text-white" />,
+                        description: "We establish an understanding of the environment, the known or suspected incident, the timeline and indicators, what remediation was already performed, and — critically — what telemetry and forensic evidence actually exist. Where authorized, we deploy endpoint and forensic sensors across in-scope systems to establish an enterprise-wide baseline.",
+                        outcome: "Outcome: a confirmed and refined technical scope, grounded in what the evidence can actually support."
+                      },
+                      {
+                        phase: "Phase 2",
+                        title: "Compromise Assessment",
+                        icon: <Search className="h-5 w-5 text-white" />,
+                        description: "The core hunt. We analyze endpoint and server telemetry, authentication and privileged-account activity, persistence mechanisms, remote-access and egress traffic, and cloud/SaaS security signals. We correlate everything against current threat intelligence and run proactive, hypothesis-driven hunts for attacker TTPs, including analysis of egress traffic for exfiltration or command-and-control.",
+                        outcome: "Outcome: findings on active, residual, or historical compromise."
+                      },
+                      {
+                        phase: "Phase 3",
+                        title: "Remediation Validation",
+                        icon: <ShieldCheck className="h-5 w-5 text-white" />,
+                        description: "If an incident already happened and was “fixed,” we test whether the fix actually closed the attack paths. We assess account and credential remediation, privileged-access changes, MFA, persistence removal, monitoring improvements, and system decommissioning — and we’re explicit about where remediation is complete, incomplete, ineffective, or simply unable to be validated because the evidence no longer exists.",
+                        outcome: "Outcome: an honest judgment on remediation completeness and gaps."
+                      },
+                      {
+                        phase: "Phase 4",
+                        title: "Security Posture Assessment",
+                        icon: <Network className="h-5 w-5 text-white" />,
+                        description: "We surface the control weaknesses that create ongoing risk independent of any single incident — identity and privileged access, endpoint and network security, detection coverage, patch management, and system hygiene like end-of-life systems, unmanaged assets, and shadow IT. These are the conditions attackers exploit to get in the first time, and to come back.",
+                        outcome: "Outcome: the material security gaps relevant to integration or ongoing operations."
+                      },
+                      {
+                        phase: "Phase 5",
+                        title: "Risk Analysis and Reporting",
+                        icon: <FileText className="h-5 w-5 text-white" />,
+                        description: "Every finding is rated by impact, likelihood, exploitability, and — in a deal — exposure to the parent organization. We separate active or residual compromise from historical compromise, remediation gaps, control weaknesses, and visibility limitations, so you can sequence what to fix by actual exposure.",
+                        outcome: "Outcome: a decision-ready report and a management readout."
+                      }
+                    ].map((item, index) => (
+                      <Card key={index} className="p-8 bg-secondary border-cyber-gray/30 hover:border-cyber-blue/50 transition-all">
+                        <div className="flex items-start gap-5">
+                          <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shrink-0">
+                            {item.icon}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-3">
+                              <span className="text-xs font-mono text-cyber-cyan uppercase tracking-wider">{item.phase}</span>
+                              <h4 className="text-xl font-bold text-foreground">{item.title}</h4>
+                            </div>
+                            <p className="text-muted-foreground leading-relaxed mb-4">
+                              {item.description}
+                            </p>
+                            <p className="text-foreground font-medium text-sm">
+                              {item.outcome}
+                            </p>
+                          </div>
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                  <p className="mt-8 text-center text-muted-foreground">
+                    One thing that doesn’t wait for Phase 5: in-flight escalation. If we find an active, critical threat mid-assessment, you hear about it immediately — not in the final report — and we can escalate straight to containment or a full incident-response engagement.
+                  </p>
+                </div>
+
+                {/* Outcome */}
+                <div>
+                  <h3 className="text-3xl font-bold text-foreground mb-6 text-center">
+                    The Outcome It Achieves
+                  </h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+                    The point of a compromise assessment isn’t a document. It’s a decision you can defend. At the end, you’re positioned to do four things you couldn’t do before:
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                    {[
+                      "Make an informed decision on evidence, not assurances — whether that’s “we’re clean” for your own environment, or a go/no-go on connecting an acquired network.",
+                      "Prioritize and sequence remediation of any residual compromise or control weakness — before an attacker acts, or before environments are connected.",
+                      "Quantify and document inherited or existing cyber risk for transaction, insurance, and governance purposes.",
+                      "Demonstrate a defensible standard of care to your board, your insurers, and — where relevant — your regulators."
+                    ].map((outcome, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-cyber-cyan shrink-0 mt-1" />
+                        <p className="text-muted-foreground leading-relaxed">{outcome}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-3xl mx-auto">
+                    Being able to show you actively hunted for the threat, with an independent third party, using primary evidence, is increasingly the difference between a manageable event and a negligence conversation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Darkstack7 Difference + LinkedIn Newsletter */}
           <section className="py-20 bg-gradient-dark">
             <div className="container mx-auto px-6">
