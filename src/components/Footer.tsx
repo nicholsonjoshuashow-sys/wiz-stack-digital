@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
-import darkstackOfficialLogo from "@/assets/darkstack7-shield-logo.png";
+import darkstackOfficialLogo from "@/assets/darkstack7-shield-logo.png.asset.json";
 import { useState } from "react";
 
 const Footer = () => {
