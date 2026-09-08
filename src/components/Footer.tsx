@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
-import darkstackOfficialLogo from "@/assets/darkstack7-shield-logo.png";
+import darkstackOfficialLogo from "@/assets/darkstack7-shield-logo.png.asset.json";
 import { useState } from "react";
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <img src={darkstackOfficialLogo} alt="DARKSTACK7 Shield Logo" className="h-8 w-8" />
+              <img src={darkstackOfficialLogo.url} alt="DARKSTACK7 Shield Logo" className="h-8 w-8" />
               <div>
                 <h3 className="text-xl font-bold text-foreground">
                   DARKSTACK<span className="text-fire-red text-2xl ml-0.5">7</span>
