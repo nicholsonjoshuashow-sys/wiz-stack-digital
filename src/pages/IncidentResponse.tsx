@@ -20,7 +20,11 @@ import {
   Eye,
   Monitor,
   UserCheck,
-  Crosshair
+  Crosshair,
+  Search,
+  Building2,
+  ShieldCheck,
+  Target
 } from "lucide-react";
 import irHeroBackground from "@/assets/ir-hero-background.png";
 
